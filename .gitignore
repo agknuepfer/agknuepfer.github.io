@@ -1,0 +1,5 @@
+archiv/
+*.mp4
+*.mov
+github-token.txt
+git-setup.sh
