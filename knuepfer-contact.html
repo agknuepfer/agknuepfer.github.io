@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hans Knüpfer – Contact</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; }
+a { color: #2a5099; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.banner {
+  width: 100%; min-height: 290px;
+  background: linear-gradient(155deg, #182840 0%, #243758 55%, #1a3050 100%);
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2.5rem 2.5rem 4rem;
+}
+.banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.8rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center; }
+.banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+.banner-nav { position: absolute; bottom: 1.4rem; left: 2.5rem; display: flex; gap: 1.8rem; flex-wrap: wrap; }
+.banner-nav a { color: rgba(255,255,255,0.65); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; padding-bottom: 2px; }
+.banner-nav a:hover { color: #fff; text-decoration: none; }
+.banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
+
+.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+h2 { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 1.5rem; color: #182840; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid #e0e0e0; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 4rem;
+  max-width: 640px;
+}
+.contact-block dt {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; color: #3a5f9a; margin-bottom: 0.2rem;
+}
+.contact-block dd { font-size: 0.95rem; margin-bottom: 1.2rem; }
+.contact-block dd:last-child { margin-bottom: 0; }
+
+footer { border-top: 1px solid #eee; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 860px; margin: 0 auto; }
+footer a { color: #aaa; }
+
+@media (max-width: 640px) {
+  .banner-name { font-size: 1.9rem; }
+  .banner-nav { left: 1.2rem; gap: 1.1rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 0; }
+  .content { padding: 2rem 1.2rem 4rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="banner-name">Hans Knüpfer</div>
+  <div class="banner-sub">Professor of Mathematics · Heidelberg University</div>
+  <nav class="banner-nav">
+    <a href="knuepfer.html">About</a>
+    <a href="knuepfer-research.html">Research</a>
+    <a href="knuepfer-publications.html">Publications</a>
+    <a href="knuepfer-teaching.html">Teaching</a>
+    <a href="knuepfer-contact.html" class="active">Contact</a>
+    <a href="seminar.html">Seminar ↗</a>
+  </nav>
+</header>
+
+<main class="content">
+  <h2>Contact</h2>
+
+  <dl class="contact-block">
+    <dt>Email</dt>
+    <dd><a href="mailto:knuepfer@uni-heidelberg.de">knuepfer@uni-heidelberg.de</a></dd>
+
+    <dt>Office</dt>
+    <dd>Room 2/218<br>Im Neuenheimer Feld 205<br>69120 Heidelberg</dd>
+
+    <dt>Office Hours</dt>
+    <dd>By appointment</dd>
+
+    <dt>Phone</dt>
+    <dd>+49 6221 54–14870</dd>
+
+    <dt>Institute</dt>
+    <dd><a href="https://www.mathi.uni-heidelberg.de/" target="_blank">Institut für Mathematik<br>Heidelberg University ↗</a></dd>
+
+    <dt>Postal address</dt>
+    <dd>Mathematisches Institut<br>Im Neuenheimer Feld 205<br>69120 Heidelberg<br>Germany</dd>
+  </dl>
+</main>
+
+<footer>
+  <span>Hans Knüpfer · Heidelberg University · Last updated November 2026</span>
+  <span><a href="index.html">Applied Analysis</a> · <a href="seminar.html">Seminar</a> · <a href="https://www.mathi.uni-heidelberg.de/" target="_blank">Institute</a></span>
+</footer>
+
+</body>
+</html>
