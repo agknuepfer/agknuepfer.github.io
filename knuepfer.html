@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hans Knüpfer – About</title>
+<title>Hans Knüpfer</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,104 +11,39 @@ body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color
 a { color: #2a5099; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* BANNER */
 .banner {
-  width: 100%;
-  min-height: 290px;
-  background: linear-gradient(155deg, #182840 0%, #243758 55%, #1a3050 100%);
+  width: 100%; min-height: 290px;
+  background:
+    linear-gradient(155deg, rgba(24,40,64,0.93) 0%, rgba(36,55,88,0.91) 55%, rgba(26,48,80,0.93) 100%),
+    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center/cover no-repeat;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 2.5rem 2.5rem 4rem;
 }
-.banner-name {
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300;
-  font-size: 2.8rem;
-  color: #fff;
-  letter-spacing: 0.02em;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-.banner-sub {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.58);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-align: center;
-}
-.banner-nav {
-  position: absolute;
-  bottom: 1.4rem;
-  left: 2.5rem;
-  display: flex;
-  gap: 1.8rem;
-  flex-wrap: wrap;
-}
-.banner-nav a {
-  color: rgba(255,255,255,0.65);
-  font-size: 0.8rem;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: color 0.15s;
-  padding-bottom: 2px;
-}
+.banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.8rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center; }
+.banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+.banner-nav { position: absolute; bottom: 1.4rem; left: 2.5rem; display: flex; gap: 1.8rem; flex-wrap: wrap; }
+.banner-nav a { color: rgba(255,255,255,0.65); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; padding-bottom: 2px; }
 .banner-nav a:hover { color: #fff; text-decoration: none; }
-.banner-nav a.active {
-  color: #fff;
-  border-bottom: 1px solid rgba(255,255,255,0.55);
-}
+.banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
 
-/* CONTENT */
-.content {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 3.5rem 2rem 5rem;
-}
+.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
-/* ABOUT GRID */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 200px;
-  gap: 2.5rem;
-  align-items: start;
-}
+h2 { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 1.5rem; color: #182840; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid #e0e0e0; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 200px; gap: 2.5rem; align-items: start; }
 .about-text p { margin-bottom: 1rem; }
 .about-text p:last-child { margin-bottom: 0; }
-.about-photo img {
-  width: 100%;
-  display: block;
-  border-radius: 2px;
-  filter: grayscale(8%);
-}
+.about-photo img { width: 100%; display: block; border-radius: 2px; }
 
-/* SECTION HEADING */
-h2 {
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300;
-  font-size: 1.5rem;
-  color: #182840;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid #e0e0e0;
-}
+.group-section { margin-top: 3rem; }
+.group-section h2 { margin-top: 0; }
+.group-list { list-style: none; }
+.group-list li { padding: 0.5rem 0; border-bottom: 1px solid #f2f2f2; font-size: 0.95rem; }
+.group-list li:last-child { border-bottom: none; }
+.group-list .role { font-size: 0.75rem; font-weight: 700; color: #9aaecc; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 0.6rem; }
 
-/* FOOTER */
-footer {
-  border-top: 1px solid #eee;
-  padding: 1.2rem 2rem;
-  font-size: 0.75rem;
-  color: #bbb;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  max-width: 860px;
-  margin: 0 auto;
-}
+footer { border-top: 1px solid #eee; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 860px; margin: 0 auto; }
 footer a { color: #aaa; }
 
 @media (max-width: 640px) {
@@ -136,6 +71,8 @@ footer a { color: #aaa; }
 </header>
 
 <main class="content">
+  <h2>About</h2>
+
   <div class="about-grid">
     <div class="about-text">
       <p>
@@ -159,24 +96,42 @@ footer a { color: #aaa; }
         <a href="seminar.html">Applied Analysis Seminar</a>
         (jointly with AG Laux and AG Marciniak-Czochra) please see the seminar page.
       </p>
-      <p>
-        <a href="knuepfer-contact.html">knuepfer@uni-heidelberg.de</a> ·
-        Room 2/218, Im Neuenheimer Feld 205, 69120 Heidelberg
-      </p>
     </div>
     <div class="about-photo">
       <img src="Hans1.jpg" alt="Hans Knüpfer">
     </div>
   </div>
+
+  <div class="group-section">
+    <h2>Research Group</h2>
+    <ul class="group-list">
+      <li>
+        Hans Knüpfer
+        <span class="role">Principal Investigator</span>
+      </li>
+      <li>
+        Dr. Van Phu Cuong Le
+        <span class="role">Postdoc</span>
+      </li>
+      <li>
+        Denis Brazke
+        <span class="role">PhD Student</span>
+      </li>
+      <li>
+        Lucas Fix
+        <span class="role">PhD Student</span>
+      </li>
+      <li>
+        Gianna Götzmann
+        <span class="role">PhD Student</span>
+      </li>
+    </ul>
+  </div>
 </main>
 
 <footer>
   <span>Hans Knüpfer · Heidelberg University · Last updated November 2026</span>
-  <span>
-    <a href="index.html">Applied Analysis</a> ·
-    <a href="seminar.html">Seminar</a> ·
-    <a href="https://www.mathi.uni-heidelberg.de/" target="_blank">Institute</a>
-  </span>
+  <span><a href="index.html">Applied Analysis</a> · <a href="seminar.html">Seminar</a> · <a href="https://www.mathi.uni-heidelberg.de/" target="_blank">Institute</a></span>
 </footer>
 
 </body>
