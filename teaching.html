@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching · Applied Analysis · Heidelberg University</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; }
+a { color: #1e5c30; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── BANNER ── */
+.banner {
+  width: 100%; min-height: 290px;
+  background:
+    linear-gradient(155deg, rgba(18,55,30,0.94) 0%, rgba(26,70,38,0.92) 55%, rgba(20,58,32,0.94) 100%),
+    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/MegaMenuStudies_0.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2.5rem 2.5rem 4rem;
+}
+.banner-name {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 2.6rem; color: #fff;
+  letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center;
+}
+.banner-sub {
+  font-size: 0.85rem; color: rgba(255,255,255,0.58);
+  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
+}
+.banner-nav {
+  position: absolute; bottom: 1.4rem; left: 2.5rem;
+  display: flex; gap: 1.8rem; flex-wrap: wrap;
+}
+.banner-nav a {
+  color: rgba(255,255,255,0.65); font-size: 0.8rem;
+  text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.15s; padding-bottom: 2px;
+}
+.banner-nav a:hover { color: #fff; text-decoration: none; }
+.banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
+
+/* ── CONTENT ── */
+.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+h2 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 1.5rem; color: #12371e;
+  margin-bottom: 1.5rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid #d8e8dc;
+}
+
+section { margin-bottom: 3rem; }
+
+/* ── GROUP BLOCKS ── */
+.group-block { margin-bottom: 2.5rem; }
+.group-block:last-of-type { margin-bottom: 0; }
+
+.group-heading {
+  display: flex; align-items: baseline; gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+.group-heading h3 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 400; font-size: 1rem; color: #12371e;
+}
+.group-heading .pi {
+  font-size: 0.82rem; color: #777;
+}
+
+table { width: 100%; border-collapse: collapse; }
+td { padding: 0.5rem 0; border-bottom: 1px solid #f0f4f1; font-size: 0.92rem; vertical-align: top; }
+td:first-child { width: 65%; padding-right: 1.5rem; }
+td:last-child { color: #999; font-size: 0.82rem; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+
+.sem-label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #7aaa8a; margin-bottom: 0.5rem;
+}
+
+.external-link-row {
+  font-size: 0.88rem; color: #555; margin-top: 0.3rem;
+}
+
+footer {
+  border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
+  font-size: 0.75rem; color: #bbb;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  max-width: 860px; margin: 0 auto;
+}
+footer a { color: #aaa; }
+
+@media (max-width: 640px) {
+  .banner-name { font-size: 1.9rem; }
+  .banner-nav { left: 1.2rem; gap: 1.1rem; }
+  .content { padding: 2rem 1.2rem 4rem; }
+  .group-heading { flex-direction: column; gap: 0.2rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="banner-name">Applied Analysis</div>
+  <div class="banner-sub">Section · Institute for Mathematics · Heidelberg University</div>
+  <nav class="banner-nav">
+    <a href="index.html">Overview</a>
+    <a href="seminar.html">Seminar</a>
+    <a href="teaching.html" class="active">Teaching</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling" target="_blank">Institute ↗</a>
+  </nav>
+</header>
+
+<main class="content">
+
+  <section>
+    <h2>Teaching</h2>
+    <p>
+      Members of the Applied Analysis section offer courses in analysis, partial differential equations,
+      calculus of variations, and mathematical modelling.
+      The current semester's full listing is available on the
+      <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling" target="_blank">section page at the Institute ↗</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Courses by Group</h2>
+
+    <!-- ── AG Knüpfer ── -->
+    <div class="group-block">
+      <div class="group-heading">
+        <h3>Calculus of Variations and PDEs</h3>
+        <span class="pi">Prof. Dr. Hans Knüpfer</span>
+      </div>
+
+      <div class="sem-label">Winter Semester 2025/26</div>
+      <table>
+        <tr>
+          <td>Variationsrechnung (Calculus of Variations)</td>
+          <td>Lecture</td>
+        </tr>
+        <tr>
+          <td>Seminar Analysis <em style="color:#bbb;">(with AG Marciniak-Czochra)</em></td>
+          <td>Seminar</td>
+        </tr>
+      </table>
+
+      <div class="sem-label" style="margin-top:1.2rem;">Summer Semester 2025</div>
+      <table>
+        <tr>
+          <td>Partielle Differentialgleichungen (Partial Differential Equations)</td>
+          <td>Lecture</td>
+        </tr>
+      </table>
+
+      <div class="sem-label" style="margin-top:1.2rem;">Winter Semester 2024/25</div>
+      <table>
+        <tr>
+          <td>Variationsrechnung (Calculus of Variations)</td>
+          <td>Lecture</td>
+        </tr>
+        <tr>
+          <td>Themen aus den partiellen Differentialgleichungen</td>
+          <td>Seminar</td>
+        </tr>
+      </table>
+
+      <div class="external-link-row">
+        <a href="knuepfer-teaching.html">Full teaching page →</a> ·
+        <a href="https://www.uni-heidelberg.de/math/knuepfer/teaching.html" target="_blank">Previous teaching ↗</a>
+      </div>
+    </div>
+
+    <!-- ── AG Laux ── -->
+    <div class="group-block">
+      <div class="group-heading">
+        <h3>Applied Geometric Analysis</h3>
+        <span class="pi">Prof. Dr. Tim Laux</span>
+      </div>
+      <div class="external-link-row">
+        <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Teaching information on group page ↗</a>
+      </div>
+    </div>
+
+    <!-- ── AG Marciniak-Czochra ── -->
+    <div class="group-block">
+      <div class="group-heading">
+        <h3>Applied Analysis and Modelling in Biosciences</h3>
+        <span class="pi">Prof. Dr. Anna Marciniak-Czochra</span>
+      </div>
+      <div class="external-link-row">
+        <a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Teaching information on group page ↗</a>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
+  <span>
+    <a href="index.html">Overview</a> ·
+    <a href="seminar.html">Seminar</a> ·
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+  </span>
+</footer>
+
+</body>
+</html>

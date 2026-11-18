@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hans Knüpfer – Publications</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; }
+a { color: #2a5099; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.banner {
+  width: 100%; min-height: 290px;
+  background:
+    linear-gradient(155deg, rgba(24,40,64,0.93) 0%, rgba(36,55,88,0.91) 55%, rgba(26,48,80,0.93) 100%),
+    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Rundgang1_0.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2.5rem 2.5rem 4rem;
+}
+.banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.8rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center; }
+.banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+.banner-nav { position: absolute; bottom: 1.4rem; left: 2.5rem; display: flex; gap: 1.8rem; flex-wrap: wrap; }
+.banner-nav a { color: rgba(255,255,255,0.65); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; padding-bottom: 2px; }
+.banner-nav a:hover { color: #fff; text-decoration: none; }
+.banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
+
+.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+h2 { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 1.5rem; color: #182840; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid #e0e0e0; }
+
+.top-links { margin-bottom: 1.8rem; font-size: 0.9rem; }
+.top-links a { margin-right: 1.5rem; }
+
+.pub-filter {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin-bottom: 1.8rem;
+}
+.pub-filter button {
+  background: none; border: 1px solid #ccc; border-radius: 2px;
+  padding: 0.25rem 0.8rem; cursor: pointer;
+  font-family: 'Lato', sans-serif; font-size: 0.8rem; color: #666;
+  transition: all .15s;
+}
+.pub-filter button:hover, .pub-filter button.active {
+  background: #243758; color: #fff; border-color: #243758;
+}
+.pub-list { list-style: none; }
+.pub-item { padding: 0.9rem 0; border-bottom: 1px solid #f0f0f0; display: none; }
+.pub-item.show { display: block; }
+.pub-item:last-child { border-bottom: none; }
+.pub-year { font-size: 0.7rem; font-weight: 700; color: #3a5f9a; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 0.15rem; }
+.pub-title { font-family: 'Merriweather', Georgia, serif; font-size: 0.92rem; font-weight: 300; margin-bottom: 0.2rem; line-height: 1.5; }
+.pub-meta { font-size: 0.82rem; color: #777; }
+.pub-meta em { font-style: italic; }
+
+footer { border-top: 1px solid #eee; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 860px; margin: 0 auto; }
+footer a { color: #aaa; }
+
+@media (max-width: 640px) {
+  .banner-name { font-size: 1.9rem; }
+  .banner-nav { left: 1.2rem; gap: 1.1rem; }
+  .content { padding: 2rem 1.2rem 4rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="banner-name">Hans Knüpfer</div>
+  <div class="banner-sub">Professor of Mathematics · Heidelberg University</div>
+  <nav class="banner-nav">
+    <a href="knuepfer.html">About</a>
+    <a href="knuepfer-research.html">Research</a>
+    <a href="knuepfer-publications.html" class="active">Publications</a>
+    <a href="knuepfer-teaching.html">Teaching</a>
+    <a href="knuepfer-contact.html">Contact</a>
+    <a href="seminar.html">Seminar ↗</a>
+  </nav>
+</header>
+
+<main class="content">
+  <h2>Publications</h2>
+
+  <div class="top-links">
+    <a href="https://arxiv.org/search/?searchtype=author&query=Kn%C3%BCpfer%2C+H" target="_blank">arXiv preprints ↗</a>
+    <a href="https://mathscinet.ams.org/mathscinet/MRAuthorID/793078" target="_blank">MathSciNet ↗</a>
+  </div>
+
+  <div class="pub-filter">
+    <button class="active" onclick="filterPubs(this,'all')">All</button>
+    <button onclick="filterPubs(this,'2026')">2026</button>
+    <button onclick="filterPubs(this,'2024')">2024</button>
+    <button onclick="filterPubs(this,'2023')">2023</button>
+    <button onclick="filterPubs(this,'2022')">2022</button>
+    <button onclick="filterPubs(this,'2021')">2021</button>
+    <button onclick="filterPubs(this,'2020')">2020</button>
+    <button onclick="filterPubs(this,'older')">≤ 2019</button>
+  </div>
+  <ul class="pub-list" id="pubList"></ul>
+</main>
+
+<footer>
+  <span>Hans Knüpfer · Heidelberg University · Last updated November 2026</span>
+  <span><a href="index.html">Applied Analysis</a> · <a href="seminar.html">Seminar</a> · <a href="https://www.mathi.uni-heidelberg.de/" target="_blank">Institute</a></span>
+</footer>
+
+<script>
+const pubs = [
+  {y:2026,a:"Gnann, M. V.; Knüpfer, H.; Lam, K. M.; Masmoudi, N.; Sauer, J.",t:"Stokes flow in a wedge with a moving contact point: well-posedness with a fixed contact angle and Navier slip",j:"arXiv:2611.22008 (preprint)"},
+  {y:2024,a:"Akramov, I.; Knüpfer, H.; Kružík, M.; Rüland, A.",t:"Minimal energy for geometrically nonlinear elastic inclusions in two dimensions",j:"Proc. Roy. Soc. Edinburgh Sect. A"},
+  {y:2024,a:"Knüpfer, H.; Shi, W.",t:"On the Geometric Transformation of a Thin Film Equation",j:"Analysis & PDE"},
+  {y:2023,a:"Brietzke, B.; Knüpfer, H.",t:"Onset of pattern formation in thin ferromagnetic films with perpendicular anisotropy",j:"Calc. Var. Partial Differential Equations"},
+  {y:2023,a:"Knüpfer, H.; Shi, W.",t:"Second order expansion for the nonlocal perimeter functional",j:"Comm. Math. Phys."},
+  {y:2023,a:"Brazke, D.; Knüpfer, H.; Marciniak-Czochra, A.",t:"Γ-limit for a sharp interface model related to pattern formation on biomembranes",j:"Calc. Var. Partial Differential Equations"},
+  {y:2022,a:"Knüpfer, H.; Stantejsky, D.",t:"Asymptotic shape of isolated magnetic domains",j:"Proc. A"},
+  {y:2021,a:"Bétermin, L.; Faulhuber, M.; Knüpfer, H.",t:"On the optimality of the rock-salt structure among lattices with charge distributions",j:"Math. Models Methods Appl. Sci."},
+  {y:2021,a:"Knüpfer, H.; Shi, W.",t:"Γ-limit for two-dimensional charged magnetic zigzag domain walls",j:"Arch. Ration. Mech. Anal."},
+  {y:2020,a:"Bétermin, L.; Knüpfer, H.; Nolte, F.",t:"Note on crystallization for alternating particle chains",j:"J. Stat. Phys."},
+  {y:2020,a:"Knüpfer, H.; Muratov, C. B.; Novaga, M.",t:"Emergence of nontrivial minimizers for the three-dimensional Ohta-Kawasaki energy",j:"Pure Appl. Anal."},
+  {y:2019,a:"Knüpfer, H.; Muratov, C. B.; Nolte, F.",t:"Magnetic domains in thin ferromagnetic films with strong perpendicular anisotropy",j:"Arch. Ration. Mech. Anal."},
+  {y:2019,a:"Knüpfer, H.; Otto, F.",t:"Nucleation barriers for the cubic-to-tetragonal phase transformation in the absence of self-accommodation",j:"ZAMM"},
+  {y:2018,a:"Knüpfer, H.; Nolte, F.",t:"Optimal shape of isolated ferromagnetic domains",j:"SIAM J. Math. Anal."},
+  {y:2018,a:"Bétermin, L.; Knüpfer, H.",t:"Optimal lattice configurations for interacting spatially extended particles",j:"Lett. Math. Phys."},
+  {y:2018,a:"Bétermin, L.; Knüpfer, H.",t:"On Born's conjecture about optimal distribution of charges for an infinite ionic crystal",j:"J. Nonlinear Sci."},
+  {y:2018,a:"Gnann, M. V.; Kim, H. J.; Knüpfer, H.",t:"Travelling wave solutions for a thin-film equation related to the spin-coating process",j:"European J. Appl. Math."},
+  {y:2018,a:"Cuesta, C. M.; Knüpfer, H.; Velázquez, J. J. L.",t:"Self-similar lifting and persistent touch-down points in the thin-film equation",j:"SIAM J. Math. Anal."},
+  {y:2017,a:"Knüpfer, H.; Muratov, C. B.",t:"On an isoperimetric problem with a competing nonlocal term: quantitative results",j:"Ann. Global Anal. Geom."},
+  {y:2017,a:"Knüpfer, H.; Shi, W.",t:"Thin film limit for a Ginzburg-Landau-type energy for charged droplets",j:"Arch. Ration. Mech. Anal."},
+  {y:2016,a:"Knüpfer, H.; Kružík, M.",t:"A sharp interface evolutionary model for shape memory alloys",j:"ZAMM"},
+  {y:2016,a:"Bonacini, M.; Knüpfer, H.",t:"Ground states of a ternary system including attractive and repulsive Coulomb-type interactions",j:"Calc. Var. Partial Differential Equations"},
+  {y:2016,a:"Knüpfer, H.; Muratov, C. B.; Novaga, M.",t:"Low density phases in a uniformly charged liquid",j:"Comm. Math. Phys."},
+  {y:2016,a:"Bonacini, M.; Knüpfer, H.; Röger, M.",t:"Optimal distribution of oppositely charged phases: perfect screening and other properties",j:"SIAM J. Math. Anal."},
+  {y:2016,a:"Bringmann, B.; Giacomelli, L.; Knüpfer, H.; Otto, F.",t:"Corrigendum to: Smooth zero-contact-angle solutions to a thin-film equation around the steady state",j:"J. Differential Equations"},
+  {y:2015,a:"Knüpfer, H.",t:"Well-posedness for a class of thin-film equations with general mobility in the regime of partial wetting",j:"Arch. Ration. Mech. Anal."},
+  {y:2015,a:"Knüpfer, H.; Masmoudi, N.",t:"Darcy's flow with prescribed contact angle: well-posedness and lubrication approximation",j:"Arch. Ration. Mech. Anal."},
+  {y:2015,a:"Knüpfer, H.; Muratov, C. B.",t:"On an isoperimetric problem with a competing nonlocal term: the case of unbounded domains",j:"Arch. Ration. Mech. Anal."},
+  {y:2014,a:"Knüpfer, H.; Muratov, C. B.",t:"On an isoperimetric problem with a competing nonlocal term II: The general case",j:"Comm. Pure Appl. Math."},
+  {y:2014,a:"Giacomelli, L.; Gnann, M. V.; Knüpfer, H.; Otto, F.",t:"Well-posedness for the Navier-slip thin-film equation in the case of complete wetting",j:"J. Differential Equations"},
+  {y:2014,a:"Knüpfer, H.; Kohn, R. V.",t:"Minimal energy for elastic inclusions in two dimensions",j:"Comm. Pure Appl. Math."},
+  {y:2013,a:"Knüpfer, H.; Muratov, C. B.",t:"On an isoperimetric problem with a competing nonlocal term I: The planar case",j:"Comm. Pure Appl. Math."},
+  {y:2013,a:"Knüpfer, H.; Masmoudi, N.",t:"Well-posedness and uniform bounds for a nonlocal third order evolution operator on an infinite wedge",j:"Comm. Math. Phys."},
+  {y:2013,a:"Knüpfer, H.; Kohn, R. V.; Otto, F.",t:"Nucleation barriers for the cubic-to-tetragonal phase transformation",j:"Comm. Pure Appl. Math."},
+  {y:2012,a:"Knüpfer, H.",t:"Well-posedness for the Navier slip thin-film equation in the case of partial wetting — an asymptotic approach",j:"Comm. Pure Appl. Math."},
+  {y:2012,a:"Knüpfer, H.; Muratov, C. B.",t:"Domain structure of bulk ferromagnetic crystals in applied fields near saturation — extended version",j:"J. Nonlinear Sci."},
+  {y:2011,a:"Knüpfer, H.; Muratov, C. B.",t:"Domain structure of bulk ferromagnetic crystals in applied fields near saturation",j:"J. Nonlinear Sci."},
+  {y:2011,a:"Knüpfer, H.",t:"Well-posedness for the Navier slip thin-film equation in the case of partial wetting",j:"Comm. Pure Appl. Math."},
+  {y:2011,a:"Knüpfer, H.; Kohn, R. V.",t:"Minimal energy for elastic inclusions",j:"Proc. R. Soc. Lond. Ser. A"},
+  {y:2010,a:"Giacomelli, L.; Knüpfer, H.",t:"A free boundary problem of fourth order: classical solutions in weighted Hölder spaces",j:"Comm. Partial Differential Equations"},
+  {y:2010,a:"Ignat, R.; Knüpfer, H.",t:"Vortex energy and 360° Néel walls in thin-film micromagnetics",j:"Comm. Pure Appl. Math."},
+  {y:2009,a:"Knüpfer, H.",t:"Euler-Lagrange equations for variational problems on space curves",j:"Phys. Rev. B"},
+  {y:2009,a:"Knüpfer, H.; Kohn, R. V.",t:"Minimal energy for elastic inclusions: proof of the spherical case",j:"(preprint)"},
+  {y:2008,a:"Giacomelli, L.; Knüpfer, H.; Otto, F.",t:"Smooth zero-contact-angle solutions to a thin-film equation around the steady state",j:"J. Differential Equations"},
+  {y:2008,a:"Knüpfer, H.",t:"Neel walls with prescribed winding number and how a nonlocal term can change the energy landscape",j:"J. Nonlinear Sci."},
+  {y:2007,a:"Ignat, R.; Knüpfer, H.",t:"Vortex energy and 360° Néel walls in thin-film micromagnetics — preliminary version",j:"(preprint)"},
+  {y:2006,a:"DeSimone, A.; Knüpfer, H.; Otto, F.",t:"2-d stability of the Néel wall",j:"Calc. Var. Partial Differential Equations"},
+];
+
+function renderPubs() {
+  const list = document.getElementById('pubList');
+  pubs.forEach(p => {
+    const li = document.createElement('li');
+    li.className = 'pub-item show';
+    li.dataset.year = p.y;
+    li.innerHTML =
+      `<div class="pub-year">${p.y}</div>` +
+      `<div class="pub-title">${p.t}</div>` +
+      `<div class="pub-meta">${p.a} &mdash; <em>${p.j}</em></div>`;
+    list.appendChild(li);
+  });
+}
+function filterPubs(btn, filter) {
+  document.querySelectorAll('.pub-filter button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pub-item').forEach(item => {
+    const yr = parseInt(item.dataset.year);
+    if (filter === 'all') item.classList.add('show');
+    else if (filter === 'older') item.classList.toggle('show', yr <= 2019);
+    else item.classList.toggle('show', item.dataset.year === filter);
+  });
+}
+renderPubs();
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Applied Analysis · Heidelberg University</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; }
+a { color: #1e5c30; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── BANNER ── */
+.banner {
+  width: 100%; min-height: 290px;
+  background:
+    linear-gradient(155deg, rgba(18,55,30,0.94) 0%, rgba(26,70,38,0.92) 55%, rgba(20,58,32,0.94) 100%),
+    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/MegaMenuFaculty_0.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2.5rem 2.5rem 4rem;
+}
+.banner-name {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 2.6rem; color: #fff;
+  letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center;
+}
+.banner-sub {
+  font-size: 0.85rem; color: rgba(255,255,255,0.58);
+  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
+}
+.banner-nav {
+  position: absolute; bottom: 1.4rem; left: 2.5rem;
+  display: flex; gap: 1.8rem; flex-wrap: wrap;
+}
+.banner-nav a {
+  color: rgba(255,255,255,0.65); font-size: 0.8rem;
+  text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.15s; padding-bottom: 2px;
+}
+.banner-nav a:hover { color: #fff; text-decoration: none; }
+.banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
+
+/* ── CONTENT ── */
+.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+h2 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 1.5rem; color: #12371e;
+  margin-bottom: 1.5rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid #d8e8dc;
+}
+
+section { margin-bottom: 3rem; }
+
+/* ── CONTACT BLOCKS ── */
+.contact-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 4rem;
+}
+
+.contact-block dt {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: #7aaa8a; margin-bottom: 0.2rem; margin-top: 1rem;
+}
+.contact-block dt:first-child { margin-top: 0; }
+.contact-block dd { font-size: 0.95rem; margin-bottom: 0; }
+
+/* ── GROUP LEADERS ── */
+.leaders-list { list-style: none; }
+.leaders-list li {
+  padding: 0.65rem 0; border-bottom: 1px solid #f0f4f1;
+  display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap;
+}
+.leaders-list li:last-child { border-bottom: none; }
+.leader-name { font-size: 0.95rem; min-width: 220px; }
+.leader-email { font-size: 0.88rem; }
+
+footer {
+  border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
+  font-size: 0.75rem; color: #bbb;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  max-width: 860px; margin: 0 auto;
+}
+footer a { color: #aaa; }
+
+@media (max-width: 640px) {
+  .banner-name { font-size: 1.9rem; }
+  .banner-nav { left: 1.2rem; gap: 1.1rem; }
+  .content { padding: 2rem 1.2rem 4rem; }
+  .contact-cols { grid-template-columns: 1fr; gap: 0; }
+  .leaders-list li { flex-direction: column; gap: 0.1rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="banner-name">Applied Analysis</div>
+  <div class="banner-sub">Section · Institute for Mathematics · Heidelberg University</div>
+  <nav class="banner-nav">
+    <a href="index.html">Overview</a>
+    <a href="seminar.html">Seminar</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling" target="_blank">Institute ↗</a>
+  </nav>
+</header>
+
+<main class="content">
+
+  <section>
+    <h2>Section Administration</h2>
+    <div class="contact-cols">
+      <dl class="contact-block">
+        <dt>Section Secretary</dt>
+        <dd>Alexa Petrascovic</dd>
+
+        <dt>Email</dt>
+        <dd><span class="obf-email" data-u="petrascovic" data-d="mathi.uni-heidelberg.de">[enable JavaScript to view]</span></dd>
+
+        <dt>General Enquiries</dt>
+        <dd><span class="obf-email" data-u="applied-analysis" data-d="uni-heidelberg.de">[enable JavaScript to view]</span></dd>
+      </dl>
+      <dl class="contact-block">
+        <dt>Address</dt>
+        <dd>
+          Institut für Mathematik<br>
+          Im Neuenheimer Feld 205<br>
+          69120 Heidelberg<br>
+          Germany
+        </dd>
+
+        <dt>Institute</dt>
+        <dd>
+          <a href="https://www.mathi.uni-heidelberg.de/" target="_blank">mathi.uni-heidelberg.de ↗</a>
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <h2>Group Leaders</h2>
+    <ul class="leaders-list">
+      <li>
+        <span class="leader-name">Prof. Dr. Hans Knüpfer</span>
+        <span class="leader-email">
+          <span class="obf-email" data-u="knuepfer" data-d="uni-heidelberg.de">[enable JavaScript to view]</span>
+           · <a href="knuepfer.html">Group page</a>
+        </span>
+      </li>
+      <li>
+        <span class="leader-name">Prof. Dr. Tim Laux</span>
+        <span class="leader-email">
+          <span class="obf-email" data-u="tim.laux" data-d="math.uni-heidelberg.de">[enable JavaScript to view]</span>
+           · Room 02.400
+           · <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Group page ↗</a>
+        </span>
+      </li>
+      <li>
+        <span class="leader-name">Prof. Dr. Anna Marciniak-Czochra</span>
+        <span class="leader-email">
+          <span class="obf-email" data-u="Anna.Marciniak" data-d="iwr.uni-heidelberg.de">[enable JavaScript to view]</span>
+           · <a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Group page ↗</a>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Seminar</h2>
+    <p>
+      For the <a href="seminar.html">Applied Analysis Seminar</a>, including mailing list registration,
+      contact Filip Klawe:
+      <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
+  <span>
+    <a href="index.html">Overview</a> ·
+    <a href="seminar.html">Seminar</a> ·
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+  </span>
+</footer>
+
+<script>
+document.querySelectorAll('.obf-email').forEach(el => {
+  const addr = el.dataset.u + '@' + el.dataset.d;
+  el.innerHTML = '<a href="mailto:' + addr + '">' + addr + '</a>';
+});
+</script>
+
+</body>
+</html>
