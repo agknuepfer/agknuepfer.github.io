@@ -46,10 +46,9 @@ p:last-child { margin-bottom: 0; }
 
 table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; }
 td { padding: 0.5rem 0; border-bottom: 1px solid #f0f4f1; font-size: 0.92rem; vertical-align: top; }
-td:first-child { width: 38%; padding-right: 1rem; }
-td:nth-child(2) { width: 28%; color: #666; font-size: 0.88rem; }
-td:nth-child(3) { width: 18%; color: #555; }
-td:last-child { color: #999; font-size: 0.82rem; white-space: nowrap; }
+td:first-child { width: 50%; padding-right: 1rem; }
+td:nth-child(2) { width: 25%; color: #666; font-size: 0.88rem; }
+td:last-child { color: #555; font-size: 0.88rem; }
 tr:last-child td { border-bottom: none; }
 th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
      text-transform: uppercase; color: #7aaa8a; padding: 0 0.5rem 0.6rem 0;
@@ -86,7 +85,7 @@ footer a { color: #aaa; }
   .banner-name { font-size: 1.9rem; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
-  td:last-child { display: none; }
+  /* no column hidden on mobile */
 }
 </style>
 </head>
@@ -133,7 +132,7 @@ footer a { color: #aaa; }
   </section>
 
   <section>
-    <h2>Current and Upcoming Courses</h2>
+    <h2>Current Courses (WS 2026/27)</h2>
 
     <div class="sem-label">Bachelor Lectures</div>
     <table>
@@ -142,7 +141,6 @@ footer a { color: #aaa; }
           <th>Course</th>
           <th>Time &amp; Room</th>
           <th>Lecturer</th>
-          <th>Semester</th>
         </tr>
       </thead>
       <tbody>
@@ -150,19 +148,11 @@ footer a { color: #aaa; }
         <td>Ordinary Differential Equations</td>
         <td class="course-time">—</td>
         <td>Klawe</td>
-        <td>WS 2026/27</td>
       </tr>
       <tr>
         <td>Funktionalanalysis</td>
         <td class="course-time">—</td>
         <td>Marciniak-Czochra</td>
-        <td>WS 2026/27</td>
-      </tr>
-      <tr>
-        <td>Einführung in die Wahrscheinlichkeitstheorie und Statistik</td>
-        <td class="course-time">—</td>
-        <td>Fuhrmann</td>
-        <td>SS 2027</td>
       </tr>
       </tbody>
     </table>
@@ -174,7 +164,6 @@ footer a { color: #aaa; }
           <th>Course</th>
           <th>Time &amp; Room</th>
           <th>Lecturer</th>
-          <th>Semester</th>
         </tr>
       </thead>
       <tbody>
@@ -182,19 +171,11 @@ footer a { color: #aaa; }
         <td>Calculus of Variations</td>
         <td class="course-time">—</td>
         <td>Laux</td>
-        <td>WS 2026/27</td>
       </tr>
       <tr>
         <td>Ringvorlesung MMLDS</td>
         <td class="course-time">—</td>
         <td>Laux, Schnörr, et al.</td>
-        <td>WS 2026/27</td>
-      </tr>
-      <tr>
-        <td>Partial Differential Equations in Data Science</td>
-        <td class="course-time">—</td>
-        <td>Knüpfer</td>
-        <td>SS 2027</td>
       </tr>
       </tbody>
     </table>
@@ -206,7 +187,6 @@ footer a { color: #aaa; }
           <th>Course</th>
           <th>Time &amp; Room</th>
           <th>Lecturer</th>
-          <th>Semester</th>
         </tr>
       </thead>
       <tbody>
@@ -214,25 +194,21 @@ footer a { color: #aaa; }
         <td>Advanced Topics in Analysis</td>
         <td class="course-time">—</td>
         <td>Laux</td>
-        <td>WS 2026/27</td>
       </tr>
       <tr>
         <td>Hyperbolic Conservation Laws</td>
         <td class="course-time">—</td>
         <td>Fuhrmann</td>
-        <td>WS 2026/27</td>
       </tr>
       <tr>
         <td><a href="seminar.html">Applied Analysis Oberseminar</a></td>
         <td class="course-time">—</td>
         <td>All groups</td>
-        <td>every semester</td>
       </tr>
       <tr>
         <td>PhD Discussion Group</td>
         <td class="course-time">—</td>
         <td>—</td>
-        <td>every semester</td>
       </tr>
       </tbody>
     </table>
@@ -244,6 +220,32 @@ footer a { color: #aaa; }
       <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>
       for the binding schedule.
     </p>
+  </section>
+
+  <section>
+    <h2>Upcoming Courses (SS 2027)</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Time &amp; Room</th>
+          <th>Lecturer</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Partial Differential Equations in Data Science</td>
+        <td class="course-time">—</td>
+        <td>Knüpfer</td>
+      </tr>
+      <tr>
+        <td>Einführung in die Wahrscheinlichkeitstheorie und Statistik</td>
+        <td class="course-time">—</td>
+        <td>Fuhrmann</td>
+      </tr>
+      </tbody>
+    </table>
   </section>
 
 </main>
