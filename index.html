@@ -93,6 +93,16 @@ section { margin-bottom: 3rem; }
 .contact-block dt:first-child { margin-top: 0; }
 .contact-block dd { font-size: 0.95rem; }
 
+/* ── EXTERNAL NAV ── */
+.ext-nav {
+  background: #f5faf7; border-bottom: 1px solid #d8e8dc;
+  display: flex; justify-content: flex-end;
+  padding: 0.35rem 2.5rem; gap: 1.8rem;
+  font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+}
+.ext-nav a { color: #7aaa8a; text-decoration: none; transition: color 0.15s; }
+.ext-nav a:hover { color: #1e5c30; text-decoration: none; }
+
 footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
   font-size: 0.75rem; color: #bbb;
@@ -120,9 +130,13 @@ footer a { color: #aaa; }
     <a href="seminar.html">Oberseminar</a>
     <a href="teaching.html">Teaching</a>
     <a href="contact.html">Contact</a>
-    <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling" target="_blank">Institute ↗</a>
   </nav>
 </header>
+
+<div class="ext-nav">
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty ↗</a>
+</div>
 
 <main class="content">
 
@@ -137,7 +151,7 @@ footer a { color: #aaa; }
       and the derivation of effective models across scales.
     </p>
     <p>
-      Joint activities include the <a href="seminar.html">Applied Analysis Seminar</a>
+      Joint activities include the <a href="seminar.html">Applied Analysis Oberseminar</a>
       and a PhD Discussion Group open to Master's and Bachelor's students.
     </p>
   </section>
@@ -176,6 +190,15 @@ footer a { color: #aaa; }
         <a class="group-link" href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Group page ↗</a>
       </div>
 
+      <div class="group-card">
+        <h3>Analysis and PDEs</h3>
+        <div class="pi">Dr. Jan Fuhrmann</div>
+        <p style="font-size:0.88rem;color:#555;margin-bottom:0.9rem;">
+          Partial differential equations, hyperbolic conservation laws,
+          and applications in the natural sciences.
+        </p>
+      </div>
+
     </div>
   </section>
 
@@ -183,9 +206,9 @@ footer a { color: #aaa; }
     <h2>Joint Activities</h2>
     <ul class="activity-list">
       <li>
-        <span class="activity-label">Seminar</span>
+        <span class="activity-label">Oberseminar</span>
         <span>
-          <a href="seminar.html">Applied Analysis Seminar</a> —
+          <a href="seminar.html">Applied Analysis Oberseminar</a> —
           weekly research seminar organised jointly by the three groups.
         </span>
       </li>
@@ -208,27 +231,6 @@ footer a { color: #aaa; }
     </ul>
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <div class="contact-grid">
-      <dl class="contact-block">
-        <dt>Section Secretary</dt>
-        <dd>Alexa Petrascovic</dd>
-        <dt>Email</dt>
-        <dd><span class="obf-email" data-u="petrascovic" data-d="mathi.uni-heidelberg.de">[enable JavaScript to view]</span></dd>
-        <dt>Address</dt>
-        <dd>Institut für Mathematik<br>Im Neuenheimer Feld 205<br>69120 Heidelberg</dd>
-      </dl>
-      <dl class="contact-block">
-        <dt>Group Leaders</dt>
-        <dd>
-          Prof. Dr. Hans Knüpfer — <span class="obf-email" data-u="knuepfer" data-d="uni-heidelberg.de"></span><br>
-          Prof. Dr. Tim Laux — <span class="obf-email" data-u="tim.laux" data-d="math.uni-heidelberg.de"></span><br>
-          Prof. Dr. Anna Marciniak-Czochra — <span class="obf-email" data-u="Anna.Marciniak" data-d="iwr.uni-heidelberg.de"></span>
-        </dd>
-      </dl>
-    </div>
-  </section>
 
 </main>
 

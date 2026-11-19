@@ -78,6 +78,16 @@ section { margin-bottom: 3rem; }
 .leader-name { font-size: 0.95rem; min-width: 220px; }
 .leader-email { font-size: 0.88rem; }
 
+/* ── EXTERNAL NAV ── */
+.ext-nav {
+  background: #f5faf7; border-bottom: 1px solid #d8e8dc;
+  display: flex; justify-content: flex-end;
+  padding: 0.35rem 2.5rem; gap: 1.8rem;
+  font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+}
+.ext-nav a { color: #7aaa8a; text-decoration: none; transition: color 0.15s; }
+.ext-nav a:hover { color: #1e5c30; text-decoration: none; }
+
 footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
   font-size: 0.75rem; color: #bbb;
@@ -105,9 +115,13 @@ footer a { color: #aaa; }
     <a href="seminar.html">Oberseminar</a>
     <a href="teaching.html">Teaching</a>
     <a href="contact.html" class="active">Contact</a>
-    <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling" target="_blank">Institute ↗</a>
   </nav>
 </header>
+
+<div class="ext-nav">
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty ↗</a>
+</div>
 
 <main class="content">
 
