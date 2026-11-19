@@ -78,15 +78,16 @@ section { margin-bottom: 3rem; }
 .leader-name { font-size: 0.95rem; min-width: 220px; }
 .leader-email { font-size: 0.88rem; }
 
-/* ── EXTERNAL NAV ── */
-.ext-nav {
-  background: #f5faf7; border-bottom: 1px solid #d8e8dc;
-  display: flex; justify-content: flex-end;
-  padding: 0.35rem 2.5rem; gap: 1.8rem;
-  font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+/* ── PARENT / BREADCRUMB NAV ── */
+.parent-nav {
+  background: #f8fbf8; border-bottom: 1px solid #d8e8dc;
+  padding: 0.45rem 2.5rem; display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.03em; color: #aaa;
 }
-.ext-nav a { color: #7aaa8a; text-decoration: none; transition: color 0.15s; }
-.ext-nav a:hover { color: #1e5c30; text-decoration: none; }
+.parent-nav a { color: #7aaa8a; text-decoration: none; }
+.parent-nav a:hover { color: #1e5c30; text-decoration: underline; }
+.pn-sep { color: #ccc; font-size: 0.8rem; }
+.pn-current { color: #666; }
 
 footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
@@ -97,6 +98,7 @@ footer {
 footer a { color: #aaa; }
 
 @media (max-width: 640px) {
+  .parent-nav { padding: 0.4rem 1.2rem; }
   .banner-name { font-size: 1.9rem; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
@@ -106,6 +108,14 @@ footer a { color: #aaa; }
 </style>
 </head>
 <body>
+
+<nav class="parent-nav">
+  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
+  <span class="pn-sep">›</span>
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics</a>
+  <span class="pn-sep">›</span>
+  <span class="pn-current">Applied Analysis</span>
+</nav>
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
@@ -118,25 +128,17 @@ footer a { color: #aaa; }
   </nav>
 </header>
 
-<div class="ext-nav">
-  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
-  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty ↗</a>
-</div>
-
 <main class="content">
 
   <section>
-    <h2>Section Administration</h2>
+    <h2>Contact</h2>
     <div class="contact-cols">
       <dl class="contact-block">
-        <dt>Section Secretary</dt>
+        <dt>Secretary Applied Analysis</dt>
         <dd>Alexa Petrascovic</dd>
 
         <dt>Email</dt>
-        <dd><span class="obf-email" data-u="petrascovic" data-d="mathi.uni-heidelberg.de">[enable JavaScript to view]</span></dd>
-
-        <dt>General Enquiries</dt>
-        <dd><span class="obf-email" data-u="applied-analysis" data-d="uni-heidelberg.de">[enable JavaScript to view]</span></dd>
+        <dd><span class="obf-email" data-u="applied-analysis" data-d="math.uni-heidelberg.de">[enable JavaScript to view]</span></dd>
       </dl>
       <dl class="contact-block">
         <dt>Address</dt>
@@ -147,49 +149,13 @@ footer a { color: #aaa; }
           Germany
         </dd>
 
-        <dt>Institute</dt>
+        <dt>Oberseminar mailing list</dt>
         <dd>
-          <a href="https://www.mathi.uni-heidelberg.de/" target="_blank">mathi.uni-heidelberg.de ↗</a>
+          Contact Filip Klawe:
+          <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span>
         </dd>
       </dl>
     </div>
-  </section>
-
-  <section>
-    <h2>Group Leaders</h2>
-    <ul class="leaders-list">
-      <li>
-        <span class="leader-name">Prof. Dr. Hans Knüpfer</span>
-        <span class="leader-email">
-          <span class="obf-email" data-u="knuepfer" data-d="uni-heidelberg.de">[enable JavaScript to view]</span>
-           · <a href="knuepfer.html">Group page</a>
-        </span>
-      </li>
-      <li>
-        <span class="leader-name">Prof. Dr. Tim Laux</span>
-        <span class="leader-email">
-          <span class="obf-email" data-u="tim.laux" data-d="math.uni-heidelberg.de">[enable JavaScript to view]</span>
-           · Room 02.400
-           · <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Group page ↗</a>
-        </span>
-      </li>
-      <li>
-        <span class="leader-name">Prof. Dr. Anna Marciniak-Czochra</span>
-        <span class="leader-email">
-          <span class="obf-email" data-u="Anna.Marciniak" data-d="iwr.uni-heidelberg.de">[enable JavaScript to view]</span>
-           · <a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Group page ↗</a>
-        </span>
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Seminar</h2>
-    <p>
-      For the <a href="seminar.html">Applied Analysis Seminar</a>, including mailing list registration,
-      contact Filip Klawe:
-      <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span>.
-    </p>
   </section>
 
 </main>

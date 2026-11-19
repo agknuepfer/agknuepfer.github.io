@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research · Applied Analysis · Heidelberg University</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; }
+a { color: #1e5c30; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── BANNER ── */
+.banner {
+  width: 100%; min-height: 290px;
+  background:
+    linear-gradient(155deg, rgba(18,55,30,0.94) 0%, rgba(26,70,38,0.92) 55%, rgba(20,58,32,0.94) 100%),
+    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2.5rem 2.5rem 4rem;
+}
+.banner-name {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 2.6rem; color: #fff;
+  letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center;
+}
+.banner-sub {
+  font-size: 0.85rem; color: rgba(255,255,255,0.58);
+  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
+}
+.banner-nav {
+  position: absolute; bottom: 1.4rem; left: 2.5rem;
+  display: flex; gap: 1.8rem; flex-wrap: wrap;
+}
+.banner-nav a {
+  color: rgba(255,255,255,0.65); font-size: 0.8rem;
+  text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.15s; padding-bottom: 2px;
+}
+.banner-nav a:hover { color: #fff; text-decoration: none; }
+.banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
+
+/* ── CONTENT ── */
+.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+section { margin-bottom: 0; }
+p { margin-bottom: 1rem; }
+
+/* ── RESEARCH GROUP ROWS ── */
+.group-row {
+  display: flex; gap: 1.8rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #eef4f0;
+  align-items: flex-start;
+}
+.group-row:first-of-type { padding-top: 0; }
+.group-row:last-of-type { border-bottom: none; }
+
+.group-photo { flex-shrink: 0; width: 165px; }
+.group-photo img {
+  width: 100%; height: 115px;
+  object-fit: cover; object-position: center top;
+  display: block; border-radius: 2px;
+}
+
+.group-info { flex: 1; }
+.group-info h3 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 400; font-size: 1.08rem; color: #12371e;
+  margin-bottom: 0.2rem;
+}
+.group-info h3 a { color: #12371e; text-decoration: none; }
+.group-info h3 a:hover { color: #1e5c30; text-decoration: underline; }
+.group-info .pi-name { font-size: 0.87rem; color: #555; margin-bottom: 0.65rem; }
+.group-info p { font-size: 0.88rem; color: #555; line-height: 1.72; margin-bottom: 0.5rem; }
+.group-info p:last-child { margin-bottom: 0; }
+.group-info .group-ext {
+  margin-top: 0.6rem;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; color: #7aaa8a;
+}
+.group-info .group-ext a { color: #1e5c30; }
+
+/* ── PARENT / BREADCRUMB NAV ── */
+.parent-nav {
+  background: #f8fbf8; border-bottom: 1px solid #d8e8dc;
+  padding: 0.45rem 2.5rem; display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.03em; color: #aaa;
+}
+.parent-nav a { color: #7aaa8a; text-decoration: none; }
+.parent-nav a:hover { color: #1e5c30; text-decoration: underline; }
+.pn-sep { color: #ccc; font-size: 0.8rem; }
+.pn-current { color: #666; }
+
+footer {
+  border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
+  font-size: 0.75rem; color: #bbb;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  max-width: 860px; margin: 0 auto;
+}
+footer a { color: #aaa; }
+
+@media (max-width: 640px) {
+  .parent-nav { padding: 0.4rem 1.2rem; }
+  .banner-name { font-size: 1.9rem; }
+  .banner-nav { left: 1.2rem; gap: 1.1rem; }
+  .content { padding: 2rem 1.2rem 4rem; }
+  .group-row { flex-direction: column; gap: 1rem; }
+  .group-photo { width: 100%; }
+  .group-photo img { height: 170px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="parent-nav">
+  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
+  <span class="pn-sep">›</span>
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics</a>
+  <span class="pn-sep">›</span>
+  <a href="index.html">Applied Analysis</a>
+  <span class="pn-sep">›</span>
+  <span class="pn-current">Research</span>
+</nav>
+
+<header class="banner">
+  <div class="banner-name">Applied Analysis</div>
+  <div class="banner-sub">Section · Institute for Mathematics · Heidelberg University</div>
+  <nav class="banner-nav">
+    <a href="index.html">Overview</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="seminar.html">Oberseminar</a>
+  </nav>
+</header>
+
+<main class="content">
+
+  <div id="knuepfer" class="group-row">
+    <div class="group-photo">
+      <img src="Hans1.jpg" alt="Prof. Dr. Hans Knüpfer">
+    </div>
+    <div class="group-info">
+      <h3><a href="knuepfer.html">Calculus of Variations and PDEs</a></h3>
+      <div class="pi-name">Prof. Dr. Hans Knüpfer</div>
+      <p>Research focuses on variational problems and partial differential equations motivated
+      by questions in materials science and fluid dynamics. Topics include the analysis of
+      pattern formation, nonlocal interaction energies, free boundary problems, and the
+      derivation of effective continuum models from microscopic descriptions. A recurring
+      theme is the competition between local and nonlocal energy contributions that drives
+      pattern formation across scales.</p>
+    </div>
+  </div>
+
+  <div id="laux" class="group-row">
+    <div class="group-photo">
+      <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2025-09/Tim_Laux_wide_0.jpg?h=a0ac5f3f&itok=3cQzkW3u"
+           alt="Prof. Dr. Tim Laux">
+    </div>
+    <div class="group-info">
+      <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Applied Geometric Analysis ↗</a></h3>
+      <div class="pi-name">Prof. Dr. Tim Laux</div>
+      <p>The group studies geometric evolution equations and their connections to variational
+      calculus and mathematical physics. Central themes include mean curvature flow and its
+      sharp-interface limits, phase-field approximations for interfacial dynamics, and
+      applications in materials science and data science. A key focus is the development
+      of rigorous convergence theories bridging diffuse and sharp interface models.</p>
+    </div>
+  </div>
+
+  <div id="marciniak-czochra" class="group-row">
+    <div class="group-photo">
+      <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
+           alt="Prof. Dr. Anna Marciniak-Czochra">
+    </div>
+    <div class="group-info">
+      <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
+      <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
+      <p>Research combines rigorous mathematical analysis with biological and medical
+      applications, developing and studying models for self-organisation, pattern formation,
+      and structure formation in living systems. Topics range from reaction–diffusion–ODE
+      systems describing stem cell dynamics and tissue growth to problems in developmental
+      biology. The group maintains strong interdisciplinary connections to experimental
+      biology and medicine.</p>
+    </div>
+  </div>
+
+  <div id="fuhrmann" class="group-row">
+    <div class="group-photo">
+      <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB"
+           alt="Dr. Jan Fuhrmann">
+    </div>
+    <div class="group-info">
+      <h3>Analysis and PDEs</h3>
+      <div class="pi-name">Dr. Jan Fuhrmann</div>
+      <p>Research focuses on partial differential equations and their applications in the
+      natural sciences, with particular interest in hyperbolic conservation laws, their
+      qualitative properties, and the mathematical modelling of biological and physical
+      systems. Topics include existence and uniqueness theory, long-time behaviour of
+      solutions, and models for cell motility and fluid dynamics.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
+  <span>
+    <a href="index.html">Overview</a> ·
+    <a href="seminar.html">Oberseminar</a> ·
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+  </span>
+</footer>
+
+</body>
+</html>

@@ -55,53 +55,50 @@ h2 + p { margin-bottom: 1rem; }
 
 section { margin-bottom: 3rem; }
 
-/* ── WORKING GROUPS ── */
-.groups-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem; margin-top: 0.5rem;
+/* ── RESEARCH IMAGE STRIP ── */
+.research-strip {
+  display: flex; gap: 0.8rem; margin-bottom: 2.5rem;
 }
-.group-card {
-  border: 1px solid #d8e8dc; border-radius: 3px;
-  padding: 1.4rem 1.6rem; transition: border-color 0.15s, box-shadow 0.15s;
-}
-.group-card:hover { border-color: #5a9e6e; box-shadow: 0 2px 8px rgba(26,70,38,0.07); }
-.group-card h3 {
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 400; font-size: 1rem; color: #12371e; margin-bottom: 0.4rem;
-}
-.group-card .pi { font-size: 0.85rem; color: #555; margin-bottom: 0.8rem; }
-.group-card .group-link {
-  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: #1e5c30;
+.research-strip img {
+  flex: 1; height: 150px;
+  object-fit: cover; border-radius: 2px; display: block;
 }
 
-/* ── ACTIVITIES ── */
-.activity-list { list-style: none; }
-.activity-list li {
-  padding: 0.7rem 0; border-bottom: 1px solid #f0f4f1;
-  display: flex; gap: 1rem; align-items: baseline;
+/* ── DIRECTORY (groups / teaching / oberseminar) ── */
+.idx-directory { margin: 2rem 0; border-top: 1px solid #eef4f0; }
+.idx-row {
+  display: flex; gap: 2rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #eef4f0;
+  align-items: flex-start;
 }
-.activity-list li:last-child { border-bottom: none; }
-.activity-label {
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: #7aaa8a; min-width: 80px; flex-shrink: 0;
+.idx-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #7aaa8a;
+  min-width: 115px; flex-shrink: 0; padding-top: 0.12rem;
 }
+.idx-links { display: flex; flex-wrap: wrap; gap: 0.1rem 0.9rem; font-size: 0.95rem; }
 
-/* ── CONTACT ── */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.contact-block dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7aaa8a; margin-top: 0.9rem; }
-.contact-block dt:first-child { margin-top: 0; }
-.contact-block dd { font-size: 0.95rem; }
-
-/* ── EXTERNAL NAV ── */
-.ext-nav {
-  background: #f5faf7; border-bottom: 1px solid #d8e8dc;
-  display: flex; justify-content: flex-end;
-  padding: 0.35rem 2.5rem; gap: 1.8rem;
-  font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+/* ── CONTACT ON INDEX ── */
+.idx-contact { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid #eef4f0; }
+.idx-contact dt {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: #7aaa8a;
+  margin-bottom: 0.15rem; margin-top: 0.9rem;
 }
-.ext-nav a { color: #7aaa8a; text-decoration: none; transition: color 0.15s; }
-.ext-nav a:hover { color: #1e5c30; text-decoration: none; }
+.idx-contact dt:first-child { margin-top: 0; }
+.idx-contact dd { font-size: 0.9rem; color: #555; }
+
+/* ── PARENT / BREADCRUMB NAV ── */
+.parent-nav {
+  background: #f8fbf8; border-bottom: 1px solid #d8e8dc;
+  padding: 0.45rem 2.5rem; display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.03em; color: #aaa;
+}
+.parent-nav a { color: #7aaa8a; text-decoration: none; }
+.parent-nav a:hover { color: #1e5c30; text-decoration: underline; }
+.pn-sep { color: #ccc; font-size: 0.8rem; }
+.pn-current { color: #666; }
 
 footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
@@ -112,125 +109,85 @@ footer {
 footer a { color: #aaa; }
 
 @media (max-width: 640px) {
+  .parent-nav { padding: 0.4rem 1.2rem; }
   .banner-name { font-size: 1.9rem; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
-  .groups-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
+  .research-strip { flex-direction: column; }
+  .research-strip img { height: 160px; }
+  .idx-row { flex-direction: column; gap: 0.3rem; }
 }
 </style>
 </head>
 <body>
+
+<nav class="parent-nav">
+  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
+  <span class="pn-sep">›</span>
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics</a>
+  <span class="pn-sep">›</span>
+  <span class="pn-current">Applied Analysis</span>
+</nav>
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
   <div class="banner-sub">Section · Institute for Mathematics · Heidelberg University</div>
   <nav class="banner-nav">
     <a href="index.html" class="active">Overview</a>
-    <a href="seminar.html">Oberseminar</a>
+    <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
-    <a href="contact.html">Contact</a>
+    <a href="seminar.html">Oberseminar</a>
   </nav>
 </header>
 
-<div class="ext-nav">
-  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
-  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty ↗</a>
-</div>
-
 <main class="content">
 
-  <section>
-    <h2>Section</h2>
-    <p>
-      The Applied Analysis section at the
-      <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics, Heidelberg University</a>
-      brings together research groups working on partial differential equations, calculus of variations,
-      geometric analysis, and mathematical modelling in the natural sciences.
-      We share interests in the rigorous analysis of complex systems, pattern formation, free boundary problems,
-      and the derivation of effective models across scales.
-    </p>
-    <p>
-      Joint activities include the <a href="seminar.html">Applied Analysis Oberseminar</a>
-      and a PhD Discussion Group open to Master's and Bachelor's students.
-    </p>
-  </section>
+  <div class="research-strip">
+    <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/pde_and_calc_variations_3branch.png?itok=u1fXSGwY"
+         alt="PDE and Calculus of Variations">
+    <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/analysis_pattern_formation.jpg?itok=amAXsH-U"
+         alt="Pattern Formation">
+  </div>
 
-  <section>
-    <h2>Working Groups</h2>
-    <div class="groups-grid">
+  <p>
+    The Applied Analysis section at the
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics, Heidelberg University</a>
+    brings together research groups working on partial differential equations, calculus of variations,
+    geometric analysis, and mathematical modelling in the natural sciences.
+    We share interests in the rigorous analysis of complex systems, pattern formation, free boundary problems,
+    and the derivation of effective models across scales.
+  </p>
 
-      <div class="group-card">
-        <h3>Calculus of Variations and PDEs</h3>
-        <div class="pi">Prof. Dr. Hans Knüpfer</div>
-        <p style="font-size:0.88rem;color:#555;margin-bottom:0.9rem;">
-          Variational problems in materials science and fluid dynamics;
-          pattern formation, nonlocal interactions, free boundary problems.
-        </p>
-        <a class="group-link" href="knuepfer.html">Group page →</a>
-      </div>
-
-      <div class="group-card">
-        <h3>Applied Geometric Analysis</h3>
-        <div class="pi">Prof. Dr. Tim Laux</div>
-        <p style="font-size:0.88rem;color:#555;margin-bottom:0.9rem;">
-          Geometric evolution equations, mean curvature flow, calculus of variations,
-          and applications in physics, materials science, and data science.
-        </p>
-        <a class="group-link" href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Group page ↗</a>
-      </div>
-
-      <div class="group-card">
-        <h3>Applied Analysis and Modelling in Biosciences</h3>
-        <div class="pi">Prof. Dr. Anna Marciniak-Czochra</div>
-        <p style="font-size:0.88rem;color:#555;margin-bottom:0.9rem;">
-          Mathematical modelling of self-organisation, pattern formation,
-          and structure in biological and biomedical systems.
-        </p>
-        <a class="group-link" href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Group page ↗</a>
-      </div>
-
-      <div class="group-card">
-        <h3>Analysis and PDEs</h3>
-        <div class="pi">Dr. Jan Fuhrmann</div>
-        <p style="font-size:0.88rem;color:#555;margin-bottom:0.9rem;">
-          Partial differential equations, hyperbolic conservation laws,
-          and applications in the natural sciences.
-        </p>
-      </div>
-
+  <div class="idx-directory">
+    <div class="idx-row">
+      <span class="idx-label">Research groups</span>
+      <span class="idx-links">
+        <a href="research.html#knuepfer">Prof. Dr. Hans Knüpfer</a>
+        <a href="research.html#laux">Prof. Dr. Tim Laux</a>
+        <a href="research.html#marciniak-czochra">Prof. Dr. Anna Marciniak-Czochra</a>
+        <a href="research.html#fuhrmann">Dr. Jan Fuhrmann</a>
+      </span>
     </div>
-  </section>
+    <div class="idx-row">
+      <span class="idx-label">Teaching</span>
+      <span class="idx-links"><a href="teaching.html">Courses, seminars, and PhD group</a></span>
+    </div>
+    <div class="idx-row">
+      <span class="idx-label">Oberseminar</span>
+      <span class="idx-links"><a href="seminar.html">Applied Analysis Oberseminar</a></span>
+    </div>
+  </div>
 
-  <section>
-    <h2>Joint Activities</h2>
-    <ul class="activity-list">
-      <li>
-        <span class="activity-label">Oberseminar</span>
-        <span>
-          <a href="seminar.html">Applied Analysis Oberseminar</a> —
-          weekly research seminar organised jointly by the three groups.
-        </span>
-      </li>
-      <li>
-        <span class="activity-label">PhD Group</span>
-        <span>
-          PhD Discussion Group — open to Master's and Bachelor's students at the institute.
-          Contact any of the group leaders to participate.
-        </span>
-      </li>
-      <li>
-        <span class="activity-label">Teaching</span>
-        <span>
-          Courses in analysis, PDEs, calculus of variations, and mathematical modelling.
-          See the
-          <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling" target="_blank">section page at the institute ↗</a>
-          for the current semester's offerings.
-        </span>
-      </li>
-    </ul>
-  </section>
-
+  <div class="idx-contact">
+    <dl>
+      <dt>Secretary</dt>
+      <dd>Alexa Petrascovic — <span class="obf-email" data-u="applied-analysis" data-d="math.uni-heidelberg.de">[enable JavaScript to view]</span></dd>
+      <dt>Address</dt>
+      <dd>Institut für Mathematik · Im Neuenheimer Feld 205 · 69120 Heidelberg · Germany</dd>
+      <dt>Oberseminar mailing list</dt>
+      <dd>Contact Filip Klawe: <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span></dd>
+    </dl>
+  </div>
 
 </main>
 

@@ -53,20 +53,22 @@ section { margin-bottom: 3rem; }
 
 .info-box { background: #f5faf6; border-left: 3px solid #5a9e6e; padding: 1rem 1.4rem; font-size: 0.92rem; border-radius: 0 2px 2px 0; }
 
-/* ── EXTERNAL NAV ── */
-.ext-nav {
-  background: #f5faf7; border-bottom: 1px solid #d8e8dc;
-  display: flex; justify-content: flex-end;
-  padding: 0.35rem 2.5rem; gap: 1.8rem;
-  font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase;
+/* ── PARENT / BREADCRUMB NAV ── */
+.parent-nav {
+  background: #f8fbf8; border-bottom: 1px solid #d8e8dc;
+  padding: 0.45rem 2.5rem; display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.03em; color: #aaa;
 }
-.ext-nav a { color: #7aaa8a; text-decoration: none; transition: color 0.15s; }
-.ext-nav a:hover { color: #1e5c30; text-decoration: none; }
+.parent-nav a { color: #7aaa8a; text-decoration: none; }
+.parent-nav a:hover { color: #1e5c30; text-decoration: underline; }
+.pn-sep { color: #ccc; font-size: 0.8rem; }
+.pn-current { color: #666; }
 
 footer { border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 860px; margin: 0 auto; }
 footer a { color: #aaa; }
 
 @media (max-width: 640px) {
+  .parent-nav { padding: 0.4rem 1.2rem; }
   .banner-name { font-size: 1.7rem; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
@@ -76,21 +78,24 @@ footer a { color: #aaa; }
 </head>
 <body>
 
+<nav class="parent-nav">
+  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
+  <span class="pn-sep">›</span>
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics</a>
+  <span class="pn-sep">›</span>
+  <span class="pn-current">Applied Analysis</span>
+</nav>
+
 <header class="banner">
   <div class="banner-name">Applied Analysis Oberseminar</div>
   <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
   <nav class="banner-nav">
     <a href="index.html">Overview</a>
-    <a href="seminar.html" class="active">Oberseminar</a>
+    <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
-    <a href="contact.html">Contact</a>
+    <a href="seminar.html" class="active">Oberseminar</a>
   </nav>
 </header>
-
-<div class="ext-nav">
-  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
-  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty ↗</a>
-</div>
 
 <main class="content">
 
