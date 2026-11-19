@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Applied Analysis Seminar · Heidelberg University</title>
+<title>Applied Analysis Oberseminar · Heidelberg University</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,83 +20,40 @@ a:hover { text-decoration: underline; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 2.5rem 2.5rem 4rem;
 }
-.banner-name {
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300; font-size: 2.4rem; color: #fff;
-  letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center;
-}
-.banner-sub {
-  font-size: 0.85rem; color: rgba(255,255,255,0.58);
-  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
-}
-.banner-nav {
-  position: absolute; bottom: 1.4rem; left: 2.5rem;
-  display: flex; gap: 1.8rem; flex-wrap: wrap;
-}
-.banner-nav a {
-  color: rgba(255,255,255,0.65); font-size: 0.8rem;
-  text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
-  transition: color 0.15s; padding-bottom: 2px;
-}
+.banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.4rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center; }
+.banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+.banner-nav { position: absolute; bottom: 1.4rem; left: 2.5rem; display: flex; gap: 1.8rem; flex-wrap: wrap; }
+.banner-nav a { color: rgba(255,255,255,0.65); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; padding-bottom: 2px; }
 .banner-nav a:hover { color: #fff; text-decoration: none; }
 .banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
 
 .content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
-h2 {
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300; font-size: 1.5rem; color: #12371e;
-  margin-bottom: 1.5rem; padding-bottom: 0.6rem;
-  border-bottom: 1px solid #d8e8dc;
-}
+h2 { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 1.5rem; color: #12371e; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid #d8e8dc; }
 
 section { margin-bottom: 3rem; }
 
-/* ── ORGANISER CARDS ── */
 .organiser-list { display: flex; flex-direction: column; gap: 0.6rem; }
-.organiser-row {
-  display: flex; align-items: baseline; gap: 1rem;
-  padding: 0.5rem 0; border-bottom: 1px solid #f0f4f1;
-}
+.organiser-row { display: flex; align-items: baseline; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid #f0f4f1; }
 .organiser-row:last-child { border-bottom: none; }
-.organiser-role {
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: #7aaa8a; min-width: 90px; flex-shrink: 0;
-}
+.organiser-role { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7aaa8a; min-width: 90px; flex-shrink: 0; }
 .organiser-name { font-size: 0.95rem; }
 
-/* ── TALK TABLE ── */
 .talk-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-.talk-table th {
-  text-align: left; font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: #7aaa8a; padding: 0 0.5rem 0.6rem 0;
-  border-bottom: 1px solid #d8e8dc;
-}
+.talk-table th { text-align: left; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7aaa8a; padding: 0 0.5rem 0.6rem 0; border-bottom: 1px solid #d8e8dc; }
 .talk-table td { padding: 0.75rem 0.5rem 0.75rem 0; border-bottom: 1px solid #f0f4f1; vertical-align: top; }
 .talk-table tr:last-child td { border-bottom: none; }
 .talk-table .date { white-space: nowrap; color: #555; min-width: 110px; }
 .talk-table .speaker { font-weight: 700; display: block; }
-.talk-table .affil { font-size: 0.82rem; color: #777; }
-.talk-table .title { font-style: italic; display: block; }
-.talk-table .abstract-toggle {
-  font-size: 0.75rem; color: #1e5c30; cursor: pointer; margin-top: 0.3rem;
-  display: inline-block; user-select: none;
-}
-.talk-abstract { font-size: 0.88rem; color: #444; margin-top: 0.5rem; display: none; }
+.talk-table .affil { font-size: 0.82rem; color: #777; font-weight: 400; }
+.talk-table .title { font-style: italic; display: block; color: #333; }
 
-/* ── INFO BOX ── */
-.info-box {
-  background: #f5faf6; border-left: 3px solid #5a9e6e;
-  padding: 1rem 1.4rem; font-size: 0.92rem; border-radius: 0 2px 2px 0;
-}
+.sem-row td { padding-top: 1.4rem; padding-bottom: 0.3rem; border-bottom: none; }
+.sem-row span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7aaa8a; }
 
-footer {
-  border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
-  font-size: 0.75rem; color: #bbb;
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
-  max-width: 860px; margin: 0 auto;
-}
+.info-box { background: #f5faf6; border-left: 3px solid #5a9e6e; padding: 1rem 1.4rem; font-size: 0.92rem; border-radius: 0 2px 2px 0; }
+
+footer { border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 860px; margin: 0 auto; }
 footer a { color: #aaa; }
 
 @media (max-width: 640px) {
@@ -110,11 +67,11 @@ footer a { color: #aaa; }
 <body>
 
 <header class="banner">
-  <div class="banner-name">Applied Analysis Seminar</div>
+  <div class="banner-name">Applied Analysis Oberseminar</div>
   <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
   <nav class="banner-nav">
     <a href="index.html">Overview</a>
-    <a href="seminar.html" class="active">Seminar</a>
+    <a href="seminar.html" class="active">Oberseminar</a>
     <a href="teaching.html">Teaching</a>
     <a href="contact.html">Contact</a>
     <a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling" target="_blank">Institute ↗</a>
@@ -124,9 +81,9 @@ footer a { color: #aaa; }
 <main class="content">
 
   <section>
-    <h2>About the Seminar</h2>
+    <h2>About the Oberseminar</h2>
     <p>
-      The Applied Analysis Seminar is a weekly research seminar of the
+      The Applied Analysis Oberseminar is a weekly research seminar of the
       <a href="index.html">Applied Analysis section</a>
       at the Institute for Mathematics, Heidelberg University.
       It covers topics from partial differential equations, calculus of variations,
@@ -176,27 +133,9 @@ footer a { color: #aaa; }
   <section>
     <h2>Upcoming Talks</h2>
     <table class="talk-table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Speaker &amp; Title</th>
-        </tr>
-      </thead>
-      <tbody id="talkBody">
-        <!-- Talks are added here. Example entry:
-        <tr>
-          <td class="date">Thu, 27 Nov 2026</td>
-          <td>
-            <span class="speaker">Speaker Name <span class="affil">(Institution)</span></span>
-            <span class="title">Title of the talk</span>
-          </td>
-        </tr>
-        -->
-        <tr>
-          <td colspan="2" style="color:#aaa;font-style:italic;padding:1rem 0;">
-            No talks scheduled yet. Check back soon.
-          </td>
-        </tr>
+      <thead><tr><th>Date</th><th>Speaker &amp; Title</th></tr></thead>
+      <tbody>
+        <tr><td colspan="2" style="color:#aaa;font-style:italic;padding:1rem 0;">No talks scheduled yet. Check back soon.</td></tr>
       </tbody>
     </table>
   </section>
@@ -204,18 +143,211 @@ footer a { color: #aaa; }
   <section>
     <h2>Past Talks</h2>
     <table class="talk-table">
-      <thead>
+      <thead><tr><th>Date</th><th>Speaker &amp; Title</th></tr></thead>
+      <tbody>
+
+        <tr class="sem-row"><td colspan="2"><span>Winter Semester 2025/26</span></td></tr>
         <tr>
-          <th>Date</th>
-          <th>Speaker &amp; Title</th>
+          <td class="date">30 Oct 2025</td>
+          <td><span class="speaker">José Antonio Carrillo</span><span class="title">TBA</span></td>
         </tr>
-      </thead>
-      <tbody id="pastTalkBody">
+
+        <tr class="sem-row"><td colspan="2"><span>Summer Semester 2025</span></td></tr>
         <tr>
-          <td colspan="2" style="color:#aaa;font-style:italic;padding:1rem 0;">
-            Archive to be added.
-          </td>
+          <td class="date">17 Jul 2025</td>
+          <td><span class="speaker">Manfred Salmhofer</span><span class="title">Renormalization Group Flows</span></td>
         </tr>
+        <tr>
+          <td class="date">3 Jul 2025</td>
+          <td><span class="speaker">Marcin Choinski</span><span class="title">A continuous-time SIS criss-cross model of co-infection in a heterogeneous population</span></td>
+        </tr>
+        <tr>
+          <td class="date">26 Jun 2025</td>
+          <td><span class="speaker">Kilian Hacker</span><span class="title">Derivation and analysis of a Stokes-transport system modeling thermoregulation in human skin</span></td>
+        </tr>
+        <tr>
+          <td class="date">29 Apr 2025</td>
+          <td><span class="speaker">Andrea Chiesa</span><span class="title">Convergence of thresholding energies for anisotropic mean curvature flow on inhomogeneous obstacle</span></td>
+        </tr>
+        <tr>
+          <td class="date">24 Apr 2025</td>
+          <td><span class="speaker">Andrea Poiatti</span><span class="title">Weak solutions to a Navier-Stokes/Mullins-Sekerka system</span></td>
+        </tr>
+
+        <tr class="sem-row"><td colspan="2"><span>Winter Semester 2024/25</span></td></tr>
+        <tr>
+          <td class="date">6 Feb 2025</td>
+          <td><span class="speaker">Mirco Piccinini</span><span class="title">Nonlocal theory for fractional kinetic</span></td>
+        </tr>
+        <tr>
+          <td class="date">30 Jan 2025</td>
+          <td><span class="speaker">Ram Band</span><span class="title">The Dry Ten Martini Problem for Sturmian Schrödinger Operators</span></td>
+        </tr>
+        <tr>
+          <td class="date">12 Dec 2024</td>
+          <td><span class="speaker">Ian Tice</span><span class="title">Stationary and slowly traveling solutions to the free boundary Navier-Stokes equations</span></td>
+        </tr>
+        <tr>
+          <td class="date">5 Dec 2024</td>
+          <td><span class="speaker">Stephan Lunowa</span><span class="title">Multi-scale modeling and patient-specific simulations for endovascular interventions in cerebral aneurysms</span></td>
+        </tr>
+        <tr>
+          <td class="date">25 Nov 2024</td>
+          <td><span class="speaker">Dietmar Oelz</span><span class="title">Mathematical models of cell migration — mathematical and computational analysis</span></td>
+        </tr>
+        <tr>
+          <td class="date">21 Nov 2024</td>
+          <td><span class="speaker">Phan Thanh Nam</span><span class="title">Derivation of nonlinear Gibbs measures from many-body quantum mechanics</span></td>
+        </tr>
+        <tr>
+          <td class="date">17 Oct 2024</td>
+          <td><span class="speaker">Martin Kružík</span><span class="title">Non-interpenetration of matter in lower-dimensional structures</span></td>
+        </tr>
+
+        <tr class="sem-row"><td colspan="2"><span>Summer Semester 2024</span></td></tr>
+        <tr>
+          <td class="date">4 Jul 2024</td>
+          <td><span class="speaker">Ren-Yi Wang</span><span class="title">Stochastic dynamics of two-compartment models with regulatory mechanisms for hematopoiesis</span></td>
+        </tr>
+        <tr>
+          <td class="date">27 Jun 2024</td>
+          <td><span class="speaker">Kelly Spry Maggs</span><span class="title">Cohomology classes in the RNA transcriptome</span></td>
+        </tr>
+        <tr>
+          <td class="date">20 Jun 2024</td>
+          <td><span class="speaker">Fred Vermolen</span><span class="title">Simulation of post-burned skin using principles from morphoelasticity</span></td>
+        </tr>
+        <tr>
+          <td class="date">3–5 Jun 2024</td>
+          <td><span class="speaker">Antonio Capella</span><span class="title">Mini-course: Asymptotic Stability of Coherent Structures in Dissipative Systems</span></td>
+        </tr>
+        <tr>
+          <td class="date">16 May 2024</td>
+          <td><span class="speaker">Oleksii Krupchytskyi</span><span class="title">Bifurcations in a Free-Boundary PDE Model of Cell Motion</span></td>
+        </tr>
+        <tr>
+          <td class="date">2 May 2024</td>
+          <td><span class="speaker">King Ming Lam</span><span class="title">Nonradial stability of self-similarly expanding Goldreich-Weber stars</span></td>
+        </tr>
+        <tr>
+          <td class="date">22–25 Apr 2024</td>
+          <td><span class="speaker">Antonio Capella</span><span class="title">Mini-course: Analytical Methods for Bayesian Inverse Problems Related to Partial Differential Equations</span></td>
+        </tr>
+
+        <tr class="sem-row"><td colspan="2"><span>Winter Semester 2023/24</span></td></tr>
+        <tr>
+          <td class="date">25 Jan 2024</td>
+          <td><span class="speaker">Michele Precuzzi</span><span class="title">Theoretical analysis and numerical simulations of the Darcy-Allen-Chan system</span></td>
+        </tr>
+        <tr>
+          <td class="date">18 Jan 2024</td>
+          <td><span class="speaker">Błażej Miasojedow</span><span class="title">Discretization of diffusions via gradient flows</span></td>
+        </tr>
+        <tr>
+          <td class="date">11 Jan 2024</td>
+          <td><span class="speaker">Tomasz Szarek</span><span class="title">Lower bound technique and its application in the theory of Markov processes</span></td>
+        </tr>
+        <tr>
+          <td class="date">19 Dec 2023</td>
+          <td><span class="speaker">Dietmar Oelz</span><span class="title">Emergence of Asymmetry in Hydra Spheroids</span></td>
+        </tr>
+        <tr>
+          <td class="date">30 Nov 2023</td>
+          <td><span class="speaker">Markus Kunze</span><span class="title">The bi-Laplacian with Wentzell boundary conditions on Lipschitz domain</span></td>
+        </tr>
+        <tr>
+          <td class="date">2 Nov 2023</td>
+          <td><span class="speaker">Adam Bobrowski</span><span class="title">Thin layer approximation, boundary conditions and semi-permeable membranes</span></td>
+        </tr>
+        <tr>
+          <td class="date">19 Oct 2023</td>
+          <td><span class="speaker">Piotr Regulski</span><span class="title">Visual Analysis of Data in Different Applications</span></td>
+        </tr>
+        <tr>
+          <td class="date">5 Oct 2023</td>
+          <td><span class="speaker">Frits Veerman</span><span class="title">Beyond Turing: controlling pattern stability in reaction-diffusion systems</span></td>
+        </tr>
+        <tr>
+          <td class="date">2 Oct 2023</td>
+          <td><span class="speaker">Daphne Nesenberend</span><span class="title">Pattern formation in the Mechanochemical model</span></td>
+        </tr>
+
+        <tr class="sem-row"><td colspan="2"><span>Summer Semester 2023</span></td></tr>
+        <tr>
+          <td class="date">22 Jun 2023</td>
+          <td><span class="speaker">Wolf-Patrick Düll <span class="affil">(Universität Stuttgart)</span></span><span class="title">Validity of the Nonlinear Schrödinger Approximation for the Two-Dimensional Water Wave Problem With and Without Surface Tension</span></td>
+        </tr>
+        <tr>
+          <td class="date">15 Jun 2023</td>
+          <td><span class="speaker">Marc Pegon <span class="affil">(Université de Lille)</span></span><span class="title">An isoperimetric problem involving the competition between the perimeter and a nonlocal perimeter</span></td>
+        </tr>
+        <tr>
+          <td class="date">1 Jun 2023</td>
+          <td><span class="speaker">Peter Hinow <span class="affil">(University of Wisconsin)</span></span><span class="title">A Population Dynamics Approach to the Distribution of Space Debris in Low Earth Orbit</span></td>
+        </tr>
+        <tr>
+          <td class="date">25 May 2023</td>
+          <td><span class="speaker">Daniel Hauer <span class="affil">(The University of Sydney)</span></span><span class="title">The fundamental gap conjecture</span></td>
+        </tr>
+        <tr>
+          <td class="date">17 May 2023</td>
+          <td><span class="speaker">Hannes Meinlschmidt <span class="affil">(FAU Erlangen-Nürnberg)</span></span><span class="title">Renormalized solutions for optimal control of the drift in Fokker-Planck equations</span></td>
+        </tr>
+        <tr>
+          <td class="date">11 May 2023</td>
+          <td><span class="speaker">Theresa Simon <span class="affil">(Universität Münster)</span></span><span class="title">The elastica functional as the critical Γ-limit of the screened Gamow model</span></td>
+        </tr>
+        <tr>
+          <td class="date">4 May 2023</td>
+          <td><span class="speaker">Richard Schubert <span class="affil">(Universität Bonn)</span></span><span class="title">A variational approach to data-driven problems in fluid mechanics</span></td>
+        </tr>
+        <tr>
+          <td class="date">27 Apr 2023</td>
+          <td><span class="speaker">Manuel Friedrich <span class="affil">(Friedrich-Alexander-Universität Erlangen-Nürnberg)</span></span><span class="title">Finite crystallization via stratification</span></td>
+        </tr>
+
+        <tr class="sem-row"><td colspan="2"><span>Winter Semester 2022/23</span></td></tr>
+        <tr>
+          <td class="date">28 Feb 2023</td>
+          <td><span class="speaker">Vlad Revnic <span class="affil">(Universität Heidelberg)</span></span><span class="title">Pseudodifferential operators and fractional Laplacian</span></td>
+        </tr>
+        <tr>
+          <td class="date">16 Feb 2023</td>
+          <td><span class="speaker">Stefanie Sonner <span class="affil">(Radboud University Nijmegen)</span></span><span class="title">Degenerate Reaction Diffusion Systems Modeling Biofilm Growth: Well-posedness and Travelling Wave Solutions</span></td>
+        </tr>
+        <tr>
+          <td class="date">19 Jan 2023</td>
+          <td><span class="speaker">Annika Bach <span class="affil">(Technische Universität München)</span></span><span class="title">Stochastic Homogenisation of finite Partitions: Qualitative Theory and Quantitative Aspects</span></td>
+        </tr>
+        <tr>
+          <td class="date">19 Jan 2023</td>
+          <td><span class="speaker">Camillo Tissot <span class="affil">(Universität Heidelberg)</span></span><span class="title">On scaling properties of two-state problems</span></td>
+        </tr>
+        <tr>
+          <td class="date">12 Jan 2023</td>
+          <td><span class="speaker">Patrick Dondl <span class="affil">(Albert-Ludwigs-Universität Freiburg)</span></span><span class="title">A sinc-function based numerical method for the Dirichlet problem with fractional Laplacian</span></td>
+        </tr>
+        <tr>
+          <td class="date">8 Dec 2022</td>
+          <td><span class="speaker">Bogdan Raiță <span class="affil">(Scuola Normale Superiore di Pisa)</span></span><span class="title">On compensation phenomena for concentration effects</span></td>
+        </tr>
+        <tr>
+          <td class="date">1 Dec 2022</td>
+          <td><span class="speaker">Tuấn Tùng Nguyễn <span class="affil">(Universität Heidelberg)</span></span><span class="title">Scaling equivalence between energy minimization by singular perturbation and finite elements on the Tartar square</span></td>
+        </tr>
+        <tr>
+          <td class="date">24 Nov 2022</td>
+          <td><span class="speaker">Franz Gmeineder <span class="affil">(Universität Konstanz)</span></span><span class="title">Quasiconvexity, (p,q)-growth and partial regularity</span></td>
+        </tr>
+        <tr>
+          <td class="date">24 Oct 2022</td>
+          <td><span class="speaker">Gabriel Paternain <span class="affil">(University of Cambridge)</span></span><span class="title">Geometric inverse problems in 2D</span></td>
+        </tr>
+        <tr>
+          <td class="date">20 Oct 2022</td>
+          <td><span class="speaker">Leonid Berlyand <span class="affil">(Pennsylvania State University)</span></span><span class="title">Asymptotic stability in a free boundary PDE model of cell motion</span></td>
+        </tr>
+
       </tbody>
     </table>
   </section>
@@ -223,9 +355,9 @@ footer a { color: #aaa; }
 </main>
 
 <footer>
-  <span>Applied Analysis Seminar · Institute for Mathematics · Heidelberg University</span>
+  <span>Applied Analysis Oberseminar · Institute for Mathematics · Heidelberg University</span>
   <span>
-    <a href="index.html">Applied Analysis</a> ·
+    <a href="index.html">Overview</a> ·
     <a href="knuepfer.html">AG Knüpfer</a> ·
     <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
   </span>
