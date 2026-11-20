@@ -21,110 +21,188 @@ a:hover { text-decoration: underline; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 2.5rem 2.5rem 4rem;
 }
-.banner-name {
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300; font-size: 2.6rem; color: #fff;
-  letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center;
-}
-.banner-sub {
-  font-size: 0.85rem; color: rgba(255,255,255,0.58);
-  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
-}
-.banner-nav {
-  position: absolute; bottom: 1.4rem; left: 2.5rem;
-  display: flex; gap: 1.8rem; flex-wrap: wrap;
-}
-.banner-nav a {
-  color: rgba(255,255,255,0.65); font-size: 0.8rem;
-  text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
-  transition: color 0.15s; padding-bottom: 2px;
-}
-.banner-nav a:hover { color: #fff; text-decoration: none; }
+.banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.6rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center; }
+.banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+.banner-nav { position: absolute; bottom: 1.4rem; left: 2.5rem; display: flex; gap: 1.8rem; flex-wrap: wrap; }
+.banner-nav a { color: rgba(255,255,255,0.65); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; padding-bottom: 2px; }
+.banner-nav a:hover { color: #fff; }
 .banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
 
 /* ── CONTENT ── */
 .content { max-width: 1060px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
-section { margin-bottom: 0; }
-p { margin-bottom: 1rem; }
-p:last-child { margin-bottom: 0; }
-
-/* ── INTRO ── */
-.intro { margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid #eef4f0; }
+.intro { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid #eef4f0; }
 .intro p { font-size: 0.93rem; color: #555; line-height: 1.8; }
 
-/* ── RESEARCH GROUP ROWS ── */
-.groups { }
+/* ── WORD CLOUD ── */
+.cloud-container {
+  margin-bottom: 2.5rem;
+  background: #f7fbf7;
+  border-radius: 10px;
+  padding: 1.6rem 2.2rem 1.1rem;
+  border: 1px solid #deeae0;
+}
+.cloud-heading {
+  font-size: 0.69rem; font-weight: 700; letter-spacing: 0.11em;
+  text-transform: uppercase; color: #7aaa8a; margin-bottom: 1rem;
+}
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem 1.2rem;
+  padding: 0.3rem 0 0.6rem;
+  line-height: 1.9;
+}
+.cw {
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 2px;
+  transition: opacity 0.18s, transform 0.18s, color 0.18s, text-shadow 0.18s;
+  user-select: none;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.01em;
+}
+/* Sizes (based on number of groups that share the topic) */
+.cw-xl { font-size: 1.75rem; font-weight: 700; }
+.cw-lg { font-size: 1.12rem; font-weight: 500; }
+.cw-md { font-size: 0.90rem; font-weight: 400; }
+.cw-sm { font-size: 0.74rem; font-weight: 300; letter-spacing: 0.02em; }
+
+/* Default topic colours (muted) */
+.cw[data-topic="pde"]           { color: #2a6038; }
+.cw[data-topic="calc-var"]      { color: #345a8a; }
+.cw[data-topic="phase-field"]   { color: #1a7080; }
+.cw[data-topic="pattern"]       { color: #2a7840; }
+.cw[data-topic="free-boundary"] { color: #8a5510; }
+.cw[data-topic="geom-flows"]    { color: #1a5f9a; }
+.cw[data-topic="math-bio"]      { color: #7a2050; }
+.cw[data-topic="react-diff"]    { color: #3a7030; }
+
+/* States */
+.cw.cw-lit {
+  opacity: 1 !important;
+  transform: scale(1.07) !important;
+}
+/* Full-saturation colours on activation */
+.cw.cw-lit[data-topic="pde"]           { color: #0d4a22 !important; text-shadow: 0 0 20px rgba(13,74,34,0.18); }
+.cw.cw-lit[data-topic="calc-var"]      { color: #1a4a90 !important; text-shadow: 0 0 20px rgba(26,74,144,0.18); }
+.cw.cw-lit[data-topic="phase-field"]   { color: #0d6080 !important; text-shadow: 0 0 20px rgba(13,96,128,0.18); }
+.cw.cw-lit[data-topic="pattern"]       { color: #1a6830 !important; text-shadow: 0 0 20px rgba(26,104,48,0.18); }
+.cw.cw-lit[data-topic="free-boundary"] { color: #804a00 !important; text-shadow: 0 0 20px rgba(128,74,0,0.18); }
+.cw.cw-lit[data-topic="geom-flows"]    { color: #0d4f90 !important; text-shadow: 0 0 20px rgba(13,79,144,0.18); }
+.cw.cw-lit[data-topic="math-bio"]      { color: #6a1040 !important; text-shadow: 0 0 20px rgba(106,16,64,0.18); }
+.cw.cw-lit[data-topic="react-diff"]    { color: #2a6020 !important; text-shadow: 0 0 20px rgba(42,96,32,0.18); }
+
+.cw.cw-dim { opacity: 0.18 !important; }
+.cw:hover:not(.cw-dim) { opacity: 1; }
+
+.cloud-hint {
+  font-size: 0.69rem; color: #bbb; text-align: center;
+  margin-top: 0.6rem; font-style: italic;
+}
+
+/* ── GROUPS TRAY ── */
+.groups-tray {
+  background: #f0f5f1;
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin: 0 -1.2rem;
+}
+
+/* ── CARDS ── */
 .group-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  padding: 3rem 0;
-  border-bottom: 1px solid #eef4f0;
-  align-items: start;
+  display: flex; gap: 2rem;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 2px 10px rgba(18,55,30,0.05);
+  align-items: flex-start;
+  transition: box-shadow 0.18s ease, transform 0.18s ease, opacity 0.2s;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
 }
-.groups .group-row:first-child { padding-top: 0; }
-.group-row:last-child { border-bottom: none; }
+.group-row:last-child { margin-bottom: 0; }
+.group-row:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.09), 0 2px 20px rgba(18,55,30,0.08);
+  transform: translateY(-2px);
+}
+.group-row.card-focus {
+  outline-color: #1e5c30;
+  box-shadow: 0 4px 20px rgba(18,55,30,0.18) !important;
+  transform: translateY(-2px);
+}
+.group-row.card-dim { opacity: 0.4 !important; }
 
-/* image column */
-.group-img figure { margin: 0; }
-.group-img figure + figure { margin-top: 6px; }
-.group-img img {
-  width: 100%; height: 240px;
-  object-fit: cover; border-radius: 3px; display: block;
+/* ── PORTRAIT ── */
+.group-person { flex-shrink: 0; width: 120px; text-align: center; }
+.group-person .pi-photo {
+  width: 120px; height: 120px; object-fit: cover; object-position: center top;
+  display: block; border-radius: 50%;
+  border: 3px solid #e0ede3;
+  transition: border-color 0.2s;
 }
-.group-img-double img { height: 165px; }
-.group-img figcaption {
-  font-size: 0.65rem; color: #aaa; font-style: italic;
-  margin-top: 4px; text-align: center; line-height: 1.3;
-}
+.group-row.card-focus .pi-photo { border-color: #1e5c30; }
+.group-person .pi-name { font-size: 0.75rem; color: #666; line-height: 1.4; margin-top: 0.5rem; }
 
-/* text column */
-.group-pi {
-  display: flex; align-items: center;
-  gap: 0.85rem; margin-bottom: 0.9rem;
-}
-.group-pi .pi-photo {
-  width: 68px; height: 68px;
-  object-fit: cover; object-position: center top;
-  border-radius: 2px; flex-shrink: 0;
-}
-.group-pi .pi-name { font-size: 0.82rem; color: #555; line-height: 1.4; }
-.group-text h3 {
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 400; font-size: 1.08rem; color: #12371e;
-  margin-bottom: 0.65rem;
-}
-.group-text h3 a { color: #12371e; text-decoration: none; }
-.group-text h3 a:hover { color: #1e5c30; text-decoration: underline; }
-.group-text p { font-size: 0.88rem; color: #555; line-height: 1.72; }
+/* ── DESCRIPTION ── */
+.group-info { flex: 1; min-width: 0; }
+.group-info h3 { font-family: 'Merriweather', Georgia, serif; font-weight: 400; font-size: 1.1rem; color: #12371e; margin-bottom: 0.5rem; line-height: 1.4; }
+.group-info h3 a { color: #12371e; }
+.group-info h3 a:hover { color: #1e5c30; }
+.group-info > p { font-size: 0.88rem; color: #555; line-height: 1.72; }
 
-/* ── PARENT / BREADCRUMB NAV ── */
-.parent-nav {
-  background: #f8fbf8; border-bottom: 1px solid #d8e8dc;
-  padding: 0.45rem 2.5rem; display: flex; align-items: center; gap: 0.5rem;
-  font-size: 0.72rem; letter-spacing: 0.03em; color: #aaa;
+/* ── CHIPS ── */
+.group-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.8rem; }
+.chip {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  color: #3a8a52; border: 1px solid #c0dfc8; background: #f4faf5;
+  padding: 0.2rem 0.6rem; border-radius: 20px; white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s, opacity 0.15s;
+  cursor: pointer;
 }
+.chip:hover { transform: scale(1.06); }
+.chip.chip-lit { transform: scale(1.06); }
+.chip.chip-dim { opacity: 0.3; }
+
+/* Topic colours for chips when lit */
+.chip.chip-lit[data-topic="calc-var"]      { background: rgba(26,74,144,0.1);  border-color: #1a4a90; color: #1a4a90; }
+.chip.chip-lit[data-topic="phase-field"]   { background: rgba(13,96,128,0.1);  border-color: #0d6080; color: #0d6080; }
+.chip.chip-lit[data-topic="pattern"]       { background: rgba(26,104,48,0.1);  border-color: #1a6830; color: #1a6830; }
+.chip.chip-lit[data-topic="free-boundary"] { background: rgba(128,74,0,0.1);   border-color: #804a00; color: #804a00; }
+.chip.chip-lit[data-topic="geom-flows"]    { background: rgba(13,79,144,0.1);  border-color: #0d4f90; color: #0d4f90; }
+.chip.chip-lit[data-topic="math-bio"]      { background: rgba(106,16,64,0.1);  border-color: #6a1040; color: #6a1040; }
+.chip.chip-lit[data-topic="react-diff"]    { background: rgba(42,96,32,0.1);   border-color: #2a6020; color: #2a6020; }
+
+/* ── RESEARCH IMAGE ── */
+.group-rhs { flex-shrink: 0; width: 210px; }
+.group-rhs figure { margin: 0; }
+.group-rhs img { width: 100%; display: block; border-radius: 6px; }
+.group-rhs figcaption { font-size: 0.63rem; color: #aaa; line-height: 1.3; font-style: italic; margin-top: 5px; text-align: center; }
+.img-placeholder { width: 100%; aspect-ratio: 1/1; border-radius: 6px; display: block; }
+.ph-k { background: linear-gradient(135deg, #1c4a7c 0%, #1f7260 50%, #8a6318 100%); }
+.ph-l { background: linear-gradient(135deg, #040c20 0%, #1055a8 40%, #1fa8b0 55%, #e8c840 80%, #fff4a0 100%); }
+.ph-m { background: linear-gradient(135deg, #0820b0 0%, #0888e8 25%, #10c840 50%, #f0a000 75%, #e82010 100%); }
+.ph-f { background: linear-gradient(135deg, #060a1a 0%, #c06010 40%, #3050a0 70%, #101830 100%); }
+
+/* ── NAV ── */
+.parent-nav { background: #f8fbf8; border-bottom: 1px solid #d8e8dc; padding: 0.45rem 2.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; letter-spacing: 0.03em; color: #aaa; }
 .parent-nav a { color: #7aaa8a; text-decoration: none; }
-.parent-nav a:hover { color: #1e5c30; text-decoration: underline; }
 .pn-sep { color: #ccc; font-size: 0.8rem; }
 .pn-current { color: #666; }
-
-footer {
-  border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
-  font-size: 0.75rem; color: #bbb;
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
-  max-width: 1060px; margin: 0 auto;
-}
+footer { border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 1060px; margin: 0 auto; }
 footer a { color: #aaa; }
+.preview-note { background: #fffbea; border: 1px solid #e8d84a; border-radius: 6px; padding: 0.7rem 1.1rem; font-size: 0.8rem; color: #7a6500; margin-bottom: 2rem; }
 
 @media (max-width: 700px) {
-  .parent-nav { padding: 0.4rem 1.2rem; }
-  .banner-name { font-size: 1.9rem; }
-  .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
-  .group-row { grid-template-columns: 1fr; gap: 1.5rem; }
-  .group-img { display: none; }
+  .groups-tray { margin: 0 -0.5rem; padding: 0.8rem; }
+  .group-row { flex-wrap: wrap; gap: 1.2rem; padding: 1.2rem; }
+  .group-rhs { display: none; }
+  .group-person { width: 90px; }
+  .group-person .pi-photo { width: 90px; height: 90px; }
 }
 </style>
 </head>
@@ -165,110 +243,165 @@ footer a { color: #aaa; }
     </p>
   </div>
 
-  <div class="groups">
+  <!-- ── WORD CLOUD ── -->
+  <div class="cloud-container">
+    <div class="cloud-heading">Research themes across the section</div>
+    <div class="word-cloud" id="wordCloud">
 
-  <!-- Row 1: image LEFT · text RIGHT -->
-  <div id="knuepfer" class="group-row">
-    <div class="group-img group-img-double">
-      <figure>
-        <img src="images/domain_branching.png" alt="Domain branching in a ferromagnet">
-        <figcaption>Branching domain pattern in a ferromagnetic slab</figcaption>
-      </figure>
-      <figure>
-        <img src="images/ferromagnet_ellipsoid.png" alt="Ferromagnetic ellipsoid droplet">
-        <figcaption>Stripe domains in a ferromagnetic ellipsoid</figcaption>
-      </figure>
+      <!-- xl: 3 groups -->
+      <span class="cw cw-xl" data-topic="pde">Partial Differential Equations</span>
+
+      <!-- lg: 2 groups -->
+      <span class="cw cw-lg" data-topic="calc-var">Calculus of Variations</span>
+      <span class="cw cw-lg" data-topic="phase-field">Phase-field Models</span>
+      <span class="cw cw-lg" data-topic="pattern">Pattern Formation</span>
+
+      <!-- md: noteworthy 1-group or 2-group applied -->
+      <span class="cw cw-md" data-topic="geom-flows">Geometric Flows</span>
+      <span class="cw cw-md" data-topic="math-bio">Mathematical Biology</span>
+      <span class="cw cw-md" data-topic="free-boundary">Free Boundary Problems</span>
+
+      <!-- sm: specific subtopics -->
+      <span class="cw cw-sm" data-topic="geom-flows">Mean Curvature Flow</span>
+      <span class="cw cw-sm" data-topic="phase-field">Sharp Interfaces</span>
+      <span class="cw cw-sm" data-topic="react-diff">Reaction-Diffusion Systems</span>
+      <span class="cw cw-sm" data-topic="free-boundary">Nonlocal Energies</span>
+      <span class="cw cw-sm" data-topic="math-bio">Stem Cell Dynamics</span>
+      <span class="cw cw-sm" data-topic="calc-var">Variational Methods</span>
+      <span class="cw cw-sm" data-topic="phase-field">Ginzburg-Landau Theory</span>
+
     </div>
-    <div class="group-text">
-      <div class="group-pi">
-        <img class="pi-photo" src="Hans1.jpg" alt="Prof. Dr. Hans Knüpfer">
-        <div class="pi-name">Prof. Dr. Hans Knüpfer</div>
-      </div>
-      <h3><a href="knuepfer.html">Calculus of Variations and PDEs</a></h3>
-      <p>Research focuses on variational problems and partial differential equations motivated
-      by questions in materials science and fluid dynamics. Topics include the analysis of
-      pattern formation, nonlocal interaction energies, free boundary problems, and the
-      derivation of effective continuum models from microscopic descriptions. A recurring
-      theme is the competition between local and nonlocal energy contributions that drives
-      pattern formation across scales.</p>
-    </div>
+    <p class="cloud-hint">Word size reflects how many groups share the theme — hover to see which</p>
   </div>
 
-  <!-- Row 2: text LEFT · image RIGHT -->
-  <div id="laux" class="group-row">
-    <div class="group-text">
-      <div class="group-pi">
+  <!-- ── CARDS ── -->
+  <div class="groups-tray">
+
+    <!-- Knüpfer -->
+    <div id="knuepfer" class="group-row">
+      <div class="group-person">
+        <img class="pi-photo" src="Hans1.jpg"
+             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a4a3a,#4a7a5a)'"
+             alt="Prof. Dr. Hans Knüpfer">
+        <div class="pi-name">Prof. Dr. Hans Knüpfer</div>
+      </div>
+      <div class="group-info">
+        <h3><a href="knuepfer.html">Calculus of Variations and PDEs</a></h3>
+        <p>Research focuses on variational problems and partial differential equations motivated
+        by questions in materials science and fluid dynamics. Topics include the analysis of
+        pattern formation, nonlocal interaction energies, free boundary problems, and the
+        derivation of effective continuum models from microscopic descriptions. A recurring
+        theme is the competition between local and nonlocal energy contributions that drives
+        pattern formation across scales.</p>
+        <div class="group-tags">
+          <span class="chip" data-topic="calc-var">Calculus of variations</span>
+          <span class="chip" data-topic="phase-field">Phase-field models</span>
+          <span class="chip" data-topic="pattern">Pattern formation</span>
+          <span class="chip" data-topic="free-boundary">Free boundaries</span>
+        </div>
+      </div>
+      <div class="group-rhs">
+        <figure>
+          <img src="images/domain_branching.png" alt="Domain branching in a ferromagnet">
+          <figcaption>Hierarchical needle domain pattern — branching structure in a ferromagnetic slab</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Laux -->
+    <div id="laux" class="group-row">
+      <div class="group-person">
         <img class="pi-photo"
              src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2025-09/Tim_Laux_wide_0.jpg?h=a0ac5f3f&itok=3cQzkW3u"
+             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a5a,#3a5a8a)'"
              alt="Prof. Dr. Tim Laux">
         <div class="pi-name">Prof. Dr. Tim Laux</div>
       </div>
-      <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Applied Geometric Analysis ↗</a></h3>
-      <p>The group studies geometric evolution equations and their connections to variational
-      calculus and mathematical physics. Central themes include mean curvature flow and its
-      sharp-interface limits, phase-field approximations for interfacial dynamics, and
-      applications in materials science and data science. A key focus is the development
-      of rigorous convergence theories bridging diffuse and sharp interface models.</p>
+      <div class="group-info">
+        <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Applied Geometric Analysis ↗</a></h3>
+        <p>The group studies geometric evolution equations and their connections to variational
+        calculus and mathematical physics. Central themes include mean curvature flow and its
+        sharp-interface limits, phase-field approximations for interfacial dynamics, and
+        applications in materials science and data science. A key focus is the development
+        of rigorous convergence theories bridging diffuse and sharp interface models.</p>
+        <div class="group-tags">
+          <span class="chip" data-topic="calc-var">Calculus of variations</span>
+          <span class="chip" data-topic="phase-field">Phase-field models</span>
+          <span class="chip" data-topic="geom-flows">Geometric flows</span>
+          <span class="chip" data-topic="phase-field">Sharp interfaces</span>
+        </div>
+      </div>
+      <div class="group-rhs">
+        <figure>
+          <img src="images/ferromagnet_ellipsoid.png" alt="Phase-field interface dynamics">
+          <figcaption>Allen-Cahn phase-field model — diffuse interface dynamics and grain coarsening</figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="group-img">
-      <figure>
-        <img src="images/phase_separation.png" alt="Phase separation and mean curvature flow">
-        <figcaption>Phase separation driven by mean curvature flow</figcaption>
-      </figure>
-    </div>
-  </div>
 
-  <!-- Row 3: image LEFT · text RIGHT -->
-  <div id="marciniak-czochra" class="group-row">
-    <div class="group-img">
-      <figure>
-        <img src="images/hydra_pattern.png" alt="Pattern formation in Hydra">
-        <figcaption>Symmetry breaking and axis formation in Hydra regeneration</figcaption>
-      </figure>
-    </div>
-    <div class="group-text">
-      <div class="group-pi">
+    <!-- Marciniak-Czochra -->
+    <div id="marciniak-czochra" class="group-row">
+      <div class="group-person">
         <img class="pi-photo"
              src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
+             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a6a,#3a6a4a)'"
              alt="Prof. Dr. Anna Marciniak-Czochra">
         <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
       </div>
-      <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
-      <p>Research combines rigorous mathematical analysis with biological and medical
-      applications, developing and studying models for self-organisation, pattern formation,
-      and structure formation in living systems. Topics range from reaction–diffusion–ODE
-      systems describing stem cell dynamics and tissue growth to problems in developmental
-      biology. The group maintains strong interdisciplinary connections to experimental
-      biology and medicine.</p>
+      <div class="group-info">
+        <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
+        <p>Research combines rigorous mathematical analysis with biological and medical
+        applications, developing and studying models for self-organisation, pattern formation,
+        and structure formation in living systems. Topics range from reaction–diffusion–ODE
+        systems describing stem cell dynamics and tissue growth to problems in developmental
+        biology. The group maintains strong interdisciplinary connections to experimental
+        biology and medicine.</p>
+        <div class="group-tags">
+          <span class="chip" data-topic="pattern">Pattern formation</span>
+          <span class="chip" data-topic="math-bio">Mathematical biology</span>
+          <span class="chip" data-topic="react-diff">Reaction-diffusion</span>
+          <span class="chip" data-topic="math-bio">Stem cell dynamics</span>
+        </div>
+      </div>
+      <div class="group-rhs">
+        <figure>
+          <img src="images/phase_separation.png" alt="Phase separation and pattern formation">
+          <figcaption>Cahn-Hilliard phase-field simulation — spinodal decomposition and pattern formation</figcaption>
+        </figure>
+      </div>
     </div>
-  </div>
 
-  <!-- Row 4: text LEFT · image RIGHT -->
-  <div id="fuhrmann" class="group-row">
-    <div class="group-text">
-      <div class="group-pi">
+    <!-- Fuhrmann -->
+    <div id="fuhrmann" class="group-row">
+      <div class="group-person">
         <img class="pi-photo"
              src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB"
+             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#3a4a2a,#4a6a3a)'"
              alt="Dr. Jan Fuhrmann">
         <div class="pi-name">Dr. Jan Fuhrmann</div>
       </div>
-      <h3>Analysis and PDEs</h3>
-      <p>Research focuses on partial differential equations and their applications in the
-      natural sciences, with particular interest in hyperbolic conservation laws, their
-      qualitative properties, and the mathematical modelling of biological and physical
-      systems. Topics include existence and uniqueness theory, long-time behaviour of
-      solutions, and models for cell motility and fluid dynamics.</p>
+      <div class="group-info">
+        <h3>Analysis and PDEs</h3>
+        <p>Research interests span partial differential equations and their applications
+        in the natural sciences, with particular interest in hyperbolic conservation laws,
+        free boundary problems, and the mathematical modelling of biological and physical
+        systems — including cell motility, fluid dynamics, and epidemic spread.</p>
+        <div class="group-tags">
+          <span class="chip" data-topic="free-boundary">Free boundaries</span>
+          <span class="chip" data-topic="math-bio">Mathematical biology</span>
+          <span class="chip">Conservation laws</span>
+          <span class="chip">Cell motility</span>
+        </div>
+      </div>
+      <div class="group-rhs">
+        <figure>
+          <img src="images/hydra_pattern.png" alt="Spatial SIR model wave propagation">
+          <figcaption>Spatial SIR reaction-diffusion model — epidemic wave propagation</figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="group-img">
-      <figure>
-        <img src="images/phase_separation.png" alt="Phase separation dynamics">
-        <figcaption>Phase separation and interface dynamics — applied PDE</figcaption>
-      </figure>
-    </div>
-  </div>
 
-  </div><!-- .groups -->
-
+  </div><!-- /groups-tray -->
 </main>
 
 <footer>
@@ -279,6 +412,67 @@ footer a { color: #aaa; }
     <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
   </span>
 </footer>
+
+<script>
+// ── State helpers ────────────────────────────────────────────────────────
+function resetAll() {
+  document.querySelectorAll('.cw').forEach(w => {
+    w.classList.remove('cw-lit', 'cw-dim');
+  });
+  document.querySelectorAll('.chip').forEach(c => {
+    c.classList.remove('chip-lit', 'chip-dim');
+  });
+  document.querySelectorAll('.group-row').forEach(r => {
+    r.classList.remove('card-focus', 'card-dim');
+  });
+}
+
+function activateTopic(topicId) {
+  if (!topicId) return;
+
+  // Cloud words
+  document.querySelectorAll('.cw').forEach(w => {
+    if (w.dataset.topic === topicId) w.classList.add('cw-lit');
+    else                             w.classList.add('cw-dim');
+  });
+
+  // Chips + find which cards match
+  const matchingCards = new Set();
+  document.querySelectorAll('.chip[data-topic]').forEach(c => {
+    if (c.dataset.topic === topicId) {
+      c.classList.add('chip-lit');
+      const card = c.closest('.group-row');
+      if (card) matchingCards.add(card.id);
+    } else {
+      c.classList.add('chip-dim');
+    }
+  });
+
+  // Cards
+  document.querySelectorAll('.group-row').forEach(r => {
+    if (matchingCards.has(r.id)) r.classList.add('card-focus');
+    else                         r.classList.add('card-dim');
+  });
+}
+
+// ── Cloud word interactions ──────────────────────────────────────────────
+document.querySelectorAll('.cw[data-topic]').forEach(word => {
+  word.addEventListener('mouseenter', () => {
+    resetAll();
+    activateTopic(word.dataset.topic);
+  });
+  word.addEventListener('mouseleave', resetAll);
+});
+
+// ── Chip interactions ────────────────────────────────────────────────────
+document.querySelectorAll('.chip[data-topic]').forEach(chip => {
+  chip.addEventListener('mouseenter', () => {
+    resetAll();
+    activateTopic(chip.dataset.topic);
+  });
+  chip.addEventListener('mouseleave', resetAll);
+});
+</script>
 
 </body>
 </html>
