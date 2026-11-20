@@ -57,6 +57,7 @@ section { margin-bottom: 3rem; }
 .talk-table td.col-speaker { width: 185px; font-size: 0.9rem; padding-right: 0.9rem; }
 .talk-table td.col-title { font-size: 0.9rem; }
 .talk-table .affil { display: block; font-size: 0.78rem; color: #aaa; margin-top: 0.1rem; }
+.talk-past { opacity: 0.45; }
 
 /* ── PARENT / BREADCRUMB NAV ── */
 .parent-nav {
@@ -120,8 +121,9 @@ footer a { color: #aaa; }
     </div>
   </section>
 
-  <section>
-    <div class="sem-label">Winter Semester 2026/27</div>
+  <section id="talks-section">
+    <!-- Talks table is rendered by JavaScript from data/talks.csv -->
+    <div class="sem-label" id="sem-heading">Loading…</div>
     <table class="talk-table">
       <thead>
         <tr>
@@ -130,10 +132,8 @@ footer a { color: #aaa; }
           <th class="col-title">Title</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">No talks scheduled yet. Check back soon.</td>
-        </tr>
+      <tbody id="talks-body">
+        <tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">Loading…</td></tr>
       </tbody>
     </table>
     <p class="note" style="margin-top:1.5rem;">
@@ -153,10 +153,78 @@ footer a { color: #aaa; }
 </footer>
 
 <script>
+// ── Configuration ──────────────────────────────────────────────────────────
+// When a new semester starts, update this value and add rows to data/talks.csv
+const CURRENT_SEMESTER = 'WS 2026/27';
+// ───────────────────────────────────────────────────────────────────────────
+
 document.querySelectorAll('.obf-email').forEach(el => {
   const addr = el.dataset.u + '@' + el.dataset.d;
   el.innerHTML = '<a href="mailto:' + addr + '">' + addr + '</a>';
 });
+
+function parseCSV(text) {
+  const lines = text.trim().split('\n').filter(l => l.trim() !== '');
+  const headers = splitCSVLine(lines[0]);
+  return lines.slice(1).map(line => {
+    const values = splitCSVLine(line);
+    const obj = {};
+    headers.forEach((h, i) => { obj[h.trim()] = (values[i] || '').trim(); });
+    return obj;
+  });
+}
+
+function splitCSVLine(line) {
+  const result = [];
+  let cur = '', inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') {
+      if (inQ && line[i+1] === '"') { cur += '"'; i++; }
+      else inQ = !inQ;
+    } else if (c === ',' && !inQ) {
+      result.push(cur); cur = '';
+    } else {
+      cur += c;
+    }
+  }
+  result.push(cur);
+  return result;
+}
+
+function renderTalks(rows) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const semTalks = rows.filter(r => r.semester === CURRENT_SEMESTER && r.speaker);
+  document.getElementById('sem-heading').textContent = CURRENT_SEMESTER;
+  const tbody = document.getElementById('talks-body');
+  if (semTalks.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">No talks scheduled yet. Check back soon.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = semTalks.map(r => {
+    const d = new Date(r.date);
+    const past = !isNaN(d.getTime()) && d < today;
+    const affil = r.affiliation ? '<span class="affil">' + esc(r.affiliation) + '</span>' : '';
+    return '<tr' + (past ? ' class="talk-past"' : '') + '>'
+      + '<td class="col-date">' + esc(r.date) + '</td>'
+      + '<td class="col-speaker">' + esc(r.speaker) + affil + '</td>'
+      + '<td class="col-title">' + esc(r.title) + '</td>'
+      + '</tr>';
+  }).join('');
+}
+
+function esc(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+fetch('data/talks.csv')
+  .then(r => r.text())
+  .then(text => renderTalks(parseCSV(text)))
+  .catch(() => {
+    document.getElementById('sem-heading').textContent = CURRENT_SEMESTER;
+    document.getElementById('talks-body').innerHTML =
+      '<tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">No talks scheduled yet. Check back soon.</td></tr>';
+  });
 </script>
 
 </body>
