@@ -54,54 +54,50 @@ p:last-child { margin-bottom: 0; }
 .intro p { font-size: 0.93rem; color: #555; line-height: 1.8; }
 
 /* ── RESEARCH GROUP ROWS ── */
+.groups { }
 .group-row {
-  display: flex; gap: 2rem;
-  padding: 2.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
   border-bottom: 1px solid #eef4f0;
-  align-items: flex-start;
+  align-items: start;
 }
-.group-row:first-of-type { padding-top: 0; }
-.group-row:last-of-type { border-bottom: none; }
+.groups .group-row:first-child { padding-top: 0; }
+.group-row:last-child { border-bottom: none; }
 
-/* left col: photo + name */
-.group-person {
-  flex-shrink: 0; width: 130px; text-align: center;
+/* image column */
+.group-img figure { margin: 0; }
+.group-img figure + figure { margin-top: 6px; }
+.group-img img {
+  width: 100%; height: 240px;
+  object-fit: cover; border-radius: 3px; display: block;
 }
-.group-person .pi-photo {
-  width: 130px; height: 130px;
+.group-img-double img { height: 165px; }
+.group-img figcaption {
+  font-size: 0.65rem; color: #aaa; font-style: italic;
+  margin-top: 4px; text-align: center; line-height: 1.3;
+}
+
+/* text column */
+.group-pi {
+  display: flex; align-items: center;
+  gap: 0.85rem; margin-bottom: 0.9rem;
+}
+.group-pi .pi-photo {
+  width: 68px; height: 68px;
   object-fit: cover; object-position: center top;
-  display: block; border-radius: 2px;
+  border-radius: 2px; flex-shrink: 0;
 }
-.group-person .pi-name {
-  font-size: 0.78rem; color: #666; line-height: 1.4;
-  margin-top: 0.45rem; text-align: center;
-}
-
-/* middle col: description */
-.group-info { flex: 1; min-width: 0; }
-.group-info h3 {
+.group-pi .pi-name { font-size: 0.82rem; color: #555; line-height: 1.4; }
+.group-text h3 {
   font-family: 'Merriweather', Georgia, serif;
   font-weight: 400; font-size: 1.08rem; color: #12371e;
   margin-bottom: 0.65rem;
 }
-.group-info h3 a { color: #12371e; text-decoration: none; }
-.group-info h3 a:hover { color: #1e5c30; text-decoration: underline; }
-.group-info p { font-size: 0.88rem; color: #555; line-height: 1.72; }
-
-/* right col: research image */
-.group-rhs {
-  flex-shrink: 0; width: 160px;
-}
-.group-rhs figure { margin: 0; }
-.group-rhs img {
-  width: 100%; display: block; border-radius: 2px;
-}
-.group-rhs figcaption {
-  font-size: 0.65rem; color: #aaa; line-height: 1.3;
-  font-style: italic; margin-top: 4px; text-align: center;
-}
-/* double image stack for Knüpfer */
-.group-rhs-double figure { margin: 0 0 5px; }
+.group-text h3 a { color: #12371e; text-decoration: none; }
+.group-text h3 a:hover { color: #1e5c30; text-decoration: underline; }
+.group-text p { font-size: 0.88rem; color: #555; line-height: 1.72; }
 
 /* ── PARENT / BREADCRUMB NAV ── */
 .parent-nav {
@@ -127,10 +123,8 @@ footer a { color: #aaa; }
   .banner-name { font-size: 1.9rem; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
-  .group-row { flex-wrap: wrap; gap: 1.2rem; }
-  .group-rhs { display: none; }
-  .group-person { width: 100px; }
-  .group-person .pi-photo { width: 100px; height: 100px; }
+  .group-row { grid-template-columns: 1fr; gap: 1.5rem; }
+  .group-img { display: none; }
 }
 </style>
 </head>
@@ -154,7 +148,6 @@ footer a { color: #aaa; }
     <a href="research.html" class="active">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -172,21 +165,11 @@ footer a { color: #aaa; }
     </p>
   </div>
 
+  <div class="groups">
+
+  <!-- Row 1: image LEFT · text RIGHT -->
   <div id="knuepfer" class="group-row">
-    <div class="group-person">
-      <img class="pi-photo" src="Hans1.jpg" alt="Prof. Dr. Hans Knüpfer">
-      <div class="pi-name">Prof. Dr. Hans Knüpfer</div>
-    </div>
-    <div class="group-info">
-      <h3><a href="knuepfer.html">Calculus of Variations and PDEs</a></h3>
-      <p>Research focuses on variational problems and partial differential equations motivated
-      by questions in materials science and fluid dynamics. Topics include the analysis of
-      pattern formation, nonlocal interaction energies, free boundary problems, and the
-      derivation of effective continuum models from microscopic descriptions. A recurring
-      theme is the competition between local and nonlocal energy contributions that drives
-      pattern formation across scales.</p>
-    </div>
-    <div class="group-rhs group-rhs-double">
+    <div class="group-img group-img-double">
       <figure>
         <img src="images/domain_branching.png" alt="Domain branching in a ferromagnet">
         <figcaption>Branching domain pattern in a ferromagnetic slab</figcaption>
@@ -196,16 +179,30 @@ footer a { color: #aaa; }
         <figcaption>Stripe domains in a ferromagnetic ellipsoid</figcaption>
       </figure>
     </div>
+    <div class="group-text">
+      <div class="group-pi">
+        <img class="pi-photo" src="Hans1.jpg" alt="Prof. Dr. Hans Knüpfer">
+        <div class="pi-name">Prof. Dr. Hans Knüpfer</div>
+      </div>
+      <h3><a href="knuepfer.html">Calculus of Variations and PDEs</a></h3>
+      <p>Research focuses on variational problems and partial differential equations motivated
+      by questions in materials science and fluid dynamics. Topics include the analysis of
+      pattern formation, nonlocal interaction energies, free boundary problems, and the
+      derivation of effective continuum models from microscopic descriptions. A recurring
+      theme is the competition between local and nonlocal energy contributions that drives
+      pattern formation across scales.</p>
+    </div>
   </div>
 
+  <!-- Row 2: text LEFT · image RIGHT -->
   <div id="laux" class="group-row">
-    <div class="group-person">
-      <img class="pi-photo"
-           src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2025-09/Tim_Laux_wide_0.jpg?h=a0ac5f3f&itok=3cQzkW3u"
-           alt="Prof. Dr. Tim Laux">
-      <div class="pi-name">Prof. Dr. Tim Laux</div>
-    </div>
-    <div class="group-info">
+    <div class="group-text">
+      <div class="group-pi">
+        <img class="pi-photo"
+             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2025-09/Tim_Laux_wide_0.jpg?h=a0ac5f3f&itok=3cQzkW3u"
+             alt="Prof. Dr. Tim Laux">
+        <div class="pi-name">Prof. Dr. Tim Laux</div>
+      </div>
       <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Applied Geometric Analysis ↗</a></h3>
       <p>The group studies geometric evolution equations and their connections to variational
       calculus and mathematical physics. Central themes include mean curvature flow and its
@@ -213,7 +210,7 @@ footer a { color: #aaa; }
       applications in materials science and data science. A key focus is the development
       of rigorous convergence theories bridging diffuse and sharp interface models.</p>
     </div>
-    <div class="group-rhs">
+    <div class="group-img">
       <figure>
         <img src="images/phase_separation.png" alt="Phase separation and mean curvature flow">
         <figcaption>Phase separation driven by mean curvature flow</figcaption>
@@ -221,14 +218,21 @@ footer a { color: #aaa; }
     </div>
   </div>
 
+  <!-- Row 3: image LEFT · text RIGHT -->
   <div id="marciniak-czochra" class="group-row">
-    <div class="group-person">
-      <img class="pi-photo"
-           src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
-           alt="Prof. Dr. Anna Marciniak-Czochra">
-      <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
+    <div class="group-img">
+      <figure>
+        <img src="images/hydra_pattern.png" alt="Pattern formation in Hydra">
+        <figcaption>Symmetry breaking and axis formation in Hydra regeneration</figcaption>
+      </figure>
     </div>
-    <div class="group-info">
+    <div class="group-text">
+      <div class="group-pi">
+        <img class="pi-photo"
+             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
+             alt="Prof. Dr. Anna Marciniak-Czochra">
+        <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
+      </div>
       <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
       <p>Research combines rigorous mathematical analysis with biological and medical
       applications, developing and studying models for self-organisation, pattern formation,
@@ -237,22 +241,17 @@ footer a { color: #aaa; }
       biology. The group maintains strong interdisciplinary connections to experimental
       biology and medicine.</p>
     </div>
-    <div class="group-rhs">
-      <figure>
-        <img src="images/hydra_pattern.png" alt="Pattern formation in Hydra">
-        <figcaption>Symmetry breaking and axis formation in Hydra regeneration</figcaption>
-      </figure>
-    </div>
   </div>
 
+  <!-- Row 4: text LEFT · image RIGHT -->
   <div id="fuhrmann" class="group-row">
-    <div class="group-person">
-      <img class="pi-photo"
-           src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB"
-           alt="Dr. Jan Fuhrmann">
-      <div class="pi-name">Dr. Jan Fuhrmann</div>
-    </div>
-    <div class="group-info">
+    <div class="group-text">
+      <div class="group-pi">
+        <img class="pi-photo"
+             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB"
+             alt="Dr. Jan Fuhrmann">
+        <div class="pi-name">Dr. Jan Fuhrmann</div>
+      </div>
       <h3>Analysis and PDEs</h3>
       <p>Research focuses on partial differential equations and their applications in the
       natural sciences, with particular interest in hyperbolic conservation laws, their
@@ -260,13 +259,15 @@ footer a { color: #aaa; }
       systems. Topics include existence and uniqueness theory, long-time behaviour of
       solutions, and models for cell motility and fluid dynamics.</p>
     </div>
-    <div class="group-rhs">
+    <div class="group-img">
       <figure>
-        <img src="images/domain_branching.png" alt="Branching domains in a ferromagnetic slab">
-        <figcaption>Branch-tree domain pattern — PDE and variational analysis</figcaption>
+        <img src="images/phase_separation.png" alt="Phase separation dynamics">
+        <figcaption>Phase separation and interface dynamics — applied PDE</figcaption>
       </figure>
     </div>
   </div>
+
+  </div><!-- .groups -->
 
 </main>
 
