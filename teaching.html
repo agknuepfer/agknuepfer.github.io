@@ -312,10 +312,10 @@ function renderCourseGroup(rows) {
   rows.forEach(r => { if (groups[r.level]) groups[r.level].push(r); });
 
   let html = '';
-  LEVEL_ORDER.forEach((level, i) => {
+  LEVEL_ORDER.forEach(level => {
     if (groups[level].length === 0) return;
-    const mt = i === 0 ? 'margin-top:0;' : '';
-    html += '<div class="sem-label" style="' + mt + '">' + esc(LEVEL_LABELS[level]) + '</div>';
+    html += '<div class="course-box">';
+    html += '<div class="course-box-header">' + esc(LEVEL_LABELS[level]) + '</div>';
     html += '<table><thead><tr><th>Course</th><th>Time &amp; Room</th><th>Lecturer</th></tr></thead><tbody>';
     groups[level].forEach(r => {
       const courseName = r.link
@@ -328,7 +328,7 @@ function renderCourseGroup(rows) {
         + '<td class="course-time">' + timeRoom + '</td>'
         + '<td>' + esc(r.lecturer) + '</td></tr>';
     });
-    html += '</tbody></table>';
+    html += '</tbody></table></div>';
   });
   return html;
 }
