@@ -43,7 +43,7 @@ a:hover { text-decoration: underline; }
 .banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
 
 /* ── CONTENT ── */
-.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+.content { max-width: 1060px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
 h2 {
   font-family: 'Merriweather', Georgia, serif;
@@ -55,14 +55,25 @@ h2 + p { margin-bottom: 1rem; }
 
 section { margin-bottom: 3rem; }
 
-/* ── RESEARCH IMAGE STRIP ── */
-.research-strip {
-  display: flex; gap: 0.8rem; margin-bottom: 2.5rem;
+/* ── OVERVIEW LAYOUT: flanking image columns ── */
+.overview-layout {
+  display: flex; gap: 1.5rem; align-items: flex-start;
 }
-.research-strip img {
-  flex: 1; height: 150px;
-  object-fit: cover; border-radius: 2px; display: block;
+.overview-pics {
+  flex-shrink: 0; width: 155px;
 }
+.overview-pics figure {
+  margin: 0 0 1rem;
+}
+.overview-pics img {
+  width: 100%; height: 110px;
+  object-fit: cover; display: block; border-radius: 2px;
+}
+.overview-pics figcaption {
+  font-size: 0.65rem; color: #999; line-height: 1.25;
+  font-style: italic; margin-top: 4px; text-align: center;
+}
+.overview-body { flex: 1; min-width: 0; }
 
 /* ── DIRECTORY (groups / teaching / oberseminar) ── */
 .idx-directory { margin: 2rem 0; border-top: 1px solid #eef4f0; }
@@ -104,17 +115,16 @@ footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
   font-size: 0.75rem; color: #bbb;
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
-  max-width: 860px; margin: 0 auto;
+  max-width: 1060px; margin: 0 auto;
 }
 footer a { color: #aaa; }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .parent-nav { padding: 0.4rem 1.2rem; }
   .banner-name { font-size: 1.9rem; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
-  .research-strip { flex-direction: column; }
-  .research-strip img { height: 160px; }
+  .overview-pics { display: none; }
   .idx-row { flex-direction: column; gap: 0.3rem; }
 }
 </style>
@@ -142,41 +152,64 @@ footer a { color: #aaa; }
 
 <main class="content">
 
-  <div class="research-strip">
-    <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/pde_and_calc_variations_3branch.png?itok=u1fXSGwY"
-         alt="PDE and Calculus of Variations">
-    <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/analysis_pattern_formation.jpg?itok=amAXsH-U"
-         alt="Pattern Formation">
-  </div>
+  <div class="overview-layout">
 
-  <p>
-    The Applied Analysis section at the
-    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics, Heidelberg University</a>
-    brings together research groups working on partial differential equations, calculus of variations,
-    geometric analysis, and mathematical modelling in the natural sciences.
-    We share interests in the rigorous analysis of complex systems, pattern formation, free boundary problems,
-    and the derivation of effective models across scales.
-  </p>
+    <aside class="overview-pics">
+      <figure>
+        <img src="images/domain_branching.png" alt="Branching magnetic domains">
+        <figcaption>Branching domain pattern in a ferromagnetic slab</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ferromagnet_ellipsoid.png" alt="Ferromagnetic ellipsoid droplet">
+        <figcaption>Stripe domains in a ferromagnetic ellipsoid</figcaption>
+      </figure>
+    </aside>
 
-  <div class="idx-directory">
-    <div class="idx-row">
-      <span class="idx-label">Research groups</span>
-      <span class="idx-links">
-        <a href="research.html#knuepfer">Prof. Dr. Hans Knüpfer</a>
-        <a href="research.html#laux">Prof. Dr. Tim Laux</a>
-        <a href="research.html#marciniak-czochra">Prof. Dr. Anna Marciniak-Czochra</a>
-        <a href="research.html#fuhrmann">Dr. Jan Fuhrmann</a>
-      </span>
-    </div>
-    <div class="idx-row">
-      <span class="idx-label">Teaching</span>
-      <span class="idx-links"><a href="teaching.html">Courses, seminars, and PhD group</a></span>
-    </div>
-    <div class="idx-row">
-      <span class="idx-label">Oberseminar</span>
-      <span class="idx-links"><a href="seminar.html">Applied Analysis Oberseminar</a></span>
-    </div>
-  </div>
+    <div class="overview-body">
+
+      <p>
+        The Applied Analysis section at the
+        <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics, Heidelberg University</a>
+        brings together research groups working on partial differential equations, calculus of variations,
+        geometric analysis, and mathematical modelling in the natural sciences.
+        We share interests in the rigorous analysis of complex systems, pattern formation, free boundary problems,
+        and the derivation of effective models across scales.
+      </p>
+
+      <div class="idx-directory">
+        <div class="idx-row">
+          <span class="idx-label">Research groups</span>
+          <span class="idx-links">
+            <a href="research.html#knuepfer">Prof. Dr. Hans Knüpfer</a>
+            <a href="research.html#laux">Prof. Dr. Tim Laux</a>
+            <a href="research.html#marciniak-czochra">Prof. Dr. Anna Marciniak-Czochra</a>
+            <a href="research.html#fuhrmann">Dr. Jan Fuhrmann</a>
+          </span>
+        </div>
+        <div class="idx-row">
+          <span class="idx-label">Teaching</span>
+          <span class="idx-links"><a href="teaching.html">Courses, seminars, and PhD group</a></span>
+        </div>
+        <div class="idx-row">
+          <span class="idx-label">Oberseminar</span>
+          <span class="idx-links"><a href="seminar.html">Applied Analysis Oberseminar</a></span>
+        </div>
+      </div>
+
+    </div><!-- /overview-body -->
+
+    <aside class="overview-pics">
+      <figure>
+        <img src="images/phase_separation.png" alt="Phase separation and mean curvature flow">
+        <figcaption>Phase separation driven by mean curvature flow</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hydra_pattern.png" alt="Pattern formation in Hydra">
+        <figcaption>Symmetry breaking in Hydra regeneration</figcaption>
+      </figure>
+    </aside>
+
+  </div><!-- /overview-layout -->
 
   <div class="idx-contact">
     <dl>

@@ -43,7 +43,7 @@ a:hover { text-decoration: underline; }
 .banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
 
 /* ── CONTENT ── */
-.content { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+.content { max-width: 1060px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
 section { margin-bottom: 0; }
 p { margin-bottom: 1rem; }
@@ -90,11 +90,18 @@ p:last-child { margin-bottom: 0; }
 
 /* right col: research image */
 .group-rhs {
-  flex-shrink: 0; width: 148px;
+  flex-shrink: 0; width: 160px;
 }
+.group-rhs figure { margin: 0; }
 .group-rhs img {
   width: 100%; display: block; border-radius: 2px;
 }
+.group-rhs figcaption {
+  font-size: 0.65rem; color: #aaa; line-height: 1.3;
+  font-style: italic; margin-top: 4px; text-align: center;
+}
+/* double image stack for Knüpfer */
+.group-rhs-double figure { margin: 0 0 5px; }
 
 /* ── PARENT / BREADCRUMB NAV ── */
 .parent-nav {
@@ -111,7 +118,7 @@ footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
   font-size: 0.75rem; color: #bbb;
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
-  max-width: 860px; margin: 0 auto;
+  max-width: 1060px; margin: 0 auto;
 }
 footer a { color: #aaa; }
 
@@ -141,7 +148,7 @@ footer a { color: #aaa; }
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
-  <div class="banner-sub">Section · Institute for Mathematics · Heidelberg University</div>
+  <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
   <nav class="banner-nav">
     <a href="index.html">Overview</a>
     <a href="research.html" class="active">Research</a>
@@ -178,9 +185,15 @@ footer a { color: #aaa; }
       theme is the competition between local and nonlocal energy contributions that drives
       pattern formation across scales.</p>
     </div>
-    <div class="group-rhs">
-      <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/pde_and_calc_variations_3branch.png?itok=u1fXSGwY"
-           alt="PDE and Calculus of Variations">
+    <div class="group-rhs group-rhs-double">
+      <figure>
+        <img src="images/domain_branching.png" alt="Domain branching in a ferromagnet">
+        <figcaption>Branching domain pattern in a ferromagnetic slab</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ferromagnet_ellipsoid.png" alt="Ferromagnetic ellipsoid droplet">
+        <figcaption>Stripe domains in a ferromagnetic ellipsoid</figcaption>
+      </figure>
     </div>
   </div>
 
@@ -200,8 +213,10 @@ footer a { color: #aaa; }
       of rigorous convergence theories bridging diffuse and sharp interface models.</p>
     </div>
     <div class="group-rhs">
-      <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/analysis_pattern_formation.jpg?itok=amAXsH-U"
-           alt="Pattern Formation">
+      <figure>
+        <img src="images/phase_separation.png" alt="Phase separation and mean curvature flow">
+        <figcaption>Phase separation driven by mean curvature flow</figcaption>
+      </figure>
     </div>
   </div>
 
@@ -222,8 +237,10 @@ footer a { color: #aaa; }
       biology and medicine.</p>
     </div>
     <div class="group-rhs">
-      <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/analysis_pattern_formation.jpg?itok=amAXsH-U"
-           alt="Pattern Formation">
+      <figure>
+        <img src="images/hydra_pattern.png" alt="Pattern formation in Hydra">
+        <figcaption>Symmetry breaking and axis formation in Hydra regeneration</figcaption>
+      </figure>
     </div>
   </div>
 
@@ -243,8 +260,10 @@ footer a { color: #aaa; }
       solutions, and models for cell motility and fluid dynamics.</p>
     </div>
     <div class="group-rhs">
-      <img src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_free_aspect_0005/public/2023-03/pde_and_calc_variations_3branch.png?itok=u1fXSGwY"
-           alt="PDE and Calculus of Variations">
+      <figure>
+        <img src="images/domain_branching.png" alt="Branching domains in a ferromagnetic slab">
+        <figcaption>Branch-tree domain pattern — PDE and variational analysis</figcaption>
+      </figure>
     </div>
   </div>
 
