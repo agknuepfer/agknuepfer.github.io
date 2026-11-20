@@ -47,7 +47,7 @@ a:hover { text-decoration: underline; }
 
 h2 {
   font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300; font-size: 1.5rem; color: #12371e;
+  font-weight: 300; font-size: 1.75rem; color: #12371e; letter-spacing: 0.01em;
   margin-bottom: 1.5rem; padding-bottom: 0.6rem;
   border-bottom: 1px solid #d8e8dc;
 }
@@ -75,11 +75,46 @@ section { margin-bottom: 3rem; }
 }
 .overview-body { flex: 1; min-width: 0; }
 
-/* ── DIRECTORY (groups / teaching / oberseminar) ── */
-.idx-directory { margin: 2rem 0; border-top: 1px solid #eef4f0; }
+/* ── GROUP CARDS ── */
+.group-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0 1.5rem;
+}
+.group-card {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; text-decoration: none;
+  padding: 1.2rem 0.8rem 1rem;
+  border: 1px solid #d8e8dc; border-radius: 7px;
+  background: #fff;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.group-card:hover {
+  border-color: #5a9e6e;
+  box-shadow: 0 3px 12px rgba(18,55,30,0.10);
+  text-decoration: none;
+}
+.group-card-img {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.7rem;
+  border: 2px solid #d8e8dc;
+}
+.group-card-name {
+  font-size: 0.88rem; font-weight: 700; color: #12371e;
+  line-height: 1.3; margin-bottom: 0.3rem;
+}
+.group-card-desc {
+  font-size: 0.77rem; color: #777; line-height: 1.4;
+}
+
+/* ── SECTION LINKS (teaching / oberseminar) ── */
+.idx-section-links { margin: 0 0 1rem; border-top: 1px solid #eef4f0; }
 .idx-row {
   display: flex; gap: 2rem;
-  padding: 0.85rem 0;
+  padding: 0.75rem 0;
   border-bottom: 1px solid #eef4f0;
   align-items: flex-start;
 }
@@ -126,10 +161,55 @@ footer a { color: #aaa; }
   .content { padding: 2rem 1.2rem 4rem; }
   .overview-pics { display: none; }
   .idx-row { flex-direction: column; gap: 0.3rem; }
+  .group-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── SLIM STICKY NAV ── */
+.sticky-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 44px;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid #d8e8dc;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem;
+  transform: translateY(-100%);
+  transition: transform 0.18s ease;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+.sticky-nav.sn-visible { transform: translateY(0); }
+.sticky-nav-title {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 0.82rem; font-weight: 300; color: #12371e;
+  letter-spacing: 0.02em; white-space: nowrap;
+}
+.sticky-nav-links { display: flex; gap: 1.5rem; }
+.sticky-nav-links a {
+  font-size: 0.72rem; color: #888; text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.12s;
+}
+.sticky-nav-links a:hover { color: #1e5c30; text-decoration: none; }
+.sticky-nav-links a.sn-active { color: #1e5c30; }
+@media (max-width: 640px) {
+  .sticky-nav { padding: 0 1.2rem; }
+  .sticky-nav-title { display: none; }
+  .sticky-nav-links { gap: 1rem; }
 }
 </style>
 </head>
 <body>
+
+<div class="sticky-nav" aria-hidden="true">
+  <span class="sticky-nav-title">Applied Analysis</span>
+  <nav class="sticky-nav-links">
+    <a href="index.html" class="sn-active">Overview</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="seminar.html">Oberseminar</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</div>
+
 
 <nav class="parent-nav">
   <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
@@ -147,6 +227,7 @@ footer a { color: #aaa; }
     <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="seminar.html">Oberseminar</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -176,16 +257,30 @@ footer a { color: #aaa; }
         and the derivation of effective models across scales.
       </p>
 
-      <div class="idx-directory">
-        <div class="idx-row">
-          <span class="idx-label">Research groups</span>
-          <span class="idx-links">
-            <a href="research.html#knuepfer">Prof. Dr. Hans Knüpfer</a>
-            <a href="research.html#laux">Prof. Dr. Tim Laux</a>
-            <a href="research.html#marciniak-czochra">Prof. Dr. Anna Marciniak-Czochra</a>
-            <a href="research.html#fuhrmann">Dr. Jan Fuhrmann</a>
-          </span>
-        </div>
+      <div class="group-cards">
+        <a class="group-card" href="knuepfer.html">
+          <img class="group-card-img" src="images/domain_branching.png" alt="Knüpfer group">
+          <div class="group-card-name">Prof. Dr. Hans Knüpfer</div>
+          <div class="group-card-desc">Calculus of variations, free boundaries, pattern formation</div>
+        </a>
+        <a class="group-card" href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">
+          <img class="group-card-img" src="images/ferromagnet_ellipsoid.png" alt="Laux group">
+          <div class="group-card-name">Prof. Dr. Tim Laux</div>
+          <div class="group-card-desc">Geometric flows, phase-field models, sharp interfaces</div>
+        </a>
+        <a class="group-card" href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">
+          <img class="group-card-img" src="images/phase_separation.png" alt="Marciniak-Czochra group">
+          <div class="group-card-name">Prof. Dr. Anna Marciniak-Czochra</div>
+          <div class="group-card-desc">Mathematical biology, pattern formation, stem cell dynamics</div>
+        </a>
+        <a class="group-card" href="research.html#fuhrmann">
+          <img class="group-card-img" src="images/hydra_pattern.png" alt="Fuhrmann group">
+          <div class="group-card-name">Dr. Jan Fuhrmann</div>
+          <div class="group-card-desc">Reaction-diffusion systems, free boundaries, cell motility</div>
+        </a>
+      </div>
+
+      <div class="idx-section-links">
         <div class="idx-row">
           <span class="idx-label">Teaching</span>
           <span class="idx-links"><a href="teaching.html">Courses, seminars, and PhD group</a></span>
@@ -237,6 +332,20 @@ document.querySelectorAll('.obf-email').forEach(el => {
   const addr = el.dataset.u + '@' + el.dataset.d;
   el.innerHTML = '<a href="mailto:' + addr + '">' + addr + '</a>';
 });
+</script>
+
+
+<script>
+(function() {
+  var sn = document.querySelector('.sticky-nav');
+  var banner = document.querySelector('.banner');
+  if (!sn || !banner) return;
+  function tick() {
+    if (window.scrollY > banner.offsetHeight - 44) sn.classList.add('sn-visible');
+    else sn.classList.remove('sn-visible');
+  }
+  window.addEventListener('scroll', tick, { passive: true });
+})();
 </script>
 
 </body>

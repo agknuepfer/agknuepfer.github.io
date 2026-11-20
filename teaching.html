@@ -29,7 +29,7 @@ a:hover { text-decoration: underline; }
 
 .content { max-width: 1060px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
-h2 { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 1.5rem; color: #12371e; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid #d8e8dc; }
+h2 { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 1.75rem; color: #12371e; letter-spacing: 0.01em; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid #d8e8dc; }
 
 section { margin-bottom: 3rem; }
 
@@ -77,6 +77,30 @@ p:last-child { margin-bottom: 0; }
 
 .note { font-size: 0.85rem; color: #aaa; margin-top: 1.5rem; }
 
+/* ── ACCORDION ── */
+.accordion { margin-bottom: 2rem; }
+.accordion-header {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: 'Merriweather', Georgia, serif; font-weight: 300;
+  font-size: 1.75rem; color: #12371e; letter-spacing: 0.01em;
+  padding-bottom: 0.6rem; border-bottom: 1px solid #d8e8dc;
+  cursor: pointer; user-select: none;
+  margin-bottom: 0;
+}
+.accordion-header:hover { color: #1e5c30; }
+.accordion-arrow {
+  font-size: 1rem; color: #7aaa8a; transition: transform 0.2s;
+  flex-shrink: 0; margin-left: 1rem;
+}
+.accordion.open .accordion-arrow { transform: rotate(180deg); }
+.accordion-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s ease;
+}
+.accordion.open .accordion-body { max-height: 2000px; }
+.accordion-body-inner { padding-top: 1.5rem; }
+
 /* ── PARENT / BREADCRUMB NAV ── */
 .parent-nav {
   background: #f8fbf8; border-bottom: 1px solid #d8e8dc;
@@ -97,9 +121,53 @@ footer a { color: #aaa; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
   .content { padding: 2rem 1.2rem 4rem; }
 }
+
+/* ── SLIM STICKY NAV ── */
+.sticky-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 44px;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid #d8e8dc;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem;
+  transform: translateY(-100%);
+  transition: transform 0.18s ease;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+.sticky-nav.sn-visible { transform: translateY(0); }
+.sticky-nav-title {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 0.82rem; font-weight: 300; color: #12371e;
+  letter-spacing: 0.02em; white-space: nowrap;
+}
+.sticky-nav-links { display: flex; gap: 1.5rem; }
+.sticky-nav-links a {
+  font-size: 0.72rem; color: #888; text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.12s;
+}
+.sticky-nav-links a:hover { color: #1e5c30; text-decoration: none; }
+.sticky-nav-links a.sn-active { color: #1e5c30; }
+@media (max-width: 640px) {
+  .sticky-nav { padding: 0 1.2rem; }
+  .sticky-nav-title { display: none; }
+  .sticky-nav-links { gap: 1rem; }
+}
 </style>
 </head>
 <body>
+
+<div class="sticky-nav" aria-hidden="true">
+  <span class="sticky-nav-title">Applied Analysis</span>
+  <nav class="sticky-nav-links">
+    <a href="index.html">Overview</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html" class="sn-active">Teaching</a>
+    <a href="seminar.html">Oberseminar</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</div>
+
 
 <nav class="parent-nav">
   <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
@@ -142,28 +210,40 @@ footer a { color: #aaa; }
     </p>
   </section>
 
-  <section>
-    <h2 id="current-heading">Current Courses</h2>
-    <div id="current-courses">
-      <!-- Rendered by JavaScript from data/courses.csv -->
-      <p style="color:#aaa;font-style:italic;">Loading…</p>
+  <div class="accordion open" id="acc-current">
+    <div class="accordion-header" onclick="toggleAccordion('acc-current')">
+      <span id="current-heading">Current Courses</span>
+      <span class="accordion-arrow">▾</span>
     </div>
-    <p class="note">
-      The PhD Discussion Group is open to Master's and Bachelor's students — contact any
-      of the group leaders to participate.
-      Course list is a planned selection; see the official
-      <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>
-      for the binding schedule.
-    </p>
-  </section>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <div id="current-courses">
+          <p style="color:#aaa;font-style:italic;">Loading…</p>
+        </div>
+        <p class="note">
+          The PhD Discussion Group is open to Master's and Bachelor's students — contact any
+          of the group leaders to participate.
+          Course list is a planned selection; see the official
+          <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>
+          for the binding schedule.
+        </p>
+      </div>
+    </div>
+  </div>
 
-  <section>
-    <h2 id="upcoming-heading">Upcoming Courses</h2>
-    <div id="upcoming-courses">
-      <!-- Rendered by JavaScript from data/courses.csv -->
-      <p style="color:#aaa;font-style:italic;">Loading…</p>
+  <div class="accordion" id="acc-upcoming">
+    <div class="accordion-header" onclick="toggleAccordion('acc-upcoming')">
+      <span id="upcoming-heading">Upcoming Courses</span>
+      <span class="accordion-arrow">▾</span>
     </div>
-  </section>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <div id="upcoming-courses">
+          <p style="color:#aaa;font-style:italic;">Loading…</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </main>
 
@@ -264,6 +344,11 @@ function renderCourses(rows) {
   document.getElementById('upcoming-courses').innerHTML = renderCourseGroup(upcoming);
 }
 
+function toggleAccordion(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+
 fetch('data/courses.csv')
   .then(r => r.text())
   .then(text => renderCourses(parseCSV(text)))
@@ -273,6 +358,20 @@ fetch('data/courses.csv')
     document.getElementById('current-courses').innerHTML  = '<p style="color:#aaa;font-style:italic;">Could not load course data.</p>';
     document.getElementById('upcoming-courses').innerHTML = '<p style="color:#aaa;font-style:italic;">Could not load course data.</p>';
   });
+</script>
+
+
+<script>
+(function() {
+  var sn = document.querySelector('.sticky-nav');
+  var banner = document.querySelector('.banner');
+  if (!sn || !banner) return;
+  function tick() {
+    if (window.scrollY > banner.offsetHeight - 44) sn.classList.add('sn-visible');
+    else sn.classList.remove('sn-visible');
+  }
+  window.addEventListener('scroll', tick, { passive: true });
+})();
 </script>
 
 </body>

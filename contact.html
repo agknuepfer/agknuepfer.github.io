@@ -47,7 +47,7 @@ a:hover { text-decoration: underline; }
 
 h2 {
   font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300; font-size: 1.5rem; color: #12371e;
+  font-weight: 300; font-size: 1.75rem; color: #12371e; letter-spacing: 0.01em;
   margin-bottom: 1.5rem; padding-bottom: 0.6rem;
   border-bottom: 1px solid #d8e8dc;
 }
@@ -105,9 +105,53 @@ footer a { color: #aaa; }
   .contact-cols { grid-template-columns: 1fr; gap: 0; }
   .leaders-list li { flex-direction: column; gap: 0.1rem; }
 }
+
+/* ── SLIM STICKY NAV ── */
+.sticky-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 44px;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid #d8e8dc;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem;
+  transform: translateY(-100%);
+  transition: transform 0.18s ease;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+.sticky-nav.sn-visible { transform: translateY(0); }
+.sticky-nav-title {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 0.82rem; font-weight: 300; color: #12371e;
+  letter-spacing: 0.02em; white-space: nowrap;
+}
+.sticky-nav-links { display: flex; gap: 1.5rem; }
+.sticky-nav-links a {
+  font-size: 0.72rem; color: #888; text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.12s;
+}
+.sticky-nav-links a:hover { color: #1e5c30; text-decoration: none; }
+.sticky-nav-links a.sn-active { color: #1e5c30; }
+@media (max-width: 640px) {
+  .sticky-nav { padding: 0 1.2rem; }
+  .sticky-nav-title { display: none; }
+  .sticky-nav-links { gap: 1rem; }
+}
 </style>
 </head>
 <body>
+
+<div class="sticky-nav" aria-hidden="true">
+  <span class="sticky-nav-title">Applied Analysis</span>
+  <nav class="sticky-nav-links">
+    <a href="index.html">Overview</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="seminar.html">Oberseminar</a>
+    <a href="contact.html" class="sn-active">Contact</a>
+  </nav>
+</div>
+
 
 <nav class="parent-nav">
   <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
@@ -122,8 +166,9 @@ footer a { color: #aaa; }
   <div class="banner-sub">Section · Institute for Mathematics · Heidelberg University</div>
   <nav class="banner-nav">
     <a href="index.html">Overview</a>
-    <a href="seminar.html">Oberseminar</a>
+    <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
+    <a href="seminar.html">Oberseminar</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
 </header>
@@ -174,6 +219,20 @@ document.querySelectorAll('.obf-email').forEach(el => {
   const addr = el.dataset.u + '@' + el.dataset.d;
   el.innerHTML = '<a href="mailto:' + addr + '">' + addr + '</a>';
 });
+</script>
+
+
+<script>
+(function() {
+  var sn = document.querySelector('.sticky-nav');
+  var banner = document.querySelector('.banner');
+  if (!sn || !banner) return;
+  function tick() {
+    if (window.scrollY > banner.offsetHeight - 44) sn.classList.add('sn-visible');
+    else sn.classList.remove('sn-visible');
+  }
+  window.addEventListener('scroll', tick, { passive: true });
+})();
 </script>
 
 </body>
