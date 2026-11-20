@@ -1,40 +1,40 @@
 date,semester,speaker,affiliation,title
-22 Oct 2026,WS 2026/27,Finn Münnich,,Pattern selection in reaction-diffusion-ODE systems: Turing patterns, far-from-equilibrium patterns and nonlinear stability
-29 Oct 2026,WS 2026/27,Ulrich Schwarz,,Introduction to the vertex model for the mechanics of epithelial layers
-5 Nov 2026,WS 2026/27,Simone Rademacher,,Large deviations for Quantum Depletion in Bose-Einstein condensates
-12 Nov 2026,WS 2026/27,Mirabel Reid,,Radialization in Iterative Convolution-Thresholding Dynamics
-26 Nov 2026,WS 2026/27,Myles Workman,,Measurability and Rectifiability Properties of the Brakke Flow
-3 Dec 2026,WS 2026/27,Theresa Simon,,TBA
-10 Dec 2026,WS 2026/27,Markus Schmidtchen,,TBA
-30 Oct 2025,WS 2025/26,José Antonio Carrillo,,TBA
-17 Jul 2025,SS 2025,Manfred Salmhofer,,Renormalization Group Flows
-3 Jul 2025,SS 2025,Marcin Choinski,,A continuous-time SIS criss-cross model of co-infection in a heterogeneous population
-26 Jun 2025,SS 2025,Kilian Hacker,,Derivation and analysis of a Stokes-transport system modeling thermoregulation in human skin
-29 Apr 2025,SS 2025,Andrea Chiesa,,Convergence of thresholding energies for anisotropic mean curvature flow on inhomogeneous obstacle
-24 Apr 2025,SS 2025,Andrea Poiatti,,Weak solutions to a Navier-Stokes/Mullins-Sekerka system
-6 Feb 2025,WS 2024/25,Mirco Piccinini,,Nonlocal theory for fractional kinetic
-30 Jan 2025,WS 2024/25,Ram Band,,The Dry Ten Martini Problem for Sturmian Schrödinger Operators
-12 Dec 2024,WS 2024/25,Ian Tice,,Stationary and slowly traveling solutions to the free boundary Navier-Stokes equations
-5 Dec 2024,WS 2024/25,Stephan Lunowa,,Multi-scale modeling and patient-specific simulations for endovascular interventions in cerebral aneurysms
-25 Nov 2024,WS 2024/25,Dietmar Oelz,,Mathematical models of cell migration — mathematical and computational analysis
-21 Nov 2024,WS 2024/25,Phan Thanh Nam,,Derivation of nonlinear Gibbs measures from many-body quantum mechanics
-17 Oct 2024,WS 2024/25,Martin Kružík,,Non-interpenetration of matter in lower-dimensional structures
-4 Jul 2024,SS 2024,Ren-Yi Wang,,Stochastic dynamics of two-compartment models with regulatory mechanisms for hematopoiesis
-27 Jun 2024,SS 2024,Kelly Spry Maggs,,Cohomology classes in the RNA transcriptome
-20 Jun 2024,SS 2024,Fred Vermolen,,Simulation of post-burned skin using principles from morphoelasticity
-3–5 Jun 2024,SS 2024,Antonio Capella,,"Mini-course: Asymptotic Stability of Coherent Structures in Dissipative Systems"
-16 May 2024,SS 2024,Oleksii Krupchytskyi,,Bifurcations in a Free-Boundary PDE Model of Cell Motion
-2 May 2024,SS 2024,King Ming Lam,,Nonradial stability of self-similarly expanding Goldreich-Weber stars
-22–25 Apr 2024,SS 2024,Antonio Capella,,"Mini-course: Analytical Methods for Bayesian Inverse Problems Related to Partial Differential Equations"
-25 Jan 2024,WS 2023/24,Michele Precuzzi,,Theoretical analysis and numerical simulations of the Darcy-Allen-Chan system
-18 Jan 2024,WS 2023/24,Błażej Miasojedow,,Discretization of diffusions via gradient flows
-11 Jan 2024,WS 2023/24,Tomasz Szarek,,Lower bound technique and its application in the theory of Markov processes
-19 Dec 2023,WS 2023/24,Dietmar Oelz,,Emergence of Asymmetry in Hydra Spheroids
-30 Nov 2023,WS 2023/24,Markus Kunze,,The bi-Laplacian with Wentzell boundary conditions on Lipschitz domain
-2 Nov 2023,WS 2023/24,Adam Bobrowski,,Thin layer approximation, boundary conditions and semi-permeable membranes
-19 Oct 2023,WS 2023/24,Piotr Regulski,,Visual Analysis of Data in Different Applications
-5 Oct 2023,WS 2023/24,Frits Veerman,,Beyond Turing: controlling pattern stability in reaction-diffusion systems
-2 Oct 2023,WS 2023/24,Daphne Nesenberend,,Pattern formation in the Mechanochemical model
+22 Oct 2026,WS 2026/27,Finn Münnich,Universität Heidelberg,Pattern selection in reaction-diffusion-ODE systems: Turing patterns, far-from-equilibrium patterns and nonlinear stability
+29 Oct 2026,WS 2026/27,Ulrich Schwarz,Universität Heidelberg,Introduction to the vertex model for the mechanics of epithelial layers
+5 Nov 2026,WS 2026/27,Simone Rademacher,Universität Mannheim,Large deviations for Quantum Depletion in Bose-Einstein condensates
+12 Nov 2026,WS 2026/27,Mirabel Reid,TU Darmstadt,Radialization in Iterative Convolution-Thresholding Dynamics
+26 Nov 2026,WS 2026/27,Myles Workman,National Taiwan Normal University,Measurability and Rectifiability Properties of the Brakke Flow
+3 Dec 2026,WS 2026/27,Theresa Simon,Universität Münster,TBA
+10 Dec 2026,WS 2026/27,Markus Schmidtchen,TU Dresden,TBA
+30 Oct 2025,WS 2025/26,José Antonio Carrillo,University of Oxford,TBA
+17 Jul 2025,SS 2025,Manfred Salmhofer,Universität Heidelberg,Renormalization Group Flows
+3 Jul 2025,SS 2025,Marcin Choinski,University of Warsaw,A continuous-time SIS criss-cross model of co-infection in a heterogeneous population
+26 Jun 2025,SS 2025,Kilian Hacker,FAU Erlangen-Nürnberg,Derivation and analysis of a Stokes-transport system modeling thermoregulation in human skin
+29 Apr 2025,SS 2025,Andrea Chiesa,Universität Wien,Convergence of thresholding energies for anisotropic mean curvature flow on inhomogeneous obstacle
+24 Apr 2025,SS 2025,Andrea Poiatti,Universität Wien,Weak solutions to a Navier-Stokes/Mullins-Sekerka system
+6 Feb 2025,WS 2024/25,Mirco Piccinini,University of Pisa,Nonlocal theory for fractional kinetic
+30 Jan 2025,WS 2024/25,Ram Band,Technion,The Dry Ten Martini Problem for Sturmian Schrödinger Operators
+12 Dec 2024,WS 2024/25,Ian Tice,Carnegie Mellon University,Stationary and slowly traveling solutions to the free boundary Navier-Stokes equations
+5 Dec 2024,WS 2024/25,Stephan Lunowa,Technische Universität München,Multi-scale modeling and patient-specific simulations for endovascular interventions in cerebral aneurysms
+25 Nov 2024,WS 2024/25,Dietmar Oelz,University of Queensland,Mathematical models of cell migration — mathematical and computational analysis
+21 Nov 2024,WS 2024/25,Phan Thanh Nam,LMU München,Derivation of nonlinear Gibbs measures from many-body quantum mechanics
+17 Oct 2024,WS 2024/25,Martin Kružík,Czech Academy of Sciences,Non-interpenetration of matter in lower-dimensional structures
+4 Jul 2024,SS 2024,Ren-Yi Wang,Rice University,Stochastic dynamics of two-compartment models with regulatory mechanisms for hematopoiesis
+27 Jun 2024,SS 2024,Kelly Spry Maggs,EPFL,Cohomology classes in the RNA transcriptome
+20 Jun 2024,SS 2024,Fred Vermolen,Universiteit Hasselt,Simulation of post-burned skin using principles from morphoelasticity
+3–5 Jun 2024,SS 2024,Antonio Capella,UNAM,"Mini-course: Asymptotic Stability of Coherent Structures in Dissipative Systems"
+16 May 2024,SS 2024,Oleksii Krupchytskyi,Pennsylvania State University,Bifurcations in a Free-Boundary PDE Model of Cell Motion
+2 May 2024,SS 2024,King Ming Lam,TU Delft,Nonradial stability of self-similarly expanding Goldreich-Weber stars
+22–25 Apr 2024,SS 2024,Antonio Capella,UNAM,"Mini-course: Analytical Methods for Bayesian Inverse Problems Related to Partial Differential Equations"
+25 Jan 2024,WS 2023/24,Michele Precuzzi,TU Delft,Theoretical analysis and numerical simulations of the Darcy-Allen-Chan system
+18 Jan 2024,WS 2023/24,Błażej Miasojedow,University of Warsaw,Discretization of diffusions via gradient flows
+11 Jan 2024,WS 2023/24,Tomasz Szarek,Gdańsk University of Technology,Lower bound technique and its application in the theory of Markov processes
+19 Dec 2023,WS 2023/24,Dietmar Oelz,University of Queensland,Emergence of Asymmetry in Hydra Spheroids
+30 Nov 2023,WS 2023/24,Markus Kunze,Universität Köln,The bi-Laplacian with Wentzell boundary conditions on Lipschitz domain
+2 Nov 2023,WS 2023/24,Adam Bobrowski,Lublin University of Technology,Thin layer approximation, boundary conditions and semi-permeable membranes
+19 Oct 2023,WS 2023/24,Piotr Regulski,HITS Heidelberg,Visual Analysis of Data in Different Applications
+5 Oct 2023,WS 2023/24,Frits Veerman,Universiteit Leiden,Beyond Turing: controlling pattern stability in reaction-diffusion systems
+2 Oct 2023,WS 2023/24,Daphne Nesenberend,Universiteit Leiden,Pattern formation in the Mechanochemical model
 22 Jun 2023,SS 2023,Wolf-Patrick Düll,Universität Stuttgart,Validity of the Nonlinear Schrödinger Approximation for the Two-Dimensional Water Wave Problem With and Without Surface Tension
 15 Jun 2023,SS 2023,Marc Pegon,Université de Lille,An isoperimetric problem involving the competition between the perimeter and a nonlocal perimeter
 1 Jun 2023,SS 2023,Peter Hinow,University of Wisconsin,A Population Dynamics Approach to the Distribution of Space Debris in Low Earth Orbit
