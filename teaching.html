@@ -36,23 +36,36 @@ section { margin-bottom: 3rem; }
 p { margin-bottom: 1rem; }
 p:last-child { margin-bottom: 0; }
 
-/* ── COURSE TABLE ── */
-.sem-label {
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: #7aaa8a;
-  margin-bottom: 0.6rem; margin-top: 1.8rem;
+/* ── COURSE BOXES ── */
+.course-box {
+  border: 1px solid #d8e8dc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.4rem;
 }
-.sem-label:first-child { margin-top: 0; }
-
-table { width: 100%; border-collapse: collapse; margin-bottom: 0.5rem; }
-td { padding: 0.5rem 0; border-bottom: 1px solid #f0f4f1; font-size: 0.92rem; vertical-align: top; }
-td:first-child { width: 50%; padding-right: 1rem; }
-td:nth-child(2) { width: 25%; color: #666; font-size: 0.88rem; }
-td:last-child { color: #555; font-size: 0.88rem; }
-tr:last-child td { border-bottom: none; }
-th { text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
-     text-transform: uppercase; color: #7aaa8a; padding: 0 0.5rem 0.6rem 0;
-     border-bottom: 1px solid #d8e8dc; }
+.course-box-header {
+  background: #edf5ef;
+  padding: 0.5rem 1rem;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: #1e5c30;
+  border-bottom: 1px solid #d8e8dc;
+}
+.course-box table { width: 100%; border-collapse: collapse; margin: 0; }
+.course-box td {
+  padding: 0.55rem 1rem; border-bottom: 1px solid #eef4f0;
+  font-size: 0.92rem; vertical-align: top;
+}
+.course-box td:first-child { width: 50%; }
+.course-box td:nth-child(2) { width: 25%; color: #666; font-size: 0.88rem; }
+.course-box td:last-child { color: #555; font-size: 0.88rem; }
+.course-box tr:last-child td { border-bottom: none; }
+.course-box tbody tr:nth-child(even) td { background: #f5faf6; }
+.course-box th {
+  text-align: left; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: #7aaa8a;
+  padding: 0.4rem 1rem 0.4rem; border-bottom: 1px solid #d8e8dc;
+  background: #fff;
+}
 
 .course-time { color: #888; font-size: 0.85rem; }
 
