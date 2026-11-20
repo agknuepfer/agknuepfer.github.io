@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,18 +153,39 @@ footer a { color: #aaa; }
   .sticky-nav-title { display: none; }
   .sticky-nav-links { gap: 1rem; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+[data-lang="de"] .lang-de { display: initial; }
+.lang-btn {
+  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
+  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  border-radius: 20px; padding: 3px 11px;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
+}
+.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
+.lang-btn .lb-active { color: #12371e; font-weight: 700; }
+.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
 
+<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
+  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
+</button>
+
 <div class="sticky-nav" aria-hidden="true">
   <span class="sticky-nav-title">Applied Analysis</span>
   <nav class="sticky-nav-links">
-    <a href="index.html">Overview</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html" class="sn-active">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html" class="sn-active"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </div>
 
@@ -179,13 +200,13 @@ footer a { color: #aaa; }
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
-  <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
+  <div class="banner-sub"><span class="lang-en">Institute for Mathematics · Heidelberg University</span><span class="lang-de">Mathematisches Institut · Universität Heidelberg</span></div>
   <nav class="banner-nav">
-    <a href="index.html">Overview</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html" class="active">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html" class="active"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </header>
 
@@ -193,20 +214,32 @@ footer a { color: #aaa; }
 
   <section>
     <p>
-      The Applied Analysis section offers courses in analysis and PDEs at all levels of the
+      <span class="lang-en">The Applied Analysis section offers courses in analysis and PDEs at all levels of the
       mathematics curriculum. The Bachelor lectures on
       <strong>Ordinary Differential Equations</strong>,
       <strong>Functional Analysis</strong>, and
       <strong>Partial Differential Equations</strong>
       form the foundation for the section's graduate courses and are strongly recommended
-      before attending Master-level offerings.
+      before attending Master-level offerings.</span>
+      <span class="lang-de">Die Sektion Angewandte Analysis bietet Lehrveranstaltungen in Analysis und PDEs auf allen
+      Stufen des Mathematikcurriculums an. Die Bachelorvorlesungen über
+      <strong>Gewöhnliche Differentialgleichungen</strong>,
+      <strong>Funktionalanalysis</strong> und
+      <strong>Partielle Differentialgleichungen</strong>
+      bilden die Grundlage für die Graduiertenkurse der Sektion und werden vor dem Besuch
+      von Masterangeboten dringend empfohlen.</span>
     </p>
     <p>
-      At the graduate level the section regularly offers, in most years, courses on
+      <span class="lang-en">At the graduate level the section regularly offers, in most years, courses on
       <strong>PDE in Data Science</strong>, <strong>Calculus of Variations</strong>,
       and <strong>PDE for Pattern Formation</strong>.
       In addition to formal lecture courses, the section runs research seminars
-      and an informal PhD discussion group open to students at all levels.
+      and an informal PhD discussion group open to students at all levels.</span>
+      <span class="lang-de">Auf Graduiertenebene bietet die Sektion in den meisten Jahren regelmäßig Kurse über
+      <strong>PDEs in der Datenwissenschaft</strong>, <strong>Variationsrechnung</strong> und
+      <strong>PDEs für Musterbildung</strong> an.
+      Neben formalen Lehrveranstaltungen führt die Sektion Forschungsseminare und eine informelle
+      Doktoranden-Diskussionsgruppe durch, die Studierenden aller Stufen offensteht.</span>
     </p>
   </section>
 
@@ -221,11 +254,15 @@ footer a { color: #aaa; }
           <p style="color:#aaa;font-style:italic;">Loading…</p>
         </div>
         <p class="note">
-          The PhD Discussion Group is open to Master's and Bachelor's students — contact any
+          <span class="lang-en">The PhD Discussion Group is open to Master's and Bachelor's students — contact any
           of the group leaders to participate.
           Course list is a planned selection; see the official
           <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>
-          for the binding schedule.
+          for the binding schedule.</span>
+          <span class="lang-de">Die Doktoranden-Diskussionsgruppe steht Master- und Bachelorstudierenden offen –
+          nehmen Sie Kontakt mit einem der Gruppenleiter auf.
+          Die Kursliste ist eine geplante Auswahl; die verbindliche Planung finden Sie in der offiziellen
+          <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.</span>
         </p>
       </div>
     </div>
@@ -248,11 +285,11 @@ footer a { color: #aaa; }
 </main>
 
 <footer>
-  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
+  <span><span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span><span class="lang-de">Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span></span>
   <span>
-    <a href="index.html">Overview</a> ·
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a> ·
     <a href="seminar.html">Oberseminar</a> ·
-    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank"><span class="lang-en">Institute</span><span class="lang-de">Institut</span> ↗</a>
   </span>
 </footer>
 
@@ -296,27 +333,36 @@ function esc(s) {
   return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+function getLang() { return document.documentElement.dataset.lang || 'en'; }
+
 const LEVEL_LABELS = {
-  bachelor: 'Bachelor Courses',
-  master:   'Master Courses',
-  seminar:  'Seminars'
+  en: { bachelor: 'Bachelor Courses', master: 'Master Courses', seminar: 'Seminars' },
+  de: { bachelor: 'Bachelorkurse',    master: 'Masterkurse',    seminar: 'Seminare'  }
 };
 const LEVEL_ORDER = ['bachelor', 'master', 'seminar'];
 
 function renderCourseGroup(rows) {
-  if (rows.length === 0) return '<p style="color:#aaa;font-style:italic;">No courses listed yet.</p>';
+  const lang = getLang();
+  if (rows.length === 0) return lang === 'de'
+    ? '<p style="color:#aaa;font-style:italic;">Noch keine Kurse eingetragen.</p>'
+    : '<p style="color:#aaa;font-style:italic;">No courses listed yet.</p>';
 
   // Group by level
   const groups = {};
   LEVEL_ORDER.forEach(l => { groups[l] = []; });
   rows.forEach(r => { if (groups[r.level]) groups[r.level].push(r); });
 
+  const labels = LEVEL_LABELS[lang];
+  const colCourse   = lang === 'de' ? 'Lehrveranstaltung' : 'Course';
+  const colTime     = lang === 'de' ? 'Zeit &amp; Raum'   : 'Time &amp; Room';
+  const colLecturer = lang === 'de' ? 'Dozent/in'         : 'Lecturer';
+
   let html = '';
   LEVEL_ORDER.forEach(level => {
     if (groups[level].length === 0) return;
     html += '<div class="course-box">';
-    html += '<div class="course-box-header">' + esc(LEVEL_LABELS[level]) + '</div>';
-    html += '<table><thead><tr><th>Course</th><th>Time &amp; Room</th><th>Lecturer</th></tr></thead><tbody>';
+    html += '<div class="course-box-header">' + esc(labels[level]) + '</div>';
+    html += '<table><thead><tr><th>' + colCourse + '</th><th>' + colTime + '</th><th>' + colLecturer + '</th></tr></thead><tbody>';
     groups[level].forEach(r => {
       const courseName = r.link
         ? '<a href="' + esc(r.link) + '">' + esc(r.course) + '</a>'
@@ -333,9 +379,16 @@ function renderCourseGroup(rows) {
   return html;
 }
 
+let _courseRows = null;
+
 function renderCourses(rows) {
-  document.getElementById('current-heading').textContent = 'Current Courses (' + CURRENT_SEMESTER_LABEL + ')';
-  document.getElementById('upcoming-heading').textContent = 'Upcoming Courses (' + UPCOMING_SEMESTER_LABEL + ')';
+  _courseRows = rows;
+  const lang = getLang();
+  const currentLabel  = lang === 'de' ? 'Aktuelle Kurse'    : 'Current Courses';
+  const upcomingLabel = lang === 'de' ? 'Kommende Kurse'    : 'Upcoming Courses';
+
+  document.getElementById('current-heading').textContent = currentLabel + ' (' + CURRENT_SEMESTER_LABEL + ')';
+  document.getElementById('upcoming-heading').textContent = upcomingLabel + ' (' + UPCOMING_SEMESTER_LABEL + ')';
 
   const current  = rows.filter(r => r.semester === 'current');
   const upcoming = rows.filter(r => r.semester === 'upcoming');
@@ -343,6 +396,10 @@ function renderCourses(rows) {
   document.getElementById('current-courses').innerHTML  = renderCourseGroup(current);
   document.getElementById('upcoming-courses').innerHTML = renderCourseGroup(upcoming);
 }
+
+document.addEventListener('langchange', function() {
+  if (_courseRows) renderCourses(_courseRows);
+});
 
 function toggleAccordion(id) {
   const el = document.getElementById(id);
@@ -353,10 +410,16 @@ fetch('data/courses.csv')
   .then(r => r.text())
   .then(text => renderCourses(parseCSV(text)))
   .catch(() => {
-    document.getElementById('current-heading').textContent  = 'Current Courses (' + CURRENT_SEMESTER_LABEL + ')';
-    document.getElementById('upcoming-heading').textContent = 'Upcoming Courses (' + UPCOMING_SEMESTER_LABEL + ')';
-    document.getElementById('current-courses').innerHTML  = '<p style="color:#aaa;font-style:italic;">Could not load course data.</p>';
-    document.getElementById('upcoming-courses').innerHTML = '<p style="color:#aaa;font-style:italic;">Could not load course data.</p>';
+    const lang = getLang();
+    const currentLabel  = lang === 'de' ? 'Aktuelle Kurse'  : 'Current Courses';
+    const upcomingLabel = lang === 'de' ? 'Kommende Kurse'  : 'Upcoming Courses';
+    const errMsg        = lang === 'de'
+      ? '<p style="color:#aaa;font-style:italic;">Kursdaten konnten nicht geladen werden.</p>'
+      : '<p style="color:#aaa;font-style:italic;">Could not load course data.</p>';
+    document.getElementById('current-heading').textContent  = currentLabel  + ' (' + CURRENT_SEMESTER_LABEL + ')';
+    document.getElementById('upcoming-heading').textContent = upcomingLabel + ' (' + UPCOMING_SEMESTER_LABEL + ')';
+    document.getElementById('current-courses').innerHTML  = errMsg;
+    document.getElementById('upcoming-courses').innerHTML = errMsg;
   });
 </script>
 
@@ -371,6 +434,27 @@ fetch('data/courses.csv')
     else sn.classList.remove('sn-visible');
   }
   window.addEventListener('scroll', tick, { passive: true });
+})();
+</script>
+
+<script>
+(function() {
+  var stored = localStorage.getItem('lang');
+  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
+  document.documentElement.setAttribute('data-lang', current);
+  function applyLang(l) {
+    current = l; localStorage.setItem('lang', l);
+    document.documentElement.setAttribute('data-lang', l);
+    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
+    if (en) en.classList.toggle('lb-active', l === 'en');
+    if (de) de.classList.toggle('lb-active', l === 'de');
+    document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang(current);
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
+  });
 })();
 </script>
 

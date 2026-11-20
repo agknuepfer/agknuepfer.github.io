@@ -68,6 +68,29 @@ section { margin-bottom: 3rem; }
 .contact-block dt:first-child { margin-top: 0; }
 .contact-block dd { font-size: 0.95rem; margin-bottom: 0; }
 
+/* ── BUILDING + MAP ── */
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.location-photo {
+  width: 100%; height: 300px; object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+.location-map {
+  width: 100%; height: 300px; border: 0; border-radius: 4px; display: block;
+}
+.location-caption {
+  font-size: 0.72rem; color: #aaa; margin-top: 0.4rem; text-align: center;
+}
+@media (max-width: 700px) {
+  .location-grid { grid-template-columns: 1fr; }
+  .location-photo, .location-map { height: 220px; }
+}
+
 /* ── GROUP LEADERS ── */
 .leaders-list { list-style: none; }
 .leaders-list li {
@@ -224,6 +247,27 @@ footer a { color: #aaa; }
           <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span>
         </dd>
       </dl>
+    </div>
+
+    <div class="location-grid">
+      <div>
+        <img class="location-photo"
+          src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_4_3_aspect_0375/public/2023-03/40a23815-85a1-4f66-bedf-ff1945c4c4d1_rw_1920.jpeg?h=4b5cf092&itok=S2yP9DlP"
+          alt="Mathematikon – Im Neuenheimer Feld 205">
+        <p class="location-caption">Mathematikon · Im Neuenheimer Feld 205 · © Institute for Mathematics, Heidelberg University</p>
+      </div>
+      <div>
+        <iframe class="location-map"
+          src="https://maps.google.com/maps?q=Im+Neuenheimer+Feld+205,+69120+Heidelberg&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Mathematikon location map"></iframe>
+        <p class="location-caption">
+          <a href="https://maps.google.com/maps?q=Im+Neuenheimer+Feld+205,+69120+Heidelberg" target="_blank">
+            <span class="lang-en">Open in Google Maps ↗</span>
+            <span class="lang-de">In Google Maps öffnen ↗</span>
+          </a>
+        </p>
+      </div>
     </div>
   </section>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +43,13 @@ section { margin-bottom: 3rem; }
   margin-bottom: 0.6rem;
 }
 
+/* ── TALK TABLE WRAPPER (matches .course-box border style) ── */
+.talk-table-wrap {
+  border: 1px solid #d8e8dc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
 .talk-table { width: 100%; border-collapse: collapse; }
 .talk-table th {
   text-align: left; font-size: 0.72rem; font-weight: 700;
@@ -131,18 +138,41 @@ footer a { color: #aaa; }
   .sticky-nav-title { display: none; }
   .sticky-nav-links { gap: 1rem; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+[data-lang="de"] .lang-de { display: initial; }
+.lang-btn {
+  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
+  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  border-radius: 20px; padding: 3px 11px;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Lato', sans-serif;
+  display: flex; align-items: center; gap: 0;
+  line-height: 1;
+}
+.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
+.lang-btn .lb-active { color: #12371e; font-weight: 700; }
+.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
 
+<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
+  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
+</button>
+
 <div class="sticky-nav" aria-hidden="true">
   <span class="sticky-nav-title">Applied Analysis</span>
   <nav class="sticky-nav-links">
-    <a href="index.html">Overview</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html" class="sn-active">Oberseminar</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </div>
 
@@ -157,13 +187,13 @@ footer a { color: #aaa; }
 
 <header class="banner">
   <div class="banner-name">Applied Analysis Oberseminar</div>
-  <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
+  <div class="banner-sub"><span class="lang-en">Institute for Mathematics · Heidelberg University</span><span class="lang-de">Institut für Mathematik · Universität Heidelberg</span></div>
   <nav class="banner-nav">
-    <a href="index.html">Overview</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html" class="active">Oberseminar</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </header>
 
@@ -171,47 +201,65 @@ footer a { color: #aaa; }
 
   <section>
     <p>
-      The Applied Analysis Oberseminar is a weekly research seminar of the
+      <span class="lang-en">The Applied Analysis Oberseminar is a weekly research seminar of the
       <a href="index.html">Applied Analysis section</a>
       at the Institute for Mathematics, Heidelberg University.
       It covers topics from partial differential equations, calculus of variations,
-      geometric analysis, and mathematical modelling.
+      geometric analysis, and mathematical modelling.</span>
+      <span class="lang-de">Das Oberseminar Angewandte Analysis ist ein wöchentliches Forschungsseminar der
+      <a href="index.html">Gruppe Angewandte Analysis</a>
+      am Institut für Mathematik der Universität Heidelberg.
+      Es behandelt Themen aus partiellen Differentialgleichungen, Variationsrechnung,
+      geometrischer Analysis und mathematischer Modellierung.</span>
     </p>
     <div class="info-box" style="margin-top:1.2rem;">
-      <strong>Time and place</strong> — Thursdays, 14:00–15:00, Mathematikon (INF 205), Room 5/104.<br>
+      <span class="lang-en"><strong>Time and place</strong> — Thursdays, 14:00–15:00, Mathematikon (INF 205), Room 5/104.<br>
       Announcements are distributed via the mailing list.
-      To be added, write to <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de"></span>.
+      To be added, write to <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de"></span>.</span>
+      <span class="lang-de"><strong>Zeit und Ort</strong> — Donnerstags, 14:00–15:00 Uhr, Mathematikon (INF 205), Raum 5/104.<br>
+      Ankündigungen werden über den Verteiler verschickt.
+      Für eine Aufnahme wenden Sie sich an <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de"></span>.</span>
     </div>
   </section>
 
   <section id="talks-section">
     <!-- Talks table is rendered by JavaScript from data/talks.csv -->
     <div class="sem-label" id="sem-heading">Loading…</div>
-    <table class="talk-table">
-      <thead>
-        <tr>
-          <th class="col-date">Date</th>
-          <th class="col-speaker">Speaker</th>
-          <th class="col-title">Title</th>
-        </tr>
-      </thead>
-      <tbody id="talks-body">
-        <tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">Loading…</td></tr>
-      </tbody>
-    </table>
+    <div class="talk-table-wrap">
+      <table class="talk-table">
+        <thead>
+          <tr>
+            <th class="col-date">Date</th>
+            <th class="col-speaker">Speaker</th>
+            <th class="col-title">Title</th>
+          </tr>
+        </thead>
+        <tbody id="talks-body">
+          <tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
     <p class="note" style="margin-top:1.5rem;">
-      Past talks: <a href="seminar-archive.html">Archive →</a>
+      <span class="lang-en">Past talks: <a href="seminar-archive.html">Archive →</a></span>
+      <span class="lang-de">Vergangene Vorträge: <a href="seminar-archive.html">Archiv →</a></span>
     </p>
   </section>
 
 </main>
 
 <footer>
-  <span>Applied Analysis Oberseminar · Institute for Mathematics · Heidelberg University</span>
   <span>
-    <a href="index.html">Overview</a> ·
-    <a href="research.html">Research</a> ·
-    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+    <span class="lang-en">Applied Analysis Oberseminar · Institute for Mathematics · Heidelberg University</span>
+    <span class="lang-de">Oberseminar Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span>
+  </span>
+  <span>
+    <span class="lang-en"><a href="index.html">Overview</a></span>
+    <span class="lang-de"><a href="index.html">Übersicht</a></span>
+    ·
+    <span class="lang-en"><a href="research.html">Research</a></span>
+    <span class="lang-de"><a href="research.html">Forschung</a></span>
+    ·
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institut ↗</a>
   </span>
 </footer>
 
@@ -255,13 +303,43 @@ function splitCSVLine(line) {
   return result;
 }
 
+function getLang() { return document.documentElement.dataset.lang || 'en'; }
+function esc(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+let _talkRows = null;
+
+function updateTableHeaders() {
+  const lang = getLang();
+  const thead = document.querySelector('.talk-table thead tr');
+  if (thead) {
+    thead.cells[0].textContent = lang === 'de' ? 'Datum' : 'Date';
+    thead.cells[1].textContent = lang === 'de' ? 'Vortragender' : 'Speaker';
+    thead.cells[2].textContent = lang === 'de' ? 'Titel' : 'Title';
+  }
+  const pnote = document.querySelector('.note a');
+  if (pnote) pnote.textContent = lang === 'de' ? 'Archiv →' : 'Archive →';
+  const pnoteEl = document.querySelector('.note');
+  if (pnoteEl) {
+    const a = pnoteEl.querySelector('a');
+    const href = a ? a.href : 'seminar-archive.html';
+    pnoteEl.innerHTML = (lang === 'de' ? 'Vergangene Vorträge: ' : 'Past talks: ')
+      + '<a href="seminar-archive.html">' + (lang === 'de' ? 'Archiv →' : 'Archive →') + '</a>';
+  }
+}
+
 function renderTalks(rows) {
+  _talkRows = rows;
+  const lang = getLang();
   const now = new Date(); now.setHours(0,0,0,0);
   const semTalks = rows.filter(r => r.semester === CURRENT_SEMESTER && r.speaker);
   document.getElementById('sem-heading').textContent = CURRENT_SEMESTER;
+  updateTableHeaders();
   const tbody = document.getElementById('talks-body');
   if (semTalks.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">No talks scheduled yet. Check back soon.</td></tr>';
+    const msg = lang === 'de' ? 'Noch keine Vorträge geplant. Bitte bald wieder nachschauen.' : 'No talks scheduled yet. Check back soon.';
+    tbody.innerHTML = '<tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">' + msg + '</td></tr>';
     return;
   }
   let html = '';
@@ -270,11 +348,11 @@ function renderTalks(rows) {
     const d = new Date(r.date);
     const past   = !isNaN(d.getTime()) && d < now;
     const isToday = !isNaN(d.getTime()) && d.getTime() === now.getTime();
-    // Insert divider between last past talk and first upcoming talk
     if (!dividerInserted && !past) {
       dividerInserted = true;
       if (i > 0) {
-        html += '<tr class="talk-divider"><td colspan="3"><div class="talk-divider-inner">Upcoming</div></td></tr>';
+        const divLabel = lang === 'de' ? 'Demnächst' : 'Upcoming';
+        html += '<tr class="talk-divider"><td colspan="3"><div class="talk-divider-inner">' + divLabel + '</div></td></tr>';
       }
     }
     const affil = r.affiliation ? '<span class="affil">' + esc(r.affiliation) + '</span>' : '';
@@ -288,18 +366,22 @@ function renderTalks(rows) {
   tbody.innerHTML = html;
 }
 
-function esc(s) {
-  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
 fetch('data/talks.csv')
   .then(r => r.text())
   .then(text => renderTalks(parseCSV(text)))
   .catch(() => {
     document.getElementById('sem-heading').textContent = CURRENT_SEMESTER;
+    updateTableHeaders();
+    const lang = getLang();
+    const msg = lang === 'de' ? 'Noch keine Vorträge geplant. Bitte bald wieder nachschauen.' : 'No talks scheduled yet. Check back soon.';
     document.getElementById('talks-body').innerHTML =
-      '<tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">No talks scheduled yet. Check back soon.</td></tr>';
+      '<tr><td colspan="3" style="color:#aaa;font-style:italic;padding:1rem 0;border-bottom:none;">' + msg + '</td></tr>';
   });
+
+document.addEventListener('langchange', function() {
+  updateTableHeaders();
+  if (_talkRows) renderTalks(_talkRows);
+});
 </script>
 
 
@@ -313,6 +395,27 @@ fetch('data/talks.csv')
     else sn.classList.remove('sn-visible');
   }
   window.addEventListener('scroll', tick, { passive: true });
+})();
+</script>
+
+<script>
+(function() {
+  var stored = localStorage.getItem('lang');
+  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
+  document.documentElement.setAttribute('data-lang', current);
+  function applyLang(l) {
+    current = l; localStorage.setItem('lang', l);
+    document.documentElement.setAttribute('data-lang', l);
+    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
+    if (en) en.classList.toggle('lb-active', l === 'en');
+    if (de) de.classList.toggle('lb-active', l === 'de');
+    document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang(current);
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
+  });
 })();
 </script>
 
