@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -137,18 +137,39 @@ footer a { color: #aaa; }
   .sticky-nav-title { display: none; }
   .sticky-nav-links { gap: 1rem; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+[data-lang="de"] .lang-de { display: initial; }
+.lang-btn {
+  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
+  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  border-radius: 20px; padding: 3px 11px;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
+}
+.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
+.lang-btn .lb-active { color: #12371e; font-weight: 700; }
+.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
 
+<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
+  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
+</button>
+
 <div class="sticky-nav" aria-hidden="true">
   <span class="sticky-nav-title">Applied Analysis</span>
   <nav class="sticky-nav-links">
-    <a href="index.html">Overview</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html" class="sn-active">Contact</a>
+    <a href="contact.html" class="sn-active"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </div>
 
@@ -163,40 +184,43 @@ footer a { color: #aaa; }
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
-  <div class="banner-sub">Section · Institute for Mathematics · Heidelberg University</div>
+  <div class="banner-sub">
+    <span class="lang-en">Section · Institute for Mathematics · Heidelberg University</span>
+    <span class="lang-de">Sektion · Mathematisches Institut · Universität Heidelberg</span>
+  </div>
   <nav class="banner-nav">
-    <a href="index.html">Overview</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html" class="active">Contact</a>
+    <a href="contact.html" class="active"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </header>
 
 <main class="content">
 
   <section>
-    <h2>Contact</h2>
+    <h2><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></h2>
     <div class="contact-cols">
       <dl class="contact-block">
-        <dt>Secretary Applied Analysis</dt>
+        <dt><span class="lang-en">Secretary Applied Analysis</span><span class="lang-de">Sekretariat Angewandte Analysis</span></dt>
         <dd>Alexa Petrascovic</dd>
 
-        <dt>Email</dt>
+        <dt><span class="lang-en">Email</span><span class="lang-de">E-Mail</span></dt>
         <dd><span class="obf-email" data-u="applied-analysis" data-d="math.uni-heidelberg.de">[enable JavaScript to view]</span></dd>
       </dl>
       <dl class="contact-block">
-        <dt>Address</dt>
+        <dt><span class="lang-en">Address</span><span class="lang-de">Adresse</span></dt>
         <dd>
           Institut für Mathematik<br>
           Im Neuenheimer Feld 205<br>
           69120 Heidelberg<br>
-          Germany
+          <span class="lang-en">Germany</span><span class="lang-de">Deutschland</span>
         </dd>
 
-        <dt>Oberseminar mailing list</dt>
+        <dt><span class="lang-en">Oberseminar mailing list</span><span class="lang-de">Oberseminar-Verteiler</span></dt>
         <dd>
-          Contact Filip Klawe:
+          <span class="lang-en">Contact Filip Klawe:</span><span class="lang-de">Kontakt Filip Klawe:</span>
           <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span>
         </dd>
       </dl>
@@ -206,11 +230,17 @@ footer a { color: #aaa; }
 </main>
 
 <footer>
-  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
   <span>
-    <a href="index.html">Overview</a> ·
-    <a href="seminar.html">Oberseminar</a> ·
-    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+    <span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span>
+    <span class="lang-de">Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span>
+  </span>
+  <span>
+    <span class="lang-en"><a href="index.html">Overview</a></span>
+    <span class="lang-de"><a href="index.html">Übersicht</a></span>
+    ·
+    <a href="seminar.html">Oberseminar</a>
+    ·
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institut ↗</a>
   </span>
 </footer>
 
@@ -232,6 +262,26 @@ document.querySelectorAll('.obf-email').forEach(el => {
     else sn.classList.remove('sn-visible');
   }
   window.addEventListener('scroll', tick, { passive: true });
+})();
+</script>
+
+<script>
+(function() {
+  var stored = localStorage.getItem('lang');
+  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
+  document.documentElement.setAttribute('data-lang', current);
+  function applyLang(l) {
+    current = l; localStorage.setItem('lang', l);
+    document.documentElement.setAttribute('data-lang', l);
+    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
+    if (en) en.classList.toggle('lb-active', l === 'en');
+    if (de) de.classList.toggle('lb-active', l === 'de');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang(current);
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
+  });
 })();
 </script>
 
