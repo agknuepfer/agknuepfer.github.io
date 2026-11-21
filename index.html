@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,13 +60,13 @@ section { margin-bottom: 3rem; }
   display: flex; gap: 1.5rem; align-items: flex-start;
 }
 .overview-pics {
-  flex-shrink: 0; width: 180px;
+  flex-shrink: 0; width: 155px;
 }
 .overview-pics figure {
   margin: 0 0 1rem;
 }
 .overview-pics img {
-  width: 100%; height: 130px;
+  width: 100%; height: 110px;
   object-fit: cover; display: block; border-radius: 2px;
 }
 .overview-pics figcaption {
@@ -102,13 +102,6 @@ section { margin-bottom: 3rem; }
   object-position: center top;
   margin-bottom: 0.7rem;
   border: 2px solid #d8e8dc;
-}
-.group-card-initials {
-  display: flex; align-items: center; justify-content: center;
-  background: #edf5ef;
-  font-family: 'Merriweather', Georgia, serif;
-  font-size: 1.1rem; font-weight: 300; color: #3a7a52;
-  letter-spacing: 0.04em;
 }
 .group-card-name {
   font-size: 0.88rem; font-weight: 700; color: #12371e;
@@ -203,40 +196,19 @@ footer a { color: #aaa; }
   .sticky-nav-title { display: none; }
   .sticky-nav-links { gap: 1rem; }
 }
-
-/* ── LANGUAGE TOGGLE ── */
-.lang-de { display: none; }
-[data-lang="de"] .lang-en { display: none; }
-[data-lang="de"] .lang-de { display: initial; }
-.lang-btn {
-  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
-  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
-  border-radius: 20px; padding: 3px 11px;
-  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  transition: box-shadow 0.15s, border-color 0.15s;
-  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
-}
-.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
-.lang-btn .lb-active { color: #12371e; font-weight: 700; }
-.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
-}
 </style>
 </head>
 <body>
 
-<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
-  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
-</button>
-
 <div class="sticky-nav" aria-hidden="true">
   <span class="sticky-nav-title">Applied Analysis</span>
   <nav class="sticky-nav-links">
-    <a href="index.html" class="sn-active"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
-    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
-    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="index.html" class="sn-active">Overview</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
+    <a href="contact.html">Contact</a>
+    <a href="links.html">Links</a>
   </nav>
 </div>
 
@@ -251,16 +223,14 @@ footer a { color: #aaa; }
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
-  <div class="banner-sub">
-    <span class="lang-en">Institute for Mathematics · Heidelberg University</span>
-    <span class="lang-de">Mathematisches Institut · Universität Heidelberg</span>
-  </div>
+  <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
   <nav class="banner-nav">
-    <a href="index.html" class="active"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
-    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
-    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="index.html" class="active">Overview</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
+    <a href="contact.html">Contact</a>
+    <a href="links.html">Links</a>
   </nav>
 </header>
 
@@ -269,93 +239,94 @@ footer a { color: #aaa; }
   <div class="overview-layout">
 
     <aside class="overview-pics">
-      <figure><img src="images/domain_branching.png" alt="Branching magnetic domains"></figure>
-      <figure><img src="images/6L.png" alt="Pattern formation in biological systems"></figure>
-      <figure><img src="images/2branch-2.png" alt="Two-branch interface"></figure>
+      <figure>
+        <img src="images/domain_branching.png" alt="Branching magnetic domains">
+        <figcaption>Branching domain pattern in a ferromagnetic slab</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ferromagnet_ellipsoid.png" alt="Ferromagnetic ellipsoid droplet">
+        <figcaption>Stripe domains in a ferromagnetic ellipsoid</figcaption>
+      </figure>
     </aside>
 
     <div class="overview-body">
 
       <p>
-        <span class="lang-en">The Applied Analysis section at the
+        The Applied Analysis section at the
         <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics, Heidelberg University</a>
         brings together research groups working on partial differential equations, calculus of variations,
         geometric analysis, and mathematical modelling in the natural sciences.
         We share interests in the rigorous analysis of complex systems, pattern formation, free boundary problems,
-        and the derivation of effective models across scales.</span>
-        <span class="lang-de">Die Gruppe Angewandte Analysis am
-        <a href="https://www.math.uni-heidelberg.de/" target="_blank">Mathematischen Institut der Universität Heidelberg</a>
-        vereint Forschungsgruppen, die an partiellen Differentialgleichungen, Variationsrechnung,
-        geometrischer Analysis und mathematischer Modellierung in den Naturwissenschaften arbeiten.
-        Gemeinsame Interessen bestehen in der rigorosen Analysis komplexer Systeme, Strukturbildung, freien Randwertproblemen
-        und der Herleitung effektiver Modelle über verschiedene Skalen hinweg.</span>
+        and the derivation of effective models across scales.
       </p>
 
       <div class="group-cards">
-        <a class="group-card" href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">
-          <img class="group-card-img" src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg" alt="Prof. Dr. Anna Marciniak-Czochra">
-          <div class="group-card-name">Prof. Dr. Anna Marciniak-Czochra</div>
-          <div class="group-card-desc"><span class="lang-en">Mathematical biology, pattern formation, stem cell dynamics</span><span class="lang-de">Mathematische Biologie, Strukturbildung, Stammzelldynamik</span></div>
-        </a>
         <a class="group-card" href="knuepfer.html">
-          <img class="group-card-img" src="Hans1.jpg" alt="Prof. Dr. Hans Knüpfer">
+          <img class="group-card-img" src="images/domain_branching.png" alt="Knüpfer group">
           <div class="group-card-name">Prof. Dr. Hans Knüpfer</div>
-          <div class="group-card-desc"><span class="lang-en">Calculus of variations, free boundaries, pattern formation</span><span class="lang-de">Variationsrechnung, freie Ränder, Strukturbildung</span></div>
+          <div class="group-card-desc">Calculus of variations, free boundaries, pattern formation</div>
         </a>
         <a class="group-card" href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">
-          <img class="group-card-img" src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2025-09/Tim_Laux_wide_0.jpg?h=a0ac5f3f&itok=3cQzkW3u" alt="Prof. Dr. Tim Laux">
+          <img class="group-card-img" src="images/ferromagnet_ellipsoid.png" alt="Laux group">
           <div class="group-card-name">Prof. Dr. Tim Laux</div>
-          <div class="group-card-desc"><span class="lang-en">Geometric flows, phase-field models, sharp interfaces</span><span class="lang-de">Geometrische Flüsse, Phasenfeldmodelle, scharfe Grenzflächen</span></div>
+          <div class="group-card-desc">Geometric flows, phase-field models, sharp interfaces</div>
         </a>
-        <a class="group-card" href="https://www.uni-heidelberg.de/math/fuhrmann/" target="_blank">
-          <img class="group-card-img" src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB" alt="Dr. Jan Fuhrmann">
+        <a class="group-card" href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">
+          <img class="group-card-img" src="images/phase_separation.png" alt="Marciniak-Czochra group">
+          <div class="group-card-name">Prof. Dr. Anna Marciniak-Czochra</div>
+          <div class="group-card-desc">Mathematical biology, pattern formation, stem cell dynamics</div>
+        </a>
+        <a class="group-card" href="research.html#fuhrmann">
+          <img class="group-card-img" src="images/hydra_pattern.png" alt="Fuhrmann group">
           <div class="group-card-name">Dr. Jan Fuhrmann</div>
-          <div class="group-card-desc"><span class="lang-en">Reaction-diffusion systems, free boundaries, cell motility</span><span class="lang-de">Reaktions-Diffusions-Systeme, freie Ränder, Zellmotilität</span></div>
+          <div class="group-card-desc">Reaction-diffusion systems, free boundaries, cell motility</div>
         </a>
       </div>
 
       <div class="idx-section-links">
         <div class="idx-row">
-          <span class="idx-label"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></span>
-          <span class="idx-links"><a href="teaching.html"><span class="lang-en">Courses, seminars, and PhD group</span><span class="lang-de">Kurse, Seminare und Promotionsgruppe</span></a></span>
+          <span class="idx-label">Teaching</span>
+          <span class="idx-links"><a href="teaching.html">Courses, seminars, and PhD group</a></span>
         </div>
         <div class="idx-row">
           <span class="idx-label">Oberseminar</span>
-          <span class="idx-links"><a href="seminar.html"><span class="lang-en">Applied Analysis Oberseminar</span><span class="lang-de">Oberseminar Angewandte Analysis</span></a></span>
+          <span class="idx-links"><a href="seminar.html">Applied Analysis Oberseminar</a></span>
         </div>
       </div>
 
     </div><!-- /overview-body -->
 
     <aside class="overview-pics">
-      <figure><img src="images/7L.png" alt="Stem cell dynamics and pattern formation"></figure>
-      <figure><img src="images/privorotskii.jpg" alt="Privorotskii construction"></figure>
-      <figure><img src="images/ferromagnet_ellipsoid.png" alt="Ferromagnetic ellipsoid"></figure>
+      <figure>
+        <img src="images/phase_separation.png" alt="Phase separation and mean curvature flow">
+        <figcaption>Phase separation driven by mean curvature flow</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hydra_pattern.png" alt="Pattern formation in Hydra">
+        <figcaption>Symmetry breaking in Hydra regeneration</figcaption>
+      </figure>
     </aside>
 
   </div><!-- /overview-layout -->
 
   <div class="idx-contact">
     <dl>
-      <dt><span class="lang-en">Secretary</span><span class="lang-de">Sekretariat</span></dt>
+      <dt>Secretary</dt>
       <dd>Alexa Petrascovic and Kirsten Wächter  — <span class="obf-email" data-u="applied-analysis" data-d="math.uni-heidelberg.de">[enable JavaScript to view]</span></dd>
-      <dt><span class="lang-en">Address</span><span class="lang-de">Adresse</span></dt>
-      <dd>Institut für Mathematik · Im Neuenheimer Feld 205 · 69120 Heidelberg · <span class="lang-en">Germany</span><span class="lang-de">Deutschland</span></dd>
-      <dt><span class="lang-en">Oberseminar administration and mailing list</span><span class="lang-de">Oberseminar-Administration und Verteiler</span></dt>
-      <dd><span class="lang-en">Contact Filip Klawe:</span><span class="lang-de">Kontakt Filip Klawe:</span> <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span></dd>
+      <dt>Address</dt>
+      <dd>Institut für Mathematik · Im Neuenheimer Feld 205 · 69120 Heidelberg · Germany</dd>
+      <dt>Oberseminar administration and mailing list</dt>
+      <dd>Contact Filip Klawe: <span class="obf-email" data-u="klawe" data-d="uni-heidelberg.de">[enable JavaScript to view]</span></dd>
     </dl>
   </div>
 
 </main>
 
 <footer>
-  <span>
-    <span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span>
-    <span class="lang-de">Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span>
-  </span>
+  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
   <span>
     <a href="seminar.html">Oberseminar</a> ·
-    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institut ↗</a>
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
   </span>
 </footer>
 
@@ -377,26 +348,6 @@ document.querySelectorAll('.obf-email').forEach(el => {
     else sn.classList.remove('sn-visible');
   }
   window.addEventListener('scroll', tick, { passive: true });
-})();
-</script>
-
-<script>
-(function() {
-  var stored = localStorage.getItem('lang');
-  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
-  document.documentElement.setAttribute('data-lang', current);
-  function applyLang(l) {
-    current = l; localStorage.setItem('lang', l);
-    document.documentElement.setAttribute('data-lang', l);
-    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
-    if (en) en.classList.toggle('lb-active', l === 'en');
-    if (de) de.classList.toggle('lb-active', l === 'de');
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    applyLang(current);
-    var btn = document.getElementById('lang-toggle');
-    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
-  });
 })();
 </script>
 

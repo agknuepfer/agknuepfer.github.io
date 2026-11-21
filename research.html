@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,20 +120,21 @@ a:hover { text-decoration: underline; }
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 2px 10px rgba(18,55,30,0.05);
   align-items: flex-start;
-  transition: box-shadow 0.18s ease, outline-color 0.18s ease, opacity 0.2s;
+  transition: box-shadow 0.18s ease, transform 0.18s ease, opacity 0.2s;
   outline: 2px solid transparent;
   outline-offset: -2px;
 }
 .group-row:last-child { margin-bottom: 0; }
 .group-row:hover {
-  outline-color: #c0dfc8;
-  box-shadow: 0 2px 12px rgba(18,55,30,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.09), 0 2px 20px rgba(18,55,30,0.08);
+  transform: translateY(-2px);
 }
 .group-row.card-focus {
   outline-color: #1e5c30;
-  box-shadow: 0 2px 14px rgba(18,55,30,0.12) !important;
+  box-shadow: 0 4px 20px rgba(18,55,30,0.18) !important;
+  transform: translateY(-2px);
 }
-.group-row.card-dim { opacity: 1; }
+.group-row.card-dim { opacity: 0.4 !important; }
 
 /* ── PORTRAIT ── */
 .group-person { flex-shrink: 0; width: 120px; text-align: center; }
@@ -203,74 +204,9 @@ footer a { color: #aaa; }
   .group-person { width: 90px; }
   .group-person .pi-photo { width: 90px; height: 90px; }
 }
-
-/* ── SLIM STICKY NAV ── */
-.sticky-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 44px;
-  background: rgba(255,255,255,0.97);
-  border-bottom: 1px solid #d8e8dc;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2.5rem;
-  transform: translateY(-100%);
-  transition: transform 0.18s ease;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
-}
-.sticky-nav.sn-visible { transform: translateY(0); }
-.sticky-nav-title {
-  font-family: 'Merriweather', Georgia, serif;
-  font-size: 0.82rem; font-weight: 300; color: #12371e;
-  letter-spacing: 0.02em; white-space: nowrap;
-}
-.sticky-nav-links { display: flex; gap: 1.5rem; }
-.sticky-nav-links a {
-  font-size: 0.72rem; color: #888; text-decoration: none;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  transition: color 0.12s;
-}
-.sticky-nav-links a:hover { color: #1e5c30; text-decoration: none; }
-.sticky-nav-links a.sn-active { color: #1e5c30; }
-@media (max-width: 640px) {
-  .sticky-nav { padding: 0 1.2rem; }
-  .sticky-nav-title { display: none; }
-  .sticky-nav-links { gap: 1rem; }
-}
-
-/* ── LANGUAGE TOGGLE ── */
-.lang-de { display: none; }
-[data-lang="de"] .lang-en { display: none; }
-[data-lang="de"] .lang-de { display: initial; }
-.lang-btn {
-  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
-  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
-  border-radius: 20px; padding: 3px 11px;
-  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  transition: box-shadow 0.15s, border-color 0.15s;
-  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
-}
-.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
-.lang-btn .lb-active { color: #12371e; font-weight: 700; }
-.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
-
-<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
-  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
-</button>
-
-<div class="sticky-nav" aria-hidden="true">
-  <span class="sticky-nav-title">Applied Analysis</span>
-  <nav class="sticky-nav-links">
-    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
-    <a href="research.html" class="sn-active"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
-    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
-    <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
-  </nav>
-</div>
-
 
 <nav class="parent-nav">
   <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
@@ -284,12 +220,14 @@ footer a { color: #aaa; }
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
-  <div class="banner-sub"><span class="lang-en">Institute for Mathematics · Heidelberg University</span><span class="lang-de">Mathematisches Institut · Universität Heidelberg</span></div>
+  <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
   <nav class="banner-nav">
-    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
-    <a href="research.html" class="active"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
-    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="index.html">Overview</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="teaching.html">Teaching</a>
     <a href="seminar.html">Oberseminar</a>
+    <a href="contact.html">Contact</a>
+    <a href="links.html">Links</a>
   </nav>
 </header>
 
@@ -297,27 +235,19 @@ footer a { color: #aaa; }
 
   <div class="intro">
     <p>
-      <span class="lang-en">The research groups of the Applied Analysis section share a common scientific foundation rooted in
+      The research groups of the Applied Analysis section share a common scientific foundation rooted in
       partial differential equations and variational methods, with a strong interest in applications
       from the natural and biomedical sciences. Mathematical tools from functional analysis and measure
       theory play a central role across all groups. A unifying theme is the mathematical understanding
       of multiscale phenomena — the connection between detailed models and their effective description
       at larger scales — encompassing rigorous analysis of emergence, pattern formation, and collective
-      behaviour.</span>
-      <span class="lang-de">Die Forschungsgruppen der Sektion Angewandte Analysis teilen eine gemeinsame wissenschaftliche
-      Grundlage, die in partiellen Differentialgleichungen und Variationsmethoden verwurzelt ist, mit
-      einem starken Interesse an Anwendungen aus den Natur- und Biowissenschaften. Mathematische
-      Werkzeuge der Funktionalanalysis und Maßtheorie spielen in allen Gruppen eine zentrale Rolle.
-      Ein verbindendes Thema ist das mathematische Verständnis von Mehrskalen-Phänomenen — der
-      Zusammenhang zwischen detaillierten Modellen und ihrer effektiven Beschreibung auf größeren
-      Skalen — einschließlich der rigorosen Analyse von Emergenz, Musterbildung und kollektivem
-      Verhalten.</span>
+      behaviour.
     </p>
   </div>
 
   <!-- ── WORD CLOUD ── -->
   <div class="cloud-container">
-    <div class="cloud-heading"><span class="lang-en">Research themes across the section</span><span class="lang-de">Forschungsthemen der Sektion</span></div>
+    <div class="cloud-heading">Research themes across the section</div>
     <div class="word-cloud" id="wordCloud">
 
       <!-- xl: 3 groups -->
@@ -343,77 +273,28 @@ footer a { color: #aaa; }
       <span class="cw cw-sm" data-topic="phase-field">Ginzburg-Landau Theory</span>
 
     </div>
-    <p class="cloud-hint"><span class="lang-en">Word size reflects how many groups share the theme — hover to see which</span><span class="lang-de">Wortgröße zeigt, wie viele Gruppen das Thema teilen — bewegen Sie die Maus zum Erkunden</span></p>
+    <p class="cloud-hint">Word size reflects how many groups share the theme — hover to see which</p>
   </div>
 
   <!-- ── CARDS ── -->
   <div class="groups-tray">
 
-    <!-- Marciniak-Czochra -->
-    <div id="marciniak-czochra" class="group-row">
-      <div class="group-person">
-        <img class="pi-photo"
-             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
-             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a6a,#3a6a4a)'"
-             alt="Prof. Dr. Anna Marciniak-Czochra">
-        <div class="pi-name"><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Prof. Dr. Anna Marciniak-Czochra</a></div>
-      </div>
-      <div class="group-info">
-        <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank"><span class="lang-en">Applied Analysis and Modelling in Biosciences ↗</span><span class="lang-de">Angewandte Analysis und Modellierung in den Biowissenschaften ↗</span></a></h3>
-        <p>
-          <span class="lang-en">Research combines rigorous mathematical analysis with biological and medical
-          applications, developing and studying models for self-organisation, pattern formation,
-          and structure formation in living systems. Topics range from reaction–diffusion–ODE
-          systems describing stem cell dynamics and tissue growth to problems in developmental
-          biology. The group maintains strong interdisciplinary connections to experimental
-          biology and medicine.</span>
-          <span class="lang-de">Die Forschung verbindet rigorose mathematische Analysis mit biologischen und medizinischen
-          Anwendungen, indem Modelle für Selbstorganisation, Musterbildung und Strukturbildung in
-          lebenden Systemen entwickelt und untersucht werden. Die Themen reichen von
-          Reaktions-Diffusions-ODE-Systemen zur Beschreibung von Stammzelldynamik und
-          Gewebewachstum bis hin zu Problemen der Entwicklungsbiologie. Die Gruppe pflegt enge
-          interdisziplinäre Verbindungen zur Experimentalbiologie und Medizin.</span>
-        </p>
-        <div class="group-tags">
-          <span class="chip" data-topic="pattern">Pattern formation</span>
-          <span class="chip" data-topic="math-bio">Mathematical biology</span>
-          <span class="chip" data-topic="react-diff">Reaction-diffusion</span>
-          <span class="chip" data-topic="math-bio">Stem cell dynamics</span>
-        </div>
-      </div>
-      <div class="group-rhs">
-        <figure>
-          <img src="images/9.png" alt="Pattern formation in biological systems">
-          <figcaption>Musterbildung in biologischen Systemen</figcaption>
-        </figure>
-      </div>
-    </div>
-
     <!-- Knüpfer -->
     <div id="knuepfer" class="group-row">
       <div class="group-person">
         <img class="pi-photo" src="Hans1.jpg"
-             style="object-position: center center;"
              onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a4a3a,#4a7a5a)'"
              alt="Prof. Dr. Hans Knüpfer">
-        <div class="pi-name"><a href="knuepfer.html">Prof. Dr. Hans Knüpfer</a></div>
+        <div class="pi-name">Prof. Dr. Hans Knüpfer</div>
       </div>
       <div class="group-info">
-        <h3><a href="knuepfer.html"><span class="lang-en">Calculus of Variations and PDEs</span><span class="lang-de">Variationsrechnung und PDEs</span></a></h3>
-        <p>
-          <span class="lang-en">Research focuses on variational problems and partial differential equations motivated
-          by questions in materials science and fluid dynamics. Topics include the analysis of
-          pattern formation, nonlocal interaction energies, free boundary problems, and the
-          derivation of effective continuum models from microscopic descriptions. A recurring
-          theme is the competition between local and nonlocal energy contributions that drives
-          pattern formation across scales.</span>
-          <span class="lang-de">Die Forschung konzentriert sich auf Variationsprobleme und partielle Differentialgleichungen,
-          motiviert durch Fragen der Materialwissenschaften und Fluiddynamik. Themen umfassen die
-          Analyse von Musterbildung, nichtlokalen Wechselwirkungsenergien, Freie-Rand-Problemen und
-          die Herleitung effektiver Kontinuumsmodelle aus mikroskopischen Beschreibungen. Ein
-          wiederkehrendes Thema ist das Zusammenspiel lokaler und nichtlokaler Energiebeiträge,
-          das Musterbildung über verschiedene Skalen hinweg treibt.</span>
-        </p>
+        <h3><a href="knuepfer.html">Calculus of Variations and PDEs</a></h3>
+        <p>Research focuses on variational problems and partial differential equations motivated
+        by questions in materials science and fluid dynamics. Topics include the analysis of
+        pattern formation, nonlocal interaction energies, free boundary problems, and the
+        derivation of effective continuum models from microscopic descriptions. A recurring
+        theme is the competition between local and nonlocal energy contributions that drives
+        pattern formation across scales.</p>
         <div class="group-tags">
           <span class="chip" data-topic="calc-var">Calculus of variations</span>
           <span class="chip" data-topic="phase-field">Phase-field models</span>
@@ -436,23 +317,15 @@ footer a { color: #aaa; }
              src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2025-09/Tim_Laux_wide_0.jpg?h=a0ac5f3f&itok=3cQzkW3u"
              onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a5a,#3a5a8a)'"
              alt="Prof. Dr. Tim Laux">
-        <div class="pi-name"><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Prof. Dr. Tim Laux</a></div>
+        <div class="pi-name">Prof. Dr. Tim Laux</div>
       </div>
       <div class="group-info">
-        <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank"><span class="lang-en">Applied Geometric Analysis ↗</span><span class="lang-de">Angewandte Geometrische Analysis ↗</span></a></h3>
-        <p>
-          <span class="lang-en">The group studies geometric evolution equations and their connections to variational
-          calculus and mathematical physics. Central themes include mean curvature flow and its
-          sharp-interface limits, phase-field approximations for interfacial dynamics, and
-          applications in materials science and data science. A key focus is the development
-          of rigorous convergence theories bridging diffuse and sharp interface models.</span>
-          <span class="lang-de">Die Gruppe untersucht geometrische Evolutionsgleichungen und deren Verbindungen zur
-          Variationsrechnung und mathematischen Physik. Zentrale Themen sind der mittlere
-          Krümmungsfluss und seine Scharfe-Interface-Grenzwerte, Phasenfeldnäherungen für
-          Grenzflächendynamik sowie Anwendungen in der Materialwissenschaft und Datenwissenschaft.
-          Ein Schwerpunkt liegt auf der Entwicklung rigoroser Konvergenztheorien, die diffuse
-          und scharfe Grenzflächenmodelle verbinden.</span>
-        </p>
+        <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Applied Geometric Analysis ↗</a></h3>
+        <p>The group studies geometric evolution equations and their connections to variational
+        calculus and mathematical physics. Central themes include mean curvature flow and its
+        sharp-interface limits, phase-field approximations for interfacial dynamics, and
+        applications in materials science and data science. A key focus is the development
+        of rigorous convergence theories bridging diffuse and sharp interface models.</p>
         <div class="group-tags">
           <span class="chip" data-topic="calc-var">Calculus of variations</span>
           <span class="chip" data-topic="phase-field">Phase-field models</span>
@@ -468,6 +341,38 @@ footer a { color: #aaa; }
       </div>
     </div>
 
+    <!-- Marciniak-Czochra -->
+    <div id="marciniak-czochra" class="group-row">
+      <div class="group-person">
+        <img class="pi-photo"
+             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
+             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a6a,#3a6a4a)'"
+             alt="Prof. Dr. Anna Marciniak-Czochra">
+        <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
+      </div>
+      <div class="group-info">
+        <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
+        <p>Research combines rigorous mathematical analysis with biological and medical
+        applications, developing and studying models for self-organisation, pattern formation,
+        and structure formation in living systems. Topics range from reaction–diffusion–ODE
+        systems describing stem cell dynamics and tissue growth to problems in developmental
+        biology. The group maintains strong interdisciplinary connections to experimental
+        biology and medicine.</p>
+        <div class="group-tags">
+          <span class="chip" data-topic="pattern">Pattern formation</span>
+          <span class="chip" data-topic="math-bio">Mathematical biology</span>
+          <span class="chip" data-topic="react-diff">Reaction-diffusion</span>
+          <span class="chip" data-topic="math-bio">Stem cell dynamics</span>
+        </div>
+      </div>
+      <div class="group-rhs">
+        <figure>
+          <img src="images/phase_separation.png" alt="Phase separation and pattern formation">
+          <figcaption>Cahn-Hilliard phase-field simulation — spinodal decomposition and pattern formation</figcaption>
+        </figure>
+      </div>
+    </div>
+
     <!-- Fuhrmann -->
     <div id="fuhrmann" class="group-row">
       <div class="group-person">
@@ -475,21 +380,14 @@ footer a { color: #aaa; }
              src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB"
              onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#3a4a2a,#4a6a3a)'"
              alt="Dr. Jan Fuhrmann">
-        <div class="pi-name"><a href="https://www.uni-heidelberg.de/math/fuhrmann/" target="_blank" style="color:inherit;text-decoration:none;">Dr. Jan Fuhrmann</a></div>
+        <div class="pi-name">Dr. Jan Fuhrmann</div>
       </div>
       <div class="group-info">
-        <h3><span class="lang-en">Analysis and PDEs</span><span class="lang-de">Analysis und PDEs</span></h3>
-        <p>
-          <span class="lang-en">Research interests span partial differential equations and their applications
-          in the natural sciences, with particular interest in hyperbolic conservation laws,
-          free boundary problems, and the mathematical modelling of biological and physical
-          systems — including cell motility, fluid dynamics, and epidemic spread.</span>
-          <span class="lang-de">Die Forschungsinteressen umfassen partielle Differentialgleichungen und ihre Anwendungen
-          in den Naturwissenschaften, mit besonderem Schwerpunkt auf hyperbolischen
-          Erhaltungsgleichungen, Freie-Rand-Problemen und der mathematischen Modellierung
-          biologischer und physikalischer Systeme — einschließlich Zellmotilität,
-          Fluiddynamik und Epidemieausbreitung.</span>
-        </p>
+        <h3>Analysis and PDEs</h3>
+        <p>Research interests span partial differential equations and their applications
+        in the natural sciences, with particular interest in hyperbolic conservation laws,
+        free boundary problems, and the mathematical modelling of biological and physical
+        systems — including cell motility, fluid dynamics, and epidemic spread.</p>
         <div class="group-tags">
           <span class="chip" data-topic="free-boundary">Free boundaries</span>
           <span class="chip" data-topic="math-bio">Mathematical biology</span>
@@ -509,11 +407,11 @@ footer a { color: #aaa; }
 </main>
 
 <footer>
-  <span><span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span><span class="lang-de">Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span></span>
+  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
   <span>
-    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a> ·
+    <a href="index.html">Overview</a> ·
     <a href="seminar.html">Oberseminar</a> ·
-    <a href="https://www.math.uni-heidelberg.de/" target="_blank"><span class="lang-en">Institute</span><span class="lang-de">Institut</span> ↗</a>
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
   </span>
 </footer>
 
@@ -576,40 +474,6 @@ document.querySelectorAll('.chip[data-topic]').forEach(chip => {
   });
   chip.addEventListener('mouseleave', resetAll);
 });
-</script>
-
-
-<script>
-(function() {
-  var sn = document.querySelector('.sticky-nav');
-  var banner = document.querySelector('.banner');
-  if (!sn || !banner) return;
-  function tick() {
-    if (window.scrollY > banner.offsetHeight - 44) sn.classList.add('sn-visible');
-    else sn.classList.remove('sn-visible');
-  }
-  window.addEventListener('scroll', tick, { passive: true });
-})();
-</script>
-
-<script>
-(function() {
-  var stored = localStorage.getItem('lang');
-  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
-  document.documentElement.setAttribute('data-lang', current);
-  function applyLang(l) {
-    current = l; localStorage.setItem('lang', l);
-    document.documentElement.setAttribute('data-lang', l);
-    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
-    if (en) en.classList.toggle('lb-active', l === 'en');
-    if (de) de.classList.toggle('lb-active', l === 'de');
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    applyLang(current);
-    var btn = document.getElementById('lang-toggle');
-    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
-  });
-})();
 </script>
 
 </body>
