@@ -358,10 +358,10 @@ function esc(s) {
 function getLang() { return document.documentElement.dataset.lang || 'en'; }
 
 const LEVEL_LABELS = {
-  en: { bachelor: 'Bachelor Courses', master: 'Master Courses', seminar: 'Seminars' },
-  de: { bachelor: 'Bachelorkurse',    master: 'Masterkurse',    seminar: 'Seminare'  }
+  en: { bachelor: 'Bachelor Courses', master: 'Master Courses', seminar: 'Seminars', weitere: 'Further Courses' },
+  de: { bachelor: 'Bachelorkurse',    master: 'Masterkurse',    seminar: 'Seminare',  weitere: 'Weitere Lehrveranstaltungen' }
 };
-const LEVEL_ORDER = ['bachelor', 'master', 'seminar'];
+const LEVEL_ORDER = ['bachelor', 'master', 'seminar', 'weitere'];
 
 function renderCourseGroup(rows) {
   const lang = getLang();
@@ -386,9 +386,10 @@ function renderCourseGroup(rows) {
     html += '<div class="course-box-header">' + esc(labels[level]) + '</div>';
     html += '<table><thead><tr><th>' + colCourse + '</th><th>' + colTime + '</th><th>' + colLecturer + '</th></tr></thead><tbody>';
     groups[level].forEach(r => {
+      const displayName = (getLang() === 'de' && r.course_de) ? r.course_de : r.course;
       const courseName = r.link
-        ? '<a href="' + esc(r.link) + '">' + esc(r.course) + '</a>'
-        : esc(r.course);
+        ? '<a href="' + esc(r.link) + '">' + esc(displayName) + '</a>'
+        : esc(displayName);
       const timeRoom = r.time && r.time !== '—' && r.room && r.room !== '—'
         ? esc(r.time) + ' · ' + esc(r.room)
         : (r.time && r.time !== '—' ? esc(r.time) : (r.room && r.room !== '—' ? esc(r.room) : '—'));
