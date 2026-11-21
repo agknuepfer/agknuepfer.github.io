@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Overview · Applied Analysis · Heidelberg University</title>
+<style>
+/* ── Design system (matches site) ───────────────────────── */
+:root{
+  --green:#2d6a4f;--green-mid:#52b788;--green-pale:#d8f3dc;
+  --text:#1a1a1a;--muted:#666;--border:#ddd;--bg:#fff;
+  --banner-h:120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Lato','Helvetica Neue',sans-serif;color:var(--text);background:var(--bg);font-size:16px;line-height:1.6}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── Sticky nav ──────────────────────────────────────────── */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--green);display:flex;align-items:center;gap:1.5rem;padding:0 2rem;height:44px}
+.site-nav a{color:#fff;font-size:.85rem;font-weight:600;letter-spacing:.03em;opacity:.85;transition:opacity .15s}
+.site-nav a:hover,.site-nav a.active{opacity:1;text-decoration:none}
+.nav-spacer{flex:1}
+.lang-btn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:.78rem;padding:3px 10px;border-radius:12px;cursor:pointer;font-family:inherit;letter-spacing:.04em}
+.lang-btn:hover{background:rgba(255,255,255,.28)}
+
+/* ── Banner ──────────────────────────────────────────────── */
+.banner{height:var(--banner-h);background:url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center/cover no-repeat;position:relative;display:flex;align-items:flex-end;padding:.8rem 2rem}
+.banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(45,106,79,.4),rgba(45,106,79,.7))}
+.banner-text{position:relative;z-index:1;color:#fff}
+.banner-title{font-size:1.6rem;font-weight:700;line-height:1.2}
+.banner-sub{font-size:.82rem;opacity:.85;margin-top:.15rem}
+.banner-nav{position:relative;z-index:1;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);border-radius:8px;display:flex;gap:1.2rem;padding:.35rem 1rem;margin-left:auto;margin-right:0}
+.banner-nav a{color:rgba(255,255,255,.8);font-size:.8rem;font-weight:600;letter-spacing:.03em}
+.banner-nav a.active{color:#fff}
+.banner-nav a:hover{color:#fff;text-decoration:none}
+
+/* ── Main layout ─────────────────────────────────────────── */
+.page-wrap{max-width:1020px;margin:0 auto;padding:2.5rem 2rem 4rem}
+h1{font-size:1.5rem;font-weight:700;color:var(--green);margin-bottom:.5rem}
+.subtitle{font-size:.95rem;color:var(--muted);margin-bottom:2rem}
+.intro-text{font-size:.95rem;line-height:1.7;margin-bottom:2.5rem;max-width:680px}
+.intro-text a{color:var(--green);font-weight:600}
+
+/* ── Diagram container ───────────────────────────────────── */
+.diagram-wrap{background:#fcfcfc;border:1px solid var(--border);border-radius:10px;padding:1.8rem 1.5rem 1.2rem;margin-bottom:2rem;overflow-x:auto}
+.diagram-wrap svg{display:block;max-width:100%;height:auto}
+
+/* ── Legend ──────────────────────────────────────────────── */
+.legend{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;font-size:.82rem}
+.legend-item{display:flex;align-items:center;gap:.45rem}
+.legend-box{width:18px;height:14px;border-radius:3px;border:1.5px solid}
+.leg-0{background:#f5f5f5;border-color:#ccc}
+.leg-1{background:#edf5ef;border-color:#b8d8c0}
+.leg-2{background:#d8eede;border-color:#8aba9a}
+.leg-3{background:#c0e0cc;border-color:#5a9e6e}
+.leg-sp{background:#fff8e8;border-color:#d4a850;border-style:dashed}
+
+/* ── Arrow legend ────────────────────────────────────────── */
+.arr-legend{display:flex;flex-wrap:wrap;gap:1.2rem;font-size:.82rem;margin-bottom:2rem}
+.arr-item{display:flex;align-items:center;gap:.45rem}
+.arr-line{width:30px;height:2px;border-radius:1px}
+.arr-gray{background:#999}
+.arr-pde{background:#5a9e6e}
+.arr-fa{background:#2a6a4f}
+.arr-l23{background:#2d6a4f}
+
+/* ── Course descriptions ─────────────────────────────────── */
+.course-levels{display:grid;gap:1.5rem;margin-top:2rem}
+.level-card{border-left:3px solid var(--green);padding:.8rem 1rem;background:#f9fdf9;border-radius:0 6px 6px 0}
+.level-card h3{font-size:.95rem;font-weight:700;color:var(--green);margin-bottom:.35rem}
+.level-card p{font-size:.88rem;color:var(--muted);line-height:1.6}
+
+/* ── Lang display ────────────────────────────────────────── */
+[data-lang="de"] .lang-en{display:none}
+[data-lang="en"] .lang-de{display:none}
+
+/* ── Footer ──────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border);padding:1.2rem 2rem;font-size:.78rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--green)}
+.footer-spacer{flex:1}
+</style>
+</head>
+<body>
+
+<!-- ── Sticky nav ───────────────────────────────────────── -->
+<nav class="site-nav">
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+  <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+  <a href="teaching.html" class="active"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+  <a href="seminar.html">Oberseminar</a>
+  <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
+  <div class="nav-spacer"></div>
+  <button class="lang-btn" onclick="toggleLang()">DE / EN</button>
+</nav>
+
+<!-- ── Banner ───────────────────────────────────────────── -->
+<div class="banner">
+  <div class="banner-text">
+    <div class="banner-title">Applied Analysis</div>
+    <div class="banner-sub"><span class="lang-en">Institute for Mathematics · Heidelberg University</span><span class="lang-de">Mathematisches Institut · Universität Heidelberg</span></div>
+  </div>
+  <nav class="banner-nav">
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html" class="active"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="seminar.html">Oberseminar</a>
+    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
+  </nav>
+</div>
+
+<!-- ── Main ─────────────────────────────────────────────── -->
+<main class="page-wrap">
+
+  <h1><span class="lang-en">Course Overview</span><span class="lang-de">Kursübersicht</span></h1>
+
+  <p class="intro-text">
+    <span class="lang-en">The Applied Analysis section offers courses at all levels of the mathematics curriculum.
+    The diagram below shows the typical prerequisite structure — arrows indicate that the lower course is
+    recommended preparation for the upper course. For the binding course schedule see the official
+    <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.
+    Current courses are listed on the <a href="teaching.html">Teaching page</a>.</span>
+    <span class="lang-de">Die Sektion Angewandte Analysis bietet Lehrveranstaltungen auf allen Stufen des Mathematikcurriculums an.
+    Das Diagramm zeigt die typische Voraussetzungsstruktur — Pfeile zeigen an, dass der untere Kurs als
+    Vorbereitung für den oberen empfohlen wird. Für die verbindliche Lehrplanung siehe die offizielle
+    <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.
+    Aktuelle Kurse sind auf der <a href="teaching.html">Lehrseite</a> aufgelistet.</span>
+  </p>
+
+  <!-- ── Prerequisite diagram ────────────────────────────── -->
+  <div class="diagram-wrap">
+<svg viewBox="0 0 820 510" xmlns="http://www.w3.org/2000/svg" aria-label="Course prerequisite diagram" role="img" style="width:100%;min-width:560px">
+<defs>
+  <!-- Arrowhead markers -->
+  <marker id="ah-gray" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="#999"/>
+  </marker>
+  <marker id="ah-pde" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="#5a9e6e"/>
+  </marker>
+  <marker id="ah-fa" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="#2a6a4f"/>
+  </marker>
+  <marker id="ah-dark" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="#2d6a4f"/>
+  </marker>
+</defs>
+
+<!-- ════ Level background bands ════════════════════════════ -->
+<rect x="0" y="434" width="640" height="52" rx="6" fill="#f8f8f8" opacity="0.6"/>
+<rect x="0" y="304" width="640" height="52" rx="6" fill="#f0f8f2" opacity="0.5"/>
+<rect x="0" y="174" width="640" height="52" rx="6" fill="#e4f4ea" opacity="0.5"/>
+<rect x="0" y="49"  width="640" height="52" rx="6" fill="#d6eede" opacity="0.5"/>
+
+<!-- Level labels -->
+<text x="655" y="466" font-size="10" fill="#aaa" font-family="Lato,sans-serif">
+  <tspan class="lang-en">Foundation</tspan><tspan class="lang-de">Grundlage</tspan></text>
+<text x="655" y="336" font-size="10" fill="#aaa" font-family="Lato,sans-serif">
+  <tspan class="lang-en">Core</tspan><tspan class="lang-de">Kernkurse</tspan></text>
+<text x="655" y="206" font-size="10" fill="#aaa" font-family="Lato,sans-serif">
+  <tspan class="lang-en">Advanced</tspan><tspan class="lang-de">Fortgeschritten</tspan></text>
+<text x="655" y="80"  font-size="10" fill="#aaa" font-family="Lato,sans-serif">
+  <tspan class="lang-en">Specialization</tspan><tspan class="lang-de">Spezialisierung</tspan></text>
+
+<!-- ════ FAN ARROWS ════════════════════════════════════════ -->
+
+<!-- Fan 1: Foundation group → Level 1 (gray) -->
+<!-- Source: center of Ana/LA group at x≈256, y=440 (top of Level 0) -->
+<!-- Targets: GDG cx=107, PDE cx=307, FA cx=490 at y=342 -->
+<path d="M 256,440 C 256,392 107,370 107,342" stroke="#999" stroke-width="1.5" fill="none" marker-end="url(#ah-gray)" opacity="0.7"/>
+<path d="M 256,440 C 256,392 307,370 307,342" stroke="#999" stroke-width="1.5" fill="none" marker-end="url(#ah-gray)" opacity="0.7"/>
+<path d="M 256,440 C 256,392 490,370 490,342" stroke="#999" stroke-width="1.5" fill="none" marker-end="url(#ah-gray)" opacity="0.7"/>
+<!-- Horizontal gathering bar on Foundation nodes -->
+<line x1="54"  y1="440" x2="538" y2="440" stroke="#bbb" stroke-width="1.5" stroke-dasharray="2,3" opacity="0.7"/>
+
+<!-- Fan 2: ODE → PDE & Pattern Formation (gray) -->
+<path d="M 107,310 C 107,255 110,235 110,212" stroke="#999" stroke-width="1.5" fill="none" marker-end="url(#ah-gray)" opacity="0.8"/>
+
+<!-- Fan 3: PDE → Level 2 (medium green) -->
+<path d="M 307,310 C 307,262 110,240 110,212" stroke="#5a9e6e" stroke-width="1.5" fill="none" marker-end="url(#ah-pde)" opacity="0.65"/>
+<path d="M 307,310 C 307,262 310,240 310,212" stroke="#5a9e6e" stroke-width="1.5" fill="none" marker-end="url(#ah-pde)" opacity="0.65"/>
+<path d="M 307,310 C 307,262 475,240 475,212" stroke="#5a9e6e" stroke-width="1.5" fill="none" marker-end="url(#ah-pde)" opacity="0.65"/>
+
+<!-- Fan 4: FA → Level 2 (dark green) -->
+<path d="M 490,310 C 490,262 110,240 110,212" stroke="#2a6a4f" stroke-width="1.5" fill="none" marker-end="url(#ah-fa)" opacity="0.65"/>
+<path d="M 490,310 C 490,262 310,240 310,212" stroke="#2a6a4f" stroke-width="1.5" fill="none" marker-end="url(#ah-fa)" opacity="0.65"/>
+<path d="M 490,310 C 490,262 475,240 475,212" stroke="#2a6a4f" stroke-width="1.5" fill="none" marker-end="url(#ah-fa)" opacity="0.65"/>
+
+<!-- Level 2 → Level 3 arrows (dark) -->
+<!-- PDE&PF → PDE measures, Nonlinear PDE -->
+<path d="M 110,180 C 110,133  95,112  95,87" stroke="#2d6a4f" stroke-width="1.5" fill="none" marker-end="url(#ah-dark)" opacity="0.75"/>
+<path d="M 110,180 C 110,133 250,112 250,87" stroke="#2d6a4f" stroke-width="1.5" fill="none" marker-end="url(#ah-dark)" opacity="0.75"/>
+<!-- CoV → CoV II, MCF -->
+<path d="M 310,180 C 310,133 402,112 402,87" stroke="#2d6a4f" stroke-width="1.5" fill="none" marker-end="url(#ah-dark)" opacity="0.75"/>
+<path d="M 310,180 C 310,133 562,112 562,87" stroke="#2d6a4f" stroke-width="1.5" fill="none" marker-end="url(#ah-dark)" opacity="0.75"/>
+
+<!-- ════ NODES ══════════════════════════════════════════════ -->
+
+<!-- ── Level 0: Foundation ─────────────────────────────── -->
+<!-- Analysis I -->
+<rect x="15" y="440" width="78" height="32" rx="5" fill="#f5f5f5" stroke="#ccc" stroke-width="1.2"/>
+<text text-anchor="middle" x="54" y="460" font-size="11" font-family="Lato,sans-serif" fill="#444">Analysis I</text>
+<!-- Analysis II -->
+<rect x="103" y="440" width="82" height="32" rx="5" fill="#f5f5f5" stroke="#ccc" stroke-width="1.2"/>
+<text text-anchor="middle" x="144" y="460" font-size="11" font-family="Lato,sans-serif" fill="#444">Analysis II</text>
+<!-- Analysis III -->
+<rect x="195" y="440" width="82" height="32" rx="5" fill="#f5f5f5" stroke="#ccc" stroke-width="1.2"/>
+<text text-anchor="middle" x="236" y="460" font-size="11" font-family="Lato,sans-serif" fill="#444">Analysis III</text>
+<!-- Lin. Alg. I -->
+<rect x="325" y="440" width="82" height="32" rx="5" fill="#f5f5f5" stroke="#ccc" stroke-width="1.2"/>
+<text text-anchor="middle" x="366" y="460" font-size="11" font-family="Lato,sans-serif" fill="#444">
+  <tspan class="lang-en">Lin. Alg. I</tspan><tspan class="lang-de">Lin. Alg. I</tspan></text>
+<!-- Lin. Alg. II -->
+<rect x="417" y="440" width="82" height="32" rx="5" fill="#f5f5f5" stroke="#ccc" stroke-width="1.2"/>
+<text text-anchor="middle" x="458" y="460" font-size="11" font-family="Lato,sans-serif" fill="#444">
+  <tspan class="lang-en">Lin. Alg. II</tspan><tspan class="lang-de">Lin. Alg. II</tspan></text>
+
+<!-- ── Level 1: Core courses ───────────────────────────── -->
+<!-- ODE / GDG -->
+<rect x="50" y="310" width="115" height="32" rx="5" fill="#edf5ef" stroke="#b8d8c0" stroke-width="1.2"/>
+<text text-anchor="middle" x="107" y="326" font-size="11" font-family="Lato,sans-serif" fill="#2d6a4f" font-weight="600">
+  <tspan class="lang-en">ODE</tspan><tspan class="lang-de">GDG</tspan></text>
+<text text-anchor="middle" x="107" y="338" font-size="9" font-family="Lato,sans-serif" fill="#5a9e6e">
+  <tspan class="lang-en">Ord. Diff. Equations</tspan><tspan class="lang-de">Gew. Differentialgl.</tspan></text>
+<!-- PDE -->
+<rect x="250" y="310" width="115" height="32" rx="5" fill="#edf5ef" stroke="#b8d8c0" stroke-width="1.2"/>
+<text text-anchor="middle" x="307" y="326" font-size="11" font-family="Lato,sans-serif" fill="#2d6a4f" font-weight="600">PDE</text>
+<text text-anchor="middle" x="307" y="338" font-size="9" font-family="Lato,sans-serif" fill="#5a9e6e">
+  <tspan class="lang-en">Part. Diff. Equations</tspan><tspan class="lang-de">Part. Differentialgl.</tspan></text>
+<!-- FA -->
+<rect x="420" y="310" width="140" height="32" rx="5" fill="#edf5ef" stroke="#b8d8c0" stroke-width="1.2"/>
+<text text-anchor="middle" x="490" y="326" font-size="11" font-family="Lato,sans-serif" fill="#2d6a4f" font-weight="600">FA</text>
+<text text-anchor="middle" x="490" y="338" font-size="9" font-family="Lato,sans-serif" fill="#5a9e6e">
+  <tspan class="lang-en">Functional Analysis</tspan><tspan class="lang-de">Funktionalanalysis</tspan></text>
+
+<!-- ── Level 2: Advanced courses ──────────────────────── -->
+<!-- PDE & Pattern Formation -->
+<rect x="15" y="180" width="190" height="32" rx="5" fill="#d8eede" stroke="#8aba9a" stroke-width="1.2"/>
+<text text-anchor="middle" x="110" y="196" font-size="10" font-family="Lato,sans-serif" fill="#1a4a2e" font-weight="600">
+  <tspan class="lang-en">PDE &amp; Pattern Formation</tspan><tspan class="lang-de">PDEs &amp; Musterbildung</tspan></text>
+<text text-anchor="middle" x="110" y="207" font-size="9" font-family="Lato,sans-serif" fill="#5a9e6e">
+  <tspan class="lang-en">Master · Marciniak-Czochra</tspan><tspan class="lang-de">Master · Marciniak-Czochra</tspan></text>
+<!-- Calculus of Variations -->
+<rect x="225" y="180" width="170" height="32" rx="5" fill="#d8eede" stroke="#8aba9a" stroke-width="1.2"/>
+<text text-anchor="middle" x="310" y="196" font-size="10" font-family="Lato,sans-serif" fill="#1a4a2e" font-weight="600">
+  <tspan class="lang-en">Calculus of Variations</tspan><tspan class="lang-de">Variationsrechnung</tspan></text>
+<text text-anchor="middle" x="310" y="207" font-size="9" font-family="Lato,sans-serif" fill="#5a9e6e">
+  <tspan class="lang-en">Master · Laux / Knüpfer</tspan><tspan class="lang-de">Master · Laux / Knüpfer</tspan></text>
+<!-- MMLDS -->
+<rect x="415" y="180" width="120" height="32" rx="5" fill="#d8eede" stroke="#8aba9a" stroke-width="1.2"/>
+<text text-anchor="middle" x="475" y="196" font-size="10" font-family="Lato,sans-serif" fill="#1a4a2e" font-weight="600">MMLDS</text>
+<text text-anchor="middle" x="475" y="207" font-size="9" font-family="Lato,sans-serif" fill="#5a9e6e">
+  <tspan class="lang-en">Master</tspan><tspan class="lang-de">Master</tspan></text>
+
+<!-- ── Level 3: Specialization ────────────────────────── -->
+<!-- PDE on Measure Spaces -->
+<rect x="15" y="55" width="155" height="32" rx="5" fill="#c0e0cc" stroke="#5a9e6e" stroke-width="1.2"/>
+<text text-anchor="middle" x="92" y="71" font-size="10" font-family="Lato,sans-serif" fill="#1a4a2e" font-weight="600">
+  <tspan class="lang-en">PDE on Measure Spaces</tspan><tspan class="lang-de">PDE auf Maßräumen</tspan></text>
+<text text-anchor="middle" x="92" y="82" font-size="9" font-family="Lato,sans-serif" fill="#2d6a4f">
+  <tspan class="lang-en">Advanced · Knüpfer</tspan><tspan class="lang-de">Vertiefung · Knüpfer</tspan></text>
+<!-- Nonlinear PDE -->
+<rect x="180" y="55" width="135" height="32" rx="5" fill="#c0e0cc" stroke="#5a9e6e" stroke-width="1.2"/>
+<text text-anchor="middle" x="247" y="71" font-size="10" font-family="Lato,sans-serif" fill="#1a4a2e" font-weight="600">
+  <tspan class="lang-en">Nonlinear PDE</tspan><tspan class="lang-de">Nichtlineare PDE</tspan></text>
+<text text-anchor="middle" x="247" y="82" font-size="9" font-family="Lato,sans-serif" fill="#2d6a4f">
+  <tspan class="lang-en">Advanced</tspan><tspan class="lang-de">Vertiefung</tspan></text>
+<!-- Calculus of Variations II -->
+<rect x="325" y="55" width="158" height="32" rx="5" fill="#c0e0cc" stroke="#5a9e6e" stroke-width="1.2"/>
+<text text-anchor="middle" x="404" y="71" font-size="10" font-family="Lato,sans-serif" fill="#1a4a2e" font-weight="600">
+  <tspan class="lang-en">Calculus of Variations II</tspan><tspan class="lang-de">Variationsrechnung II</tspan></text>
+<text text-anchor="middle" x="404" y="82" font-size="9" font-family="Lato,sans-serif" fill="#2d6a4f">
+  <tspan class="lang-en">Advanced · Laux</tspan><tspan class="lang-de">Vertiefung · Laux</tspan></text>
+<!-- Mean Curvature Flow -->
+<rect x="493" y="55" width="145" height="32" rx="5" fill="#c0e0cc" stroke="#5a9e6e" stroke-width="1.2"/>
+<text text-anchor="middle" x="565" y="71" font-size="10" font-family="Lato,sans-serif" fill="#1a4a2e" font-weight="600">
+  <tspan class="lang-en">Mean Curvature Flow</tspan><tspan class="lang-de">Mittlere Krümmungsfl.</tspan></text>
+<text text-anchor="middle" x="565" y="82" font-size="9" font-family="Lato,sans-serif" fill="#2d6a4f">
+  <tspan class="lang-en">Advanced · Laux</tspan><tspan class="lang-de">Vertiefung · Laux</tspan></text>
+
+<!-- ── Special Topics box (spanning levels 2–3) ────────── -->
+<rect x="650" y="55" width="148" height="157" rx="7" fill="#fff8e8" stroke="#d4a850" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text text-anchor="middle" x="724" y="120" font-size="11" font-family="Lato,sans-serif" fill="#8a6a20" font-weight="700">
+  <tspan class="lang-en">Special Topics</tspan><tspan class="lang-de">Spezialkurse</tspan></text>
+<text text-anchor="middle" x="724" y="136" font-size="10" font-family="Lato,sans-serif" fill="#a08030">
+  <tspan class="lang-en">Reading courses &amp;</tspan><tspan class="lang-de">Lektürekurse &amp;</tspan></text>
+<text text-anchor="middle" x="724" y="149" font-size="10" font-family="Lato,sans-serif" fill="#a08030">
+  <tspan class="lang-en">advanced seminars</tspan><tspan class="lang-de">Fortgeschrittenenseminare</tspan></text>
+<text text-anchor="middle" x="724" y="165" font-size="9" font-family="Lato,sans-serif" fill="#c0a060">
+  <tspan class="lang-en">By arrangement</tspan><tspan class="lang-de">Nach Vereinbarung</tspan></text>
+<!-- Dashed connection from Level 3 / Level 2 to Special Topics -->
+<line x1="638" y1="130" x2="650" y2="130" stroke="#d4a850" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+
+<!-- ════ TITLE / SUBTITLE ══════════════════════════════════ -->
+<text x="410" y="498" text-anchor="middle" font-size="10" font-family="Lato,sans-serif" fill="#bbb">
+  <tspan class="lang-en">▲ arrows indicate prerequisites · course structure may vary by semester</tspan>
+  <tspan class="lang-de">▲ Pfeile zeigen Voraussetzungen · Kursstruktur kann semesterweise variieren</tspan>
+</text>
+
+</svg>
+  </div><!-- /diagram-wrap -->
+
+  <!-- ── Legend ─────────────────────────────────────────── -->
+  <div class="legend">
+    <span class="legend-item"><span class="legend-box leg-0"></span>
+      <span class="lang-en">Foundation (Bachelor)</span><span class="lang-de">Grundlage (Bachelor)</span></span>
+    <span class="legend-item"><span class="legend-box leg-1"></span>
+      <span class="lang-en">Core courses (Bachelor)</span><span class="lang-de">Kernkurse (Bachelor)</span></span>
+    <span class="legend-item"><span class="legend-box leg-2"></span>
+      <span class="lang-en">Advanced (Master)</span><span class="lang-de">Fortgeschritten (Master)</span></span>
+    <span class="legend-item"><span class="legend-box leg-3"></span>
+      <span class="lang-en">Specialization (Master/PhD)</span><span class="lang-de">Spezialisierung (Master/PhD)</span></span>
+    <span class="legend-item"><span class="legend-box leg-sp"></span>
+      <span class="lang-en">Special Topics (by arrangement)</span><span class="lang-de">Spezialkurse (nach Vereinbarung)</span></span>
+  </div>
+
+  <div class="arr-legend">
+    <span class="arr-item"><span class="arr-line arr-gray"></span>
+      <span class="lang-en">Prerequisites from Foundation / ODE</span><span class="lang-de">Voraussetzungen aus Grundlage / GDG</span></span>
+    <span class="arr-item"><span class="arr-line arr-pde"></span>
+      PDE</span>
+    <span class="arr-item"><span class="arr-line arr-fa"></span>
+      FA</span>
+    <span class="arr-item"><span class="arr-line arr-l23"></span>
+      <span class="lang-en">Advanced → Specialization</span><span class="lang-de">Fortgeschritten → Spezialisierung</span></span>
+  </div>
+
+  <!-- ── Course descriptions ──────────────────────────── -->
+  <h2 style="font-size:1.1rem;color:var(--green);margin-bottom:1rem">
+    <span class="lang-en">Course Descriptions</span><span class="lang-de">Kursbeschreibungen</span></h2>
+
+  <div class="course-levels">
+    <div class="level-card">
+      <h3><span class="lang-en">Foundation: Analysis &amp; Linear Algebra</span><span class="lang-de">Grundlage: Analysis &amp; Lineare Algebra</span></h3>
+      <p><span class="lang-en">The standard introductory courses Analysis I–III and Linear Algebra I–II form the common mathematical foundation.
+      They are prerequisites for all higher-level courses in the section.</span>
+      <span class="lang-de">Die Standardkurse Analysis I–III und Lineare Algebra I–II bilden die gemeinsame mathematische Grundlage.
+      Sie sind Voraussetzung für alle höherstufigen Kurse der Sektion.</span></p>
+    </div>
+    <div class="level-card">
+      <h3><span class="lang-en">Core Bachelor Courses: ODE · PDE · Functional Analysis</span><span class="lang-de">Bachelor-Kernkurse: GDG · PDE · Funktionalanalysis</span></h3>
+      <p><span class="lang-en"><strong>Ordinary Differential Equations (ODE)</strong> provides foundational tools for the study of dynamical systems and
+      is a prerequisite for PDE &amp; Pattern Formation.
+      <strong>Partial Differential Equations (PDE)</strong> and <strong>Functional Analysis (FA)</strong> together form the backbone
+      of all graduate-level courses in the section and are strongly recommended before attending Master offerings.</span>
+      <span class="lang-de"><strong>Gewöhnliche Differentialgleichungen (GDG)</strong> vermittelt grundlegende Werkzeuge zur Analyse dynamischer Systeme
+      und ist Voraussetzung für PDEs &amp; Musterbildung.
+      <strong>Partielle Differentialgleichungen (PDE)</strong> und <strong>Funktionalanalysis (FA)</strong> bilden zusammen
+      das Fundament aller Masterkurse der Sektion und werden vor dem Besuch von Masterangeboten dringend empfohlen.</span></p>
+    </div>
+    <div class="level-card">
+      <h3><span class="lang-en">Advanced Master Courses</span><span class="lang-de">Fortgeschrittene Masterkurse</span></h3>
+      <p><span class="lang-en"><strong>PDE &amp; Pattern Formation</strong> studies reaction-diffusion systems and their application to biological pattern formation.
+      <strong>Calculus of Variations</strong> covers minimisation problems in function spaces with applications to elasticity and interface problems.
+      <strong>MMLDS</strong> (Mathematics, Machine Learning &amp; Data Science) connects analytical methods with modern data-driven approaches.</span>
+      <span class="lang-de"><strong>PDEs &amp; Musterbildung</strong> behandelt Reaktions-Diffusions-Systeme und deren Anwendung auf biologische Musterbildung.
+      <strong>Variationsrechnung</strong> behandelt Minimierungsprobleme in Funktionenräumen mit Anwendungen in Elastizitätstheorie und Grenzflächenproblemen.
+      <strong>MMLDS</strong> (Mathematik, Maschinelles Lernen &amp; Datenwissenschaft) verbindet analytische Methoden mit modernen datengetriebenen Ansätzen.</span></p>
+    </div>
+    <div class="level-card">
+      <h3><span class="lang-en">Specialization / PhD Level</span><span class="lang-de">Spezialisierung / Promotionsniveau</span></h3>
+      <p><span class="lang-en"><strong>PDE on Measure Spaces</strong> and <strong>Nonlinear PDE</strong> go beyond the standard Master PDE course
+      to cover measure-valued solutions, free boundaries, and nonlinear phenomena.
+      <strong>Calculus of Variations II</strong> and <strong>Mean Curvature Flow</strong> are research-level courses
+      on geometric variational problems and curvature-driven interface evolution.</span>
+      <span class="lang-de"><strong>PDE auf Maßräumen</strong> und <strong>Nichtlineare PDE</strong> gehen über den Standard-Masterkurs hinaus
+      und behandeln maßwertige Lösungen, freie Ränder und nichtlineare Phänomene.
+      <strong>Variationsrechnung II</strong> und <strong>Mittlere Krümmungsfluss</strong> sind Kurse auf Forschungsniveau
+      zu geometrischen Variationsproblemen und krümmungsgetriebener Grenzflächenevolution.</span></p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── Footer ───────────────────────────────────────────── -->
+<footer>
+  <span><span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span><span class="lang-de">Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span></span>
+  <div class="footer-spacer"></div>
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a> ·
+  <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a> ·
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank"><span class="lang-en">Institute</span><span class="lang-de">Institut</span> ↗</a>
+</footer>
+
+<script>
+// ── Language toggle ──────────────────────────────────────
+function getLang(){ return document.documentElement.getAttribute('data-lang') || 'en'; }
+function setLang(l){
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l;
+  try{ localStorage.setItem('ag-lang', l); }catch(e){}
+  document.dispatchEvent(new CustomEvent('langchange', {detail:{lang:l}}));
+}
+function toggleLang(){ setLang(getLang()==='en'?'de':'en'); }
+(function(){
+  try{
+    const saved = localStorage.getItem('ag-lang');
+    if(saved==='de'||saved==='en') setLang(saved);
+  }catch(e){}
+  document.addEventListener('langchange', function(e){
+    const l = e.detail.lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el){
+      if(el !== document.documentElement) el.setAttribute('data-lang', l);
+    });
+  });
+})();
+</script>
+</body>
+</html>
