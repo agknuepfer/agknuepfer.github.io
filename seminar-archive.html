@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,6 +55,16 @@ section { margin-bottom: 3rem; }
 .talk-table td.col-title { font-size: 0.9rem; }
 .talk-table .affil { display: block; font-size: 0.78rem; color: #aaa; margin-top: 0.1rem; }
 
+.talk-table-wrap {
+  border: 1px solid #d8e8dc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.talk-table-wrap .talk-table th { padding-left: 0.65rem; }
+.talk-table-wrap .talk-table td { padding-left: 0.65rem; }
+.talk-table tbody tr:nth-child(even) td { background: #f5faf6; }
+
 /* ── PARENT / BREADCRUMB NAV ── */
 .parent-nav {
   background: #f8fbf8; border-bottom: 1px solid #d8e8dc;
@@ -77,27 +87,49 @@ footer a { color: #aaa; }
   .talk-table td.col-date { min-width: 80px; }
   .talk-table td.col-speaker { width: auto; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+[data-lang="de"] .lang-de { display: initial; }
+.lang-btn {
+  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
+  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  border-radius: 20px; padding: 3px 11px;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
+}
+.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
+.lang-btn .lb-active { color: #12371e; font-weight: 700; }
+.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
 
+<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
+  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
+</button>
+
+
 <nav class="parent-nav">
-  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
+  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank"><span class="lang-en">Faculty of Mathematics</span><span class="lang-de">Fakultät für Mathematik</span></a>
   <span class="pn-sep">›</span>
-  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics</a>
+  <a href="https://www.math.uni-heidelberg.de/" target="_blank"><span class="lang-en">Institute for Mathematics</span><span class="lang-de">Mathematisches Institut</span></a>
   <span class="pn-sep">›</span>
-  <a href="seminar.html">Applied Analysis Oberseminar</a>
+  <a href="seminar.html"><span class="lang-en">Applied Analysis Oberseminar</span><span class="lang-de">Oberseminar Angewandte Analysis</span></a>
   <span class="pn-sep">›</span>
-  <span class="pn-current">Archive</span>
+  <span class="pn-current"><span class="lang-en">Archive</span><span class="lang-de">Archiv</span></span>
 </nav>
 
 <header class="banner">
-  <div class="banner-name">Oberseminar Archive</div>
-  <div class="banner-sub">Applied Analysis · Institute for Mathematics · Heidelberg University</div>
+  <div class="banner-name"><span class="lang-en">Oberseminar Archive</span><span class="lang-de">Oberseminar-Archiv</span></div>
+  <div class="banner-sub"><span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span><span class="lang-de">Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span></div>
   <nav class="banner-nav">
-    <a href="index.html">Overview</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html">Oberseminar</a>
   </nav>
 </header>
@@ -105,22 +137,22 @@ footer a { color: #aaa; }
 <main class="content">
 
   <section>
-    <p class="note">← <a href="seminar.html">Current semester</a></p>
+    <p class="note">← <a href="seminar.html"><span class="lang-en">Current semester</span><span class="lang-de">Aktuelles Semester</span></a></p>
 
     <div id="archive-container">
       <!-- Rendered by JavaScript from data/talks.csv -->
-      <p style="color:#aaa;font-style:italic;">Loading…</p>
+      <p style="color:#aaa;font-style:italic;"><span class="lang-en">Loading…</span><span class="lang-de">Wird geladen…</span></p>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <span>Applied Analysis Oberseminar · Institute for Mathematics · Heidelberg University</span>
+  <span><span class="lang-en">Applied Analysis Oberseminar · Institute for Mathematics · Heidelberg University</span><span class="lang-de">Oberseminar Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span></span>
   <span>
-    <a href="seminar.html">Current semester</a> ·
-    <a href="index.html">Overview</a> ·
-    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
+    <a href="seminar.html"><span class="lang-en">Current semester</span><span class="lang-de">Aktuelles Semester</span></a> ·
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a> ·
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank"><span class="lang-en">Institute</span><span class="lang-de">Institut</span> ↗</a>
   </span>
 </footer>
 
@@ -164,6 +196,9 @@ function esc(s) {
 }
 
 function renderArchive(rows) {
+  const lang = document.documentElement.getAttribute('data-lang') || 'en';
+  const de = lang === 'de';
+
   // Group by semester, skip current semester, skip rows with no speaker
   const groups = {};
   const order = [];
@@ -175,14 +210,14 @@ function renderArchive(rows) {
 
   const container = document.getElementById('archive-container');
   if (order.length === 0) {
-    container.innerHTML = '<p style="color:#aaa;font-style:italic;">No archived talks yet.</p>';
+    container.innerHTML = '<p style="color:#aaa;font-style:italic;">' + (de ? 'Noch keine archivierten Vorträge.' : 'No archived talks yet.') + '</p>';
     return;
   }
 
-  let html = '<table class="talk-table"><thead><tr>'
-    + '<th class="col-date">Date</th>'
-    + '<th class="col-speaker">Speaker</th>'
-    + '<th class="col-title">Title</th>'
+  let html = '<div class="talk-table-wrap"><table class="talk-table"><thead><tr>'
+    + '<th class="col-date">' + (de ? 'Datum' : 'Date') + '</th>'
+    + '<th class="col-speaker">' + (de ? 'Vortragende·r' : 'Speaker') + '</th>'
+    + '<th class="col-title">' + (de ? 'Titel' : 'Title') + '</th>'
     + '</tr></thead><tbody>';
 
   order.forEach((sem, idx) => {
@@ -198,17 +233,47 @@ function renderArchive(rows) {
     });
   });
 
-  html += '</tbody></table>';
+  html += '</tbody></table></div>';
   container.innerHTML = html;
 }
 
+let cachedRows = null;
 fetch('data/talks.csv')
   .then(r => r.text())
-  .then(text => renderArchive(parseCSV(text)))
+  .then(text => { cachedRows = parseCSV(text); renderArchive(cachedRows); })
   .catch(() => {
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const msg = lang === 'de' ? 'Vortragsdaten konnten nicht geladen werden.' : 'Could not load talk data.';
     document.getElementById('archive-container').innerHTML =
-      '<p style="color:#aaa;font-style:italic;">Could not load talk data.</p>';
+      '<p style="color:#aaa;font-style:italic;">' + msg + '</p>';
   });
+
+// Re-render table headers when language changes
+document.addEventListener('langchange', function() {
+  if (cachedRows) renderArchive(cachedRows);
+});
+</script>
+
+
+<script>
+(function() {
+  var stored = localStorage.getItem('lang');
+  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
+  document.documentElement.setAttribute('data-lang', current);
+  function applyLang(l) {
+    current = l; localStorage.setItem('lang', l);
+    document.documentElement.setAttribute('data-lang', l);
+    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
+    if (en) en.classList.toggle('lb-active', l === 'en');
+    if (de) de.classList.toggle('lb-active', l === 'de');
+    document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang(current);
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
+  });
+})();
 </script>
 
 </body>
