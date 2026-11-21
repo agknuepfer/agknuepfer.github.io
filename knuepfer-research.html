@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,81 +81,109 @@ footer a { color: #aaa; }
   .sticky-nav-title { display: none; }
   .sticky-nav-links { gap: 1rem; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+[data-lang="de"] .lang-de { display: initial; }
+.lang-btn {
+  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
+  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  border-radius: 20px; padding: 3px 11px;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
+}
+.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
+.lang-btn .lb-active { color: #12371e; font-weight: 700; }
+.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
 
+<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
+  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
+</button>
+
+
 <div class="sticky-nav" aria-hidden="true">
   <span class="sticky-nav-title">Hans Knüpfer</span>
   <nav class="sticky-nav-links">
-    <a href="knuepfer.html">About</a>
-    <a href="knuepfer-research.html" class="sn-active">Research</a>
-    <a href="knuepfer-publications.html">Publications</a>
-    <a href="knuepfer-teaching.html">Teaching</a>
-    <a href="knuepfer-contact.html">Contact</a>
+    <a href="knuepfer.html"><span class="lang-en">About</span><span class="lang-de">Über mich</span></a>
+    <a href="knuepfer-research.html" class="sn-active"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="knuepfer-publications.html"><span class="lang-en">Publications</span><span class="lang-de">Publikationen</span></a>
+    <a href="knuepfer-teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="knuepfer-contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </div>
 
 
 <header class="banner">
   <div class="banner-name">Hans Knüpfer</div>
-  <div class="banner-sub">Professor of Mathematics · Heidelberg University</div>
+  <div class="banner-sub"><span class="lang-en">Professor of Mathematics · Heidelberg University</span><span class="lang-de">Professor für Mathematik · Universität Heidelberg</span></div>
   <nav class="banner-nav">
-    <a href="knuepfer.html">About</a>
-    <a href="knuepfer-research.html" class="active">Research</a>
-    <a href="knuepfer-publications.html">Publications</a>
-    <a href="knuepfer-teaching.html">Teaching</a>
-    <a href="knuepfer-contact.html">Contact</a>
+    <a href="knuepfer.html"><span class="lang-en">About</span><span class="lang-de">Über mich</span></a>
+    <a href="knuepfer-research.html" class="active"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="knuepfer-publications.html"><span class="lang-en">Publications</span><span class="lang-de">Publikationen</span></a>
+    <a href="knuepfer-teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="knuepfer-contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
     <a href="seminar.html">Oberseminar ↗</a>
     <a href="index.html">Applied Analysis ↗</a>
   </nav>
 </header>
 
 <main class="content">
-  <h2>Research</h2>
+  <h2><span class="lang-en">Research</span><span class="lang-de">Forschung</span></h2>
 
   <div class="intro">
     <p>
-      My research lies at the interface of the calculus of variations and partial differential equations.
+      <span class="lang-en">My research lies at the interface of the calculus of variations and partial differential equations.
       I study variational problems arising in materials science and mathematical physics,
-      with a focus on the asymptotic and scaling behaviour of energy minimisers.
+      with a focus on the asymptotic and scaling behaviour of energy minimisers.</span>
+      <span class="lang-de">Meine Forschung liegt an der Schnittstelle von Variationsrechnung und partiellen Differentialgleichungen.
+      Ich untersuche Variationsprobleme aus der Materialwissenschaft und mathematischen Physik,
+      mit Schwerpunkt auf dem asymptotischen und Skalierungsverhalten von Energieminimierern.</span>
     </p>
   </div>
 
   <div class="topic-grid">
     <div class="topic">
-      <h3>Calculus of Variations</h3>
-      <p>Existence, regularity, and asymptotic analysis of energy minimisers; Γ-convergence and sharp interface limits.</p>
+      <h3><span class="lang-en">Calculus of Variations</span><span class="lang-de">Variationsrechnung</span></h3>
+      <p><span class="lang-en">Existence, regularity, and asymptotic analysis of energy minimisers; Γ-convergence and sharp interface limits.</span><span class="lang-de">Existenz, Regularität und asymptotische Analyse von Energieminimierern; Γ-Konvergenz und Scharfe-Interface-Limiten.</span></p>
     </div>
     <div class="topic">
-      <h3>Free Boundary Problems</h3>
-      <p>Well-posedness and lubrication approximations for thin-film equations; Navier-slip boundary conditions; wetting and dewetting.</p>
+      <h3><span class="lang-en">Free Boundary Problems</span><span class="lang-de">Freie Randwertprobleme</span></h3>
+      <p><span class="lang-en">Well-posedness and lubrication approximations for thin-film equations; Navier-slip boundary conditions; wetting and dewetting.</span><span class="lang-de">Wohlgestelltheit und Schmiermittelapproximationen für Dünnfilmgleichungen; Navier-Schlupf-Randbedingungen; Benetzung und Entnetzung.</span></p>
     </div>
     <div class="topic">
-      <h3>Micromagnetics</h3>
-      <p>Domain structures and Néel walls in thin ferromagnetic films; ferromagnetic crystals in applied fields; perpendicular anisotropy.</p>
+      <h3><span class="lang-en">Micromagnetics</span><span class="lang-de">Mikromagnetismus</span></h3>
+      <p><span class="lang-en">Domain structures and Néel walls in thin ferromagnetic films; ferromagnetic crystals in applied fields; perpendicular anisotropy.</span><span class="lang-de">Domänenstrukturen und Néel-Wände in dünnen ferromagnetischen Filmen; ferromagnetische Kristalle in angewandten Feldern; senkrechte Anisotropie.</span></p>
     </div>
     <div class="topic">
-      <h3>Isoperimetric Problems</h3>
-      <p>Isoperimetric problems with competing nonlocal terms; phase separation in charged droplets; Ohta–Kawasaki type energies.</p>
+      <h3><span class="lang-en">Isoperimetric Problems</span><span class="lang-de">Isoperimetrische Probleme</span></h3>
+      <p><span class="lang-en">Isoperimetric problems with competing nonlocal terms; phase separation in charged droplets; Ohta–Kawasaki type energies.</span><span class="lang-de">Isoperimetrische Probleme mit konkurrierenden nichtlokalen Termen; Phasenseparation in geladenen Tröpfchen; Ohta–Kawasaki-Energien.</span></p>
     </div>
     <div class="topic">
-      <h3>Phase Transformations</h3>
-      <p>Nucleation barriers for cubic-to-tetragonal phase transformations in shape memory alloys; elastic inclusions.</p>
+      <h3><span class="lang-en">Phase Transformations</span><span class="lang-de">Phasenumwandlungen</span></h3>
+      <p><span class="lang-en">Nucleation barriers for cubic-to-tetragonal phase transformations in shape memory alloys; elastic inclusions.</span><span class="lang-de">Keimbildungsbarrieren für kubisch-tetragonale Phasenumwandlungen in Formgedächtnislegierungen; elastische Einschlüsse.</span></p>
     </div>
     <div class="topic">
-      <h3>Lattice and Particle Systems</h3>
-      <p>Minimal energy for lattices with charge distributions; crystallisation for alternating particle chains; optimal lattice configurations.</p>
+      <h3><span class="lang-en">Lattice and Particle Systems</span><span class="lang-de">Gitter- und Teilchensysteme</span></h3>
+      <p><span class="lang-en">Minimal energy for lattices with charge distributions; crystallisation for alternating particle chains; optimal lattice configurations.</span><span class="lang-de">Minimale Energie für Gitter mit Ladungsverteilungen; Kristallisation für alternierende Teilchenketten; optimale Gitterkonfigurationen.</span></p>
     </div>
   </div>
 
   <div class="collab-block">
     <p>
-      Together with <a href="https://www.bioquant.uni-heidelberg.de/research/mathematical-modeling-in-biosciences" target="_blank">AG Marciniak-Czochra</a>
-      I organise a <strong>PhD Discussion Group</strong> open to Bachelor's and Master's students at the institute.
+      <span class="lang-en">Together with <a href="https://www.bioquant.uni-heidelberg.de/research/mathematical-modeling-in-biosciences" target="_blank">AG Marciniak-Czochra</a>
+      I organise a <strong>PhD Discussion Group</strong> open to Bachelor's and Master's students at the institute.</span>
+      <span class="lang-de">Gemeinsam mit der <a href="https://www.bioquant.uni-heidelberg.de/research/mathematical-modeling-in-biosciences" target="_blank">AG Marciniak-Czochra</a>
+      organisiere ich eine <strong>Doktoranden-Diskussionsgruppe</strong>, die auch Bachelor- und Masterstudierenden offen steht.</span>
     </p>
     <p>
-      I also co-organise the <a href="seminar.html">Applied Analysis Seminar</a> together with AG Laux and AG Marciniak-Czochra.
+      <span class="lang-en">I also co-organise the <a href="seminar.html">Applied Analysis Seminar</a> together with AG Laux and AG Marciniak-Czochra.</span>
+      <span class="lang-de">Außerdem co-organisiere ich das <a href="seminar.html">Oberseminar Angewandte Analysis</a> gemeinsam mit AG Laux und AG Marciniak-Czochra.</span>
     </p>
   </div>
 </main>
@@ -176,6 +204,28 @@ footer a { color: #aaa; }
     else sn.classList.remove('sn-visible');
   }
   window.addEventListener('scroll', tick, { passive: true });
+})();
+</script>
+
+
+<script>
+(function() {
+  var stored = localStorage.getItem('lang');
+  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
+  document.documentElement.setAttribute('data-lang', current);
+  function applyLang(l) {
+    current = l; localStorage.setItem('lang', l);
+    document.documentElement.setAttribute('data-lang', l);
+    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
+    if (en) en.classList.toggle('lb-active', l === 'en');
+    if (de) de.classList.toggle('lb-active', l === 'de');
+    document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang(current);
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
+  });
 })();
 </script>
 
