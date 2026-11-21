@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,37 +120,59 @@ footer a { color: #aaa; }
   .sticky-nav-title { display: none; }
   .sticky-nav-links { gap: 1rem; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+[data-lang="de"] .lang-de { display: initial; }
+.lang-btn {
+  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
+  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  border-radius: 20px; padding: 3px 11px;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
+}
+.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
+.lang-btn .lb-active { color: #12371e; font-weight: 700; }
+.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
 
+<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
+  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
+</button>
+
+
 <div class="sticky-nav" aria-hidden="true">
   <span class="sticky-nav-title">Hans Knüpfer</span>
   <nav class="sticky-nav-links">
-    <a href="knuepfer.html">About</a>
-    <a href="knuepfer-research.html">Research</a>
-    <a href="knuepfer-publications.html" class="sn-active">Publications</a>
-    <a href="knuepfer-teaching.html">Teaching</a>
-    <a href="knuepfer-contact.html">Contact</a>
+    <a href="knuepfer.html"><span class="lang-en">About</span><span class="lang-de">Über mich</span></a>
+    <a href="knuepfer-research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="knuepfer-publications.html" class="sn-active"><span class="lang-en">Publications</span><span class="lang-de">Publikationen</span></a>
+    <a href="knuepfer-teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="knuepfer-contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </div>
 
 <header class="banner">
   <div class="banner-name">Hans Knüpfer</div>
-  <div class="banner-sub">Professor of Mathematics · Heidelberg University</div>
+  <div class="banner-sub"><span class="lang-en">Professor of Mathematics · Heidelberg University</span><span class="lang-de">Professor für Mathematik · Universität Heidelberg</span></div>
   <nav class="banner-nav">
-    <a href="knuepfer.html">About</a>
-    <a href="knuepfer-research.html">Research</a>
-    <a href="knuepfer-publications.html" class="active">Publications</a>
-    <a href="knuepfer-teaching.html">Teaching</a>
-    <a href="knuepfer-contact.html">Contact</a>
+    <a href="knuepfer.html"><span class="lang-en">About</span><span class="lang-de">Über mich</span></a>
+    <a href="knuepfer-research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="knuepfer-publications.html" class="active"><span class="lang-en">Publications</span><span class="lang-de">Publikationen</span></a>
+    <a href="knuepfer-teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="knuepfer-contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
     <a href="seminar.html">Oberseminar ↗</a>
     <a href="index.html">Applied Analysis ↗</a>
   </nav>
 </header>
 
 <main class="content">
-  <h2>Publications</h2>
+  <h2><span class="lang-en">Publications</span><span class="lang-de">Publikationen</span></h2>
 
   <div class="top-links">
     <a href="https://arxiv.org/search/?searchtype=author&query=Kn%C3%BCpfer%2C+H" target="_blank">arXiv preprints ↗</a>
@@ -158,7 +180,7 @@ footer a { color: #aaa; }
   </div>
 
   <div class="pub-filter">
-    <button class="active" onclick="filterPubs(this,'all')">All</button>
+    <button class="active" onclick="filterPubs(this,'all')"><span class="lang-en">All</span><span class="lang-de">Alle</span></button>
     <button onclick="filterPubs(this,'2026')">2026</button>
     <button onclick="filterPubs(this,'2025')">2025</button>
     <button onclick="filterPubs(this,'2024')">2024</button>
@@ -173,9 +195,9 @@ footer a { color: #aaa; }
     <table class="pub-table">
       <thead>
         <tr>
-          <th class="col-year">Year</th>
-          <th class="col-title">Title &amp; Authors</th>
-          <th class="col-journal">Journal</th>
+          <th class="col-year"><span class="lang-en">Year</span><span class="lang-de">Jahr</span></th>
+          <th class="col-title"><span class="lang-en">Title &amp; Authors</span><span class="lang-de">Titel &amp; Autoren</span></th>
+          <th class="col-journal"><span class="lang-en">Journal</span><span class="lang-de">Zeitschrift</span></th>
         </tr>
       </thead>
       <tbody id="pubTbody"></tbody>
@@ -265,9 +287,11 @@ fetch('data/publications.csv')
   .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
   .then(csv => renderTable(parseCSV(csv)))
   .catch(() => {
+    var lang = document.documentElement.getAttribute('data-lang') || 'en';
+    var msg = lang === 'de' ? 'Publikationsdaten konnten nicht geladen werden.' : 'Publication data could not be loaded.';
     document.getElementById('pubTbody').innerHTML =
       '<tr><td colspan="3" style="padding:1.2rem 0.6rem;color:#aaa;font-size:0.85rem">' +
-      'Publication data could not be loaded.</td></tr>';
+      msg + '</td></tr>';
   });
 </script>
 
@@ -281,6 +305,28 @@ fetch('data/publications.csv')
     else sn.classList.remove('sn-visible');
   }
   window.addEventListener('scroll', tick, { passive: true });
+})();
+</script>
+
+
+<script>
+(function() {
+  var stored = localStorage.getItem('lang');
+  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
+  document.documentElement.setAttribute('data-lang', current);
+  function applyLang(l) {
+    current = l; localStorage.setItem('lang', l);
+    document.documentElement.setAttribute('data-lang', l);
+    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
+    if (en) en.classList.toggle('lb-active', l === 'en');
+    if (de) de.classList.toggle('lb-active', l === 'de');
+    document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang(current);
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
+  });
 })();
 </script>
 
