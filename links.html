@@ -41,6 +41,10 @@ a:hover { text-decoration: underline; }
 .sticky-nav-links a { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.12s; }
 .sticky-nav-links a:hover { color: #fff; text-decoration: none; }
 .sticky-nav-links a.sn-active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.5); }
+.sn-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.25); margin: 0 0.4rem; flex-shrink: 0; }
+.sn-ext { font-size: 0.65rem !important; color: rgba(255,255,255,0.45) !important; }
+.sn-ext:hover { color: rgba(255,255,255,0.85) !important; }
+@media (max-width: 800px) { .sn-divider, .sn-ext { display: none; } }
 @media (max-width: 600px) {
   .sticky-nav { padding: 0 1.2rem; }
   .sticky-nav-title { display: none; }
@@ -48,14 +52,6 @@ a:hover { text-decoration: underline; }
 }
 
 /* ── PARENT NAV ── */
-.parent-nav {
-  background: #f7fbf7; border-bottom: 1px solid #deeae0;
-  padding: 0.5rem 2.5rem; font-size: 0.78rem; color: #888;
-  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
-}
-.parent-nav a { color: #1e5c30; }
-.pn-sep { color: #bbb; }
-.pn-current { color: #555; }
 
 /* ── LANG BUTTON ── */
 .lang-btn {
@@ -117,8 +113,7 @@ footer a { color: #888; }
   .banner { min-height: 200px; padding: 1.5rem 1.2rem 3.5rem; }
   .banner-name { font-size: 1.8rem; }
   .banner-nav { left: 1.2rem; gap: 1.1rem; }
-  .parent-nav { padding: 0.5rem 1.2rem; }
-  .content { padding: 2rem 1.2rem 4rem; }
+    .content { padding: 2rem 1.2rem 4rem; }
 }
 </style>
 </head>
@@ -137,17 +132,13 @@ footer a { color: #888; }
     <a href="seminar.html">Oberseminar</a>
     <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
     <a href="links.html" class="sn-active">Links</a>
+
+    <span class="sn-divider"></span>
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank" class="sn-ext">Institut ↗</a>
+    <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank" class="sn-ext">Fakultät ↗</a>
   </nav>
 </div>
 
-
-<nav class="parent-nav">
-  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
-  <span class="pn-sep">›</span>
-  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics</a>
-  <span class="pn-sep">›</span>
-  <span class="pn-current">Applied Analysis</span>
-</nav>
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>

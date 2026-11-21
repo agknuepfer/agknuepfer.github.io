@@ -49,6 +49,10 @@ a:hover { text-decoration: underline; }
 }
 .sticky-nav-links a:hover { color: #fff; text-decoration: none; }
 .sticky-nav-links a.sn-active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.5); }
+.sn-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.25); margin: 0 0.4rem; flex-shrink: 0; }
+.sn-ext { font-size: 0.65rem !important; color: rgba(255,255,255,0.45) !important; }
+.sn-ext:hover { color: rgba(255,255,255,0.85) !important; }
+@media (max-width: 800px) { .sn-divider, .sn-ext { display: none; } }
 @media (max-width: 640px) {
   .sticky-nav { padding: 0 1.2rem; }
   .sticky-nav-title { display: none; }
@@ -215,10 +219,6 @@ a:hover { text-decoration: underline; }
 .ph-f { background: linear-gradient(135deg, #060a1a 0%, #c06010 40%, #3050a0 70%, #101830 100%); }
 
 /* ── NAV ── */
-.parent-nav { background: #f8fbf8; border-bottom: 1px solid #d8e8dc; padding: 0.45rem 2.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; letter-spacing: 0.03em; color: #aaa; }
-.parent-nav a { color: #7aaa8a; text-decoration: none; }
-.pn-sep { color: #ccc; font-size: 0.8rem; }
-.pn-current { color: #666; }
 footer { border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 1060px; margin: 0 auto; }
 footer a { color: #aaa; }
 .preview-note { background: #fffbea; border: 1px solid #e8d84a; border-radius: 6px; padding: 0.7rem 1.1rem; font-size: 0.8rem; color: #7a6500; margin-bottom: 2rem; }
@@ -246,16 +246,6 @@ footer a { color: #aaa; }
     <a href="links.html">Links</a>
   </nav>
 </div>
-
-<nav class="parent-nav">
-  <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank">Faculty of Mathematics</a>
-  <span class="pn-sep">›</span>
-  <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute for Mathematics</a>
-  <span class="pn-sep">›</span>
-  <a href="index.html">Applied Analysis</a>
-  <span class="pn-sep">›</span>
-  <span class="pn-current">Research</span>
-</nav>
 
 <header class="banner">
   <div class="banner-name">Applied Analysis</div>
