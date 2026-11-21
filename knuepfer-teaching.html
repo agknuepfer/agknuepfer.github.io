@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,46 +82,85 @@ footer a { color: #aaa; }
   .sticky-nav-title { display: none; }
   .sticky-nav-links { gap: 1rem; }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+[data-lang="de"] .lang-de { display: initial; }
+.lang-btn {
+  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
+  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  border-radius: 20px; padding: 3px 11px;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
+}
+.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
+.lang-btn .lb-active { color: #12371e; font-weight: 700; }
+.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
 </style>
 </head>
 <body>
 
+<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
+  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
+</button>
+
+
 <div class="sticky-nav" aria-hidden="true">
   <span class="sticky-nav-title">Hans Knüpfer</span>
   <nav class="sticky-nav-links">
-    <a href="knuepfer.html">About</a>
-    <a href="knuepfer-research.html">Research</a>
-    <a href="knuepfer-publications.html">Publications</a>
-    <a href="knuepfer-teaching.html" class="sn-active">Teaching</a>
-    <a href="knuepfer-contact.html">Contact</a>
+    <a href="knuepfer.html"><span class="lang-en">About</span><span class="lang-de">Über mich</span></a>
+    <a href="knuepfer-research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="knuepfer-publications.html"><span class="lang-en">Publications</span><span class="lang-de">Publikationen</span></a>
+    <a href="knuepfer-teaching.html" class="sn-active"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="knuepfer-contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
   </nav>
 </div>
 
 
 <header class="banner">
   <div class="banner-name">Hans Knüpfer</div>
-  <div class="banner-sub">Professor of Mathematics · Heidelberg University</div>
+  <div class="banner-sub"><span class="lang-en">Professor of Mathematics · Heidelberg University</span><span class="lang-de">Professor für Mathematik · Universität Heidelberg</span></div>
   <nav class="banner-nav">
-    <a href="knuepfer.html">About</a>
-    <a href="knuepfer-research.html">Research</a>
-    <a href="knuepfer-publications.html">Publications</a>
-    <a href="knuepfer-teaching.html" class="active">Teaching</a>
-    <a href="knuepfer-contact.html">Contact</a>
+    <a href="knuepfer.html"><span class="lang-en">About</span><span class="lang-de">Über mich</span></a>
+    <a href="knuepfer-research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="knuepfer-publications.html"><span class="lang-en">Publications</span><span class="lang-de">Publikationen</span></a>
+    <a href="knuepfer-teaching.html" class="active"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="knuepfer-contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
     <a href="seminar.html">Oberseminar ↗</a>
     <a href="index.html">Applied Analysis ↗</a>
   </nav>
 </header>
 
 <main class="content">
-  <h2>Teaching</h2>
+
+  <h2><span class="lang-en">Current Courses (WS 26/27)</span><span class="lang-de">Aktuelle Kurse (WS 26/27)</span></h2>
 
   <div class="sem-block">
-    <div class="sem-heading">Winter Semester 2025/26</div>
+    <div class="sem-heading"><span class="lang-en">Bachelor Courses</span><span class="lang-de">Bachelor Kurse</span></div>
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="sem-block">
+    <div class="sem-heading"><span class="lang-en">Master Courses</span><span class="lang-de">Masterkurse</span></div>
     <table>
       <tr>
         <td>Variationsrechnung (Calculus of Variations)</td>
-        <td>Lecture</td>
+        <td><span class="lang-en">Lecture</span><span class="lang-de">Vorlesung</span></td>
       </tr>
+    </table>
+  </div>
+
+  <div class="sem-block">
+    <div class="sem-heading">Seminare</div>
+    <table>
       <tr>
         <td>Seminar Analysis <em style="color:#bbb;">(with AG Marciniak-Czochra)</em></td>
         <td>Seminar</td>
@@ -130,32 +169,39 @@ footer a { color: #aaa; }
   </div>
 
   <div class="sem-block">
-    <div class="sem-heading">Summer Semester 2025</div>
+    <div class="sem-heading"><span class="lang-en">Further Courses</span><span class="lang-de">Weitere Lehrveranstaltungen</span></div>
+    <table>
+      <tr>
+        <td><a href="seminar.html">Oberseminar Applied Analysis</a></td>
+        <td>Oberseminar</td>
+      </tr>
+      <tr>
+        <td><span class="lang-en">PhD Discussion Group</span><span class="lang-de">Doktorandengruppe</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>MasterClass</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <h2 style="margin-top:3rem;"><span class="lang-en">Upcoming Courses (SS 27)</span><span class="lang-de">Kommende Kurse (SS 27)</span></h2>
+
+  <div class="sem-block">
+    <div class="sem-heading"><span class="lang-en">Bachelor Courses</span><span class="lang-de">Bachelor Kurse</span></div>
     <table>
       <tr>
         <td>Partielle Differentialgleichungen (Partial Differential Equations)</td>
-        <td>Lecture</td>
+        <td><span class="lang-en">Lecture</span><span class="lang-de">Vorlesung</span></td>
       </tr>
     </table>
   </div>
 
-  <div class="sem-block">
-    <div class="sem-heading">Winter Semester 2024/25</div>
-    <table>
-      <tr>
-        <td>Variationsrechnung (Calculus of Variations)</td>
-        <td>Lecture</td>
-      </tr>
-      <tr>
-        <td>Themen aus den partiellen Differentialgleichungen</td>
-        <td>Seminar</td>
-      </tr>
-    </table>
-  </div>
-
-  <p class="note">
-    <a href="https://www.uni-heidelberg.de/math/knuepfer/teaching.html" target="_blank">Previous teaching ↗</a>
+  <p class="note" style="margin-top:2.5rem;">
+    <a href="https://www.uni-heidelberg.de/math/knuepfer/teaching.html" target="_blank"><span class="lang-en">Previous teaching ↗</span><span class="lang-de">Frühere Lehrveranstaltungen ↗</span></a>
   </p>
+
 </main>
 
 <footer>
@@ -174,6 +220,28 @@ footer a { color: #aaa; }
     else sn.classList.remove('sn-visible');
   }
   window.addEventListener('scroll', tick, { passive: true });
+})();
+</script>
+
+
+<script>
+(function() {
+  var stored = localStorage.getItem('lang');
+  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
+  document.documentElement.setAttribute('data-lang', current);
+  function applyLang(l) {
+    current = l; localStorage.setItem('lang', l);
+    document.documentElement.setAttribute('data-lang', l);
+    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
+    if (en) en.classList.toggle('lb-active', l === 'en');
+    if (de) de.classList.toggle('lb-active', l === 'de');
+    document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLang(current);
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
+  });
 })();
 </script>
 
