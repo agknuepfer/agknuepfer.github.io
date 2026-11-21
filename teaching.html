@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; }
+body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; padding-top: 44px; }
 a { color: #1e5c30; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
@@ -126,28 +126,23 @@ footer a { color: #aaa; }
 .sticky-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 44px;
-  background: rgba(255,255,255,0.97);
-  border-bottom: 1px solid #d8e8dc;
+  background: #1e5c30;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 2.5rem;
-  transform: translateY(-100%);
-  transition: transform 0.18s ease;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
 }
-.sticky-nav.sn-visible { transform: translateY(0); }
 .sticky-nav-title {
   font-family: 'Merriweather', Georgia, serif;
-  font-size: 0.82rem; font-weight: 300; color: #12371e;
+  font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.75);
   letter-spacing: 0.02em; white-space: nowrap;
 }
 .sticky-nav-links { display: flex; gap: 1.5rem; }
 .sticky-nav-links a {
-  font-size: 0.72rem; color: #888; text-decoration: none;
+  font-size: 0.72rem; color: rgba(255,255,255,0.75); text-decoration: none;
   letter-spacing: 0.08em; text-transform: uppercase;
   transition: color 0.12s;
 }
-.sticky-nav-links a:hover { color: #1e5c30; text-decoration: none; }
-.sticky-nav-links a.sn-active { color: #1e5c30; }
+.sticky-nav-links a:hover { color: #fff; text-decoration: none; }
+.sticky-nav-links a.sn-active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.5); }
 @media (max-width: 640px) {
   .sticky-nav { padding: 0 1.2rem; }
   .sticky-nav-title { display: none; }
@@ -160,16 +155,15 @@ footer a { color: #aaa; }
 [data-lang="de"] .lang-de { display: initial; }
 .lang-btn {
   position: fixed; top: 10px; right: 1.5rem; z-index: 300;
-  background: rgba(255,255,255,0.93); border: 1px solid #c8dece;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
   border-radius: 20px; padding: 3px 11px;
-  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: #888;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  transition: box-shadow 0.15s, border-color 0.15s;
+  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: rgba(255,255,255,0.85);
+  transition: background 0.15s, border-color 0.15s;
   font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
 }
-.lang-btn:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.13); border-color: #5a9e6e; }
-.lang-btn .lb-active { color: #12371e; font-weight: 700; }
-.lang-btn .lb-sep { color: #ccc; margin: 0 4px; }
+.lang-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.6); }
+.lang-btn .lb-active { color: #fff; font-weight: 700; }
+.lang-btn .lb-sep { color: rgba(255,255,255,0.4); margin: 0 4px; }
 </style>
 </head>
 <body>
@@ -178,7 +172,7 @@ footer a { color: #aaa; }
   <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
 </button>
 
-<div class="sticky-nav" aria-hidden="true">
+<div class="sticky-nav">
   <span class="sticky-nav-title">Applied Analysis</span>
   <nav class="sticky-nav-links">
     <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
@@ -432,19 +426,6 @@ fetch('data/courses.csv')
   });
 </script>
 
-
-<script>
-(function() {
-  var sn = document.querySelector('.sticky-nav');
-  var banner = document.querySelector('.banner');
-  if (!sn || !banner) return;
-  function tick() {
-    if (window.scrollY > banner.offsetHeight - 44) sn.classList.add('sn-visible');
-    else sn.classList.remove('sn-visible');
-  }
-  window.addEventListener('scroll', tick, { passive: true });
-})();
-</script>
 
 <script>
 (function() {
