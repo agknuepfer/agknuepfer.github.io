@@ -13,20 +13,16 @@ a:hover { text-decoration: underline; }
 
 /* ── BANNER ── */
 .banner {
-  width: 100%; min-height: 290px;
+  width: 100%; min-height: 180px;
   background:
     linear-gradient(155deg, rgba(18,55,30,0.94) 0%, rgba(26,70,38,0.92) 55%, rgba(20,58,32,0.94) 100%),
     url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center/cover no-repeat;
   position: relative;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 2.5rem 2.5rem 4rem;
+  padding: 2rem 2.5rem;
 }
 .banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.6rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center; }
 .banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
-.banner-nav { position: absolute; bottom: 1.4rem; left: 2.5rem; display: flex; gap: 1.8rem; flex-wrap: wrap; }
-.banner-nav a { color: rgba(255,255,255,0.65); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; padding-bottom: 2px; }
-.banner-nav a:hover { color: #fff; }
-.banner-nav a.active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.55); }
 
 /* ── STICKY NAV ── */
 .sticky-nav {
@@ -112,7 +108,6 @@ footer a { color: #888; }
 @media (max-width: 640px) {
   .banner { min-height: 200px; padding: 1.5rem 1.2rem 3.5rem; }
   .banner-name { font-size: 1.8rem; }
-  .banner-nav { left: 1.2rem; gap: 1.1rem; }
     .content { padding: 2rem 1.2rem 4rem; }
 }
 </style>
@@ -146,14 +141,6 @@ footer a { color: #888; }
     <span class="lang-en">Institute for Mathematics · Heidelberg University</span>
     <span class="lang-de">Mathematisches Institut · Universität Heidelberg</span>
   </div>
-  <nav class="banner-nav">
-    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
-    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
-    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
-    <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
-    <a href="links.html" class="active">Links</a>
-  </nav>
 </header>
 
 <main class="content">
