@@ -2,10 +2,8 @@ semester,level,course,time,room,lecturer,link
 current,bachelor,Ordinary Differential Equations,—,,Klawe,
 current,bachelor,Funktionalanalysis,—,,Marciniak-Czochra,
 current,master,Calculus of Variations,—,,Laux,
-current,master,Ringvorlesung MMLDS,—,"Laux, Schnörr, et al.",
 current,seminar,Advanced Topics in Analysis,—,,Laux,
 current,seminar,Hyperbolic Conservation Laws,—,,Fuhrmann,
-current,seminar,Applied Analysis Oberseminar,—,,All groups,seminar.html
-current,seminar,PhD Discussion Group,—,,—,
 upcoming,bachelor,Partial Differential Equations in Data Science,—,,Knüpfer,
 upcoming,bachelor,Einführung in die Wahrscheinlichkeitstheorie und Statistik,—,,Fuhrmann,
+upcoming,master,PDE for Pattern Formation,—,,Marciniak-Czochra,
