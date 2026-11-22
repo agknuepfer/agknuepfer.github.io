@@ -38,7 +38,7 @@ a:hover { text-decoration: underline; }
   font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.75);
   letter-spacing: 0.02em; white-space: nowrap;
 }
-.sticky-nav-links { display: flex; gap: 1.5rem; }
+.sticky-nav-links { display: flex; gap: 1.5rem; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 .sticky-nav-links a {
   font-size: 0.72rem; color: rgba(255,255,255,0.75); text-decoration: none;
   letter-spacing: 0.08em; text-transform: uppercase;
@@ -254,7 +254,11 @@ footer a { color: #aaa; }
     <a href="seminar.html">Oberseminar</a>
     <a href="contact.html">Contact</a>
     <a href="links.html">Links</a>
+    <span class="sn-divider"></span>
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank" class="sn-ext">Institut ↗</a>
+    <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank" class="sn-ext">Fakultät ↗</a>
   </nav>
+  <button class="lang-toggle" onclick="toggleLang()" title="Switch language">🇬🇧 🇩🇪</button>
 </div>
 
 <header class="banner">
