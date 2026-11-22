@@ -17,7 +17,7 @@ a:hover { text-decoration: underline; }
   width: 100%; min-height: 200px;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(5,20,12,0.82) 100%),
-    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center 18%/cover no-repeat;
+    url('images/banner/mathematikon_skulptur.jpeg') center 40%/cover no-repeat;
   position: relative;
   display: flex; flex-direction: row; align-items: flex-end; justify-content: flex-start;
   padding: 2rem 2.5rem;
@@ -254,13 +254,13 @@ footer a { color: #aaa; }
 <body>
 
 <div class="sticky-nav">
-  <span class="sticky-nav-title">Applied Analysis</span>
+  <span class="sticky-nav-title"><span class="lang-en">Applied Analysis</span><span class="lang-de">Angewandte Analysis</span></span>
   <nav class="sticky-nav-links">
-    <a href="index.html">Overview</a>
-    <a href="research.html" class="sn-active">Research</a>
-    <a href="teaching.html">Teaching</a>
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Überblick</span></a>
+    <a href="research.html" class="sn-active"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
     <a href="seminar.html">Oberseminar</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
     <a href="links.html">Links</a>
     <span class="sn-divider"></span>
     <a href="https://www.math.uni-heidelberg.de/" target="_blank" class="sn-ext">Institut ↗</a>
@@ -271,18 +271,18 @@ footer a { color: #aaa; }
 
 <header class="banner">
 <div class="banner-text">
-  <div class="banner-name">Applied Analysis</div>
-  <div class="banner-sub">Institute for Mathematics · Heidelberg University</div>
+  <div class="banner-name"><span class="lang-en">Applied Analysis</span><span class="lang-de">Angewandte Analysis</span></div>
+  <div class="banner-sub"><span class="lang-en">Institute for Mathematics · Heidelberg University</span><span class="lang-de">Institut für Mathematik · Universität Heidelberg</span></div>
   </div>
   <img src="images/institut-logo.svg" alt="Institut für Mathematik · Universität Heidelberg" class="banner-logo">
 </header>
 
 <main class="content">
 
-  <h2>Research Themes</h2>
+  <h2><span class="lang-en">Research Themes</span><span class="lang-de">Forschungsthemen</span></h2>
 
   <div class="intro">
-    <p>
+    <p class="lang-en">
       The research groups of the Applied Analysis section share a common scientific foundation rooted in
       partial differential equations and variational methods, with a strong interest in applications
       from the natural and biomedical sciences. Mathematical tools from functional analysis and measure
@@ -291,40 +291,43 @@ footer a { color: #aaa; }
       at larger scales — encompassing rigorous analysis of emergence, pattern formation, and collective
       behaviour.
     </p>
+    <p class="lang-de">
+      Die Forschungsgruppen der Sektion Angewandte Analysis teilen ein gemeinsames wissenschaftliches Fundament, das in partiellen Differentialgleichungen und Variationsmethoden verwurzelt ist, mit einem ausgeprägten Interesse an Anwendungen aus den Natur- und Biowissenschaften. Mathematische Werkzeuge aus Funktionalanalysis und Maßtheorie spielen in allen Gruppen eine zentrale Rolle. Ein verbindendes Thema ist das mathematische Verständnis von Mehrskalen-Phänomenen — die Verbindung zwischen detaillierten Modellen und ihrer effektiven Beschreibung auf größeren Skalen — einschließlich rigoroser Analysis von Emergenz, Musterbildung und kollektivem Verhalten.
+    </p>
   </div>
 
   <!-- ── WORD CLOUD ── -->
   <div class="cloud-container">
-    <div class="cloud-heading">Research themes across the section</div>
+    <div class="cloud-heading"><span class="lang-en">Research themes across the section</span><span class="lang-de">Forschungsthemen der Sektion</span></div>
     <div class="word-cloud" id="wordCloud">
 
       <!-- xl: 3 groups -->
-      <span class="cw cw-xl" data-topic="pde">Partial Differential Equations</span>
+      <span class="cw cw-xl" data-topic="pde"><span class="lang-en">Partial Differential Equations</span><span class="lang-de">Partielle Differentialgleichungen</span></span>
 
       <!-- lg: 2 groups -->
-      <span class="cw cw-lg" data-topic="calc-var">Calculus of Variations</span>
-      <span class="cw cw-lg" data-topic="phase-field">Phase-field Models</span>
-      <span class="cw cw-lg" data-topic="pattern">Pattern Formation</span>
+      <span class="cw cw-lg" data-topic="calc-var"><span class="lang-en">Calculus of Variations</span><span class="lang-de">Variationsrechnung</span></span>
+      <span class="cw cw-lg" data-topic="phase-field"><span class="lang-en">Phase-field Models</span><span class="lang-de">Phasenfeld-Modelle</span></span>
+      <span class="cw cw-lg" data-topic="pattern"><span class="lang-en">Pattern Formation</span><span class="lang-de">Musterbildung</span></span>
 
       <!-- md: noteworthy 1-group or 2-group applied -->
-      <span class="cw cw-md" data-topic="geom-flows">Geometric Flows</span>
-      <span class="cw cw-md" data-topic="math-bio">Mathematical Biology</span>
-      <span class="cw cw-md" data-topic="free-boundary">Free Boundary Problems</span>
+      <span class="cw cw-md" data-topic="geom-flows"><span class="lang-en">Geometric Flows</span><span class="lang-de">Geometrische Flüsse</span></span>
+      <span class="cw cw-md" data-topic="math-bio"><span class="lang-en">Mathematical Biology</span><span class="lang-de">Mathematische Biologie</span></span>
+      <span class="cw cw-md" data-topic="free-boundary"><span class="lang-en">Free Boundary Problems</span><span class="lang-de">Freie Randwertprobleme</span></span>
 
       <!-- sm: specific subtopics -->
-      <span class="cw cw-sm" data-topic="geom-flows">Mean Curvature Flow</span>
-      <span class="cw cw-sm" data-topic="phase-field">Sharp Interfaces</span>
-      <span class="cw cw-sm" data-topic="react-diff">Reaction-Diffusion Systems</span>
-      <span class="cw cw-sm" data-topic="free-boundary">Nonlocal Energies</span>
-      <span class="cw cw-sm" data-topic="math-bio">Stem Cell Dynamics</span>
-      <span class="cw cw-sm" data-topic="calc-var">Variational Methods</span>
-      <span class="cw cw-sm" data-topic="phase-field">Ginzburg-Landau Theory</span>
-      <span class="cw cw-md" data-topic="math-physics">Mathematical Physics</span>
-      <span class="cw cw-sm" data-topic="quantum">Many-body Quantum Mechanics</span>
-      <span class="cw cw-sm" data-topic="quantum">Schrödinger Operators</span>
+      <span class="cw cw-sm" data-topic="geom-flows"><span class="lang-en">Mean Curvature Flow</span><span class="lang-de">Mittlerer Krümmungsfluss</span></span>
+      <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Sharp Interfaces</span><span class="lang-de">Scharfe Grenzflächen</span></span>
+      <span class="cw cw-sm" data-topic="react-diff"><span class="lang-en">Reaction-Diffusion Systems</span><span class="lang-de">Reaktions-Diffusions-Systeme</span></span>
+      <span class="cw cw-sm" data-topic="free-boundary"><span class="lang-en">Nonlocal Energies</span><span class="lang-de">Nichtlokale Energien</span></span>
+      <span class="cw cw-sm" data-topic="math-bio"><span class="lang-en">Stem Cell Dynamics</span><span class="lang-de">Stammzelldynamik</span></span>
+      <span class="cw cw-sm" data-topic="calc-var"><span class="lang-en">Variational Methods</span><span class="lang-de">Variationsmethoden</span></span>
+      <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Ginzburg-Landau Theory</span><span class="lang-de">Ginzburg-Landau-Theorie</span></span>
+      <span class="cw cw-md" data-topic="math-physics"><span class="lang-en">Mathematical Physics</span><span class="lang-de">Mathematische Physik</span></span>
+      <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Many-body Quantum Mechanics</span><span class="lang-de">Vielteilchen-Quantenmechanik</span></span>
+      <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Schrödinger Operators</span><span class="lang-de">Schrödinger-Operatoren</span></span>
 
     </div>
-    <p class="cloud-hint">Word size reflects how many groups share the theme — hover to see which</p>
+    <p class="cloud-hint"><span class="lang-en">Word size reflects how many groups share the theme — hover to see which</span><span class="lang-de">Schriftgröße zeigt, wie viele Gruppen das Thema teilen — hover für Details</span></p>
   </div>
 
   <!-- ── CARDS ── -->
@@ -334,30 +337,31 @@ footer a { color: #aaa; }
     <div id="marciniak-czochra" class="group-row">
       <div class="group-person">
         <img class="pi-photo"
-             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
+             src="images/people/Anna_Marciniak_Czochra.png"
              onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a6a,#3a6a4a)'"
              alt="Prof. Dr. Anna Marciniak-Czochra">
         <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
       </div>
       <div class="group-info">
-        <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
-        <p>Research combines rigorous mathematical analysis with biological and medical
+        <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank"><span class="lang-en">Applied Analysis and Modelling in Biosciences ↗</span><span class="lang-de">Angewandte Analysis und Modellierung in den Biowissenschaften ↗</span></a></h3>
+        <p class="lang-en">Research combines rigorous mathematical analysis with biological and medical
         applications, developing and studying models for self-organisation, pattern formation,
         and structure formation in living systems. Topics range from reaction–diffusion–ODE
         systems describing stem cell dynamics and tissue growth to problems in developmental
         biology. The group maintains strong interdisciplinary connections to experimental
         biology and medicine.</p>
+        <p class="lang-de">Die Forschung verbindet rigorose mathematische Analysis mit biologischen und medizinischen Anwendungen und entwickelt Modelle für Selbstorganisation, Musterbildung und Strukturbildung in lebenden Systemen. Themen reichen von Reaktions-Diffusions-ODE-Systemen zur Beschreibung der Stammzelldynamik und des Gewebewachstums bis hin zu Fragen der Entwicklungsbiologie. Die Gruppe pflegt enge interdisziplinäre Verbindungen zur experimentellen Biologie und Medizin.</p>
         <div class="group-tags">
-          <span class="chip" data-topic="pattern">Pattern formation</span>
-          <span class="chip" data-topic="math-bio">Mathematical biology</span>
-          <span class="chip" data-topic="react-diff">Reaction-diffusion</span>
-          <span class="chip" data-topic="math-bio">Stem cell dynamics</span>
+          <span class="chip" data-topic="pattern"><span class="lang-en">Pattern formation</span><span class="lang-de">Musterbildung</span></span>
+          <span class="chip" data-topic="math-bio"><span class="lang-en">Mathematical biology</span><span class="lang-de">Mathematische Biologie</span></span>
+          <span class="chip" data-topic="react-diff"><span class="lang-en">Reaction-diffusion</span><span class="lang-de">Reaktions-Diffusion</span></span>
+          <span class="chip" data-topic="math-bio"><span class="lang-en">Stem cell dynamics</span><span class="lang-de">Stammzelldynamik</span></span>
         </div>
       </div>
       <div class="group-rhs">
         <figure>
           <img src="images/phase_separation.png" alt="Phase separation and pattern formation">
-          <figcaption>Cahn-Hilliard phase-field simulation — spinodal decomposition and pattern formation</figcaption>
+          <figcaption><span class="lang-en">Cahn-Hilliard phase-field simulation — spinodal decomposition and pattern formation</span><span class="lang-de">Cahn-Hilliard Phasenfeld-Simulation — spinodale Entmischung und Musterbildung</span></figcaption>
         </figure>
       </div>
     </div>
@@ -365,30 +369,31 @@ footer a { color: #aaa; }
     <!-- Knüpfer -->
     <div id="knuepfer" class="group-row">
       <div class="group-person">
-        <img class="pi-photo" src="Hans1.jpg"
+        <img class="pi-photo" src="images/people/Hans1.jpg"
              onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a4a3a,#4a7a5a)'"
              alt="Prof. Dr. Hans Knüpfer">
         <div class="pi-name">Prof. Dr. Hans Knüpfer</div>
       </div>
       <div class="group-info">
-        <h3><a href="knuepfer.html">Calculus of Variations and PDEs</a></h3>
-        <p>Research focuses on variational problems and partial differential equations motivated
+        <h3><a href="knuepfer.html"><span class="lang-en">Calculus of Variations and PDEs</span><span class="lang-de">Variationsrechnung und PDGl</span></a></h3>
+        <p class="lang-en">Research focuses on variational problems and partial differential equations motivated
         by questions in materials science and fluid dynamics. Topics include the analysis of
         pattern formation, nonlocal interaction energies, free boundary problems, and the
         derivation of effective continuum models from microscopic descriptions. A recurring
         theme is the competition between local and nonlocal energy contributions that drives
         pattern formation across scales.</p>
+        <p class="lang-de">Die Forschung konzentriert sich auf Variationsprobleme und partielle Differentialgleichungen, motiviert durch Fragestellungen in der Materialwissenschaft und Strömungsmechanik. Themen umfassen die Analysis von Musterbildung, nichtlokale Wechselwirkungsenergien, freie Randwertprobleme und die Herleitung effektiver Kontinuumsmodelle aus mikroskopischen Beschreibungen. Ein wiederkehrendes Thema ist das Zusammenspiel lokaler und nichtlokaler Energiebeiträge, das skalenübergreifende Musterbildung antreibt.</p>
         <div class="group-tags">
-          <span class="chip" data-topic="calc-var">Calculus of variations</span>
-          <span class="chip" data-topic="phase-field">Phase-field models</span>
-          <span class="chip" data-topic="pattern">Pattern formation</span>
-          <span class="chip" data-topic="free-boundary">Free boundaries</span>
+          <span class="chip" data-topic="calc-var"><span class="lang-en">Calculus of variations</span><span class="lang-de">Variationsrechnung</span></span>
+          <span class="chip" data-topic="phase-field"><span class="lang-en">Phase-field models</span><span class="lang-de">Phasenfeld-Modelle</span></span>
+          <span class="chip" data-topic="pattern"><span class="lang-en">Pattern formation</span><span class="lang-de">Musterbildung</span></span>
+          <span class="chip" data-topic="free-boundary"><span class="lang-en">Free boundaries</span><span class="lang-de">Freie Ränder</span></span>
         </div>
       </div>
       <div class="group-rhs">
         <figure>
           <img src="images/branched-interface.png" alt="Branched interface structure in a ferromagnet">
-          <figcaption>Branched interface structure — energy-minimising microstructure in a ferromagnet</figcaption>
+          <figcaption><span class="lang-en">Branched interface structure — energy-minimising microstructure in a ferromagnet</span><span class="lang-de">Verzweigte Grenzflächenstruktur — energieminimierende Mikrostruktur in einem Ferromagneten</span></figcaption>
         </figure>
       </div>
     </div>
@@ -397,29 +402,30 @@ footer a { color: #aaa; }
     <div id="laux" class="group-row">
       <div class="group-person">
         <img class="pi-photo"
-             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2025-09/Tim_Laux_wide_0.jpg?h=a0ac5f3f&itok=3cQzkW3u"
+             src="images/people/Tim_Laux_wide_0.jpg"
              onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a5a,#3a5a8a)'"
              alt="Prof. Dr. Tim Laux">
         <div class="pi-name">Prof. Dr. Tim Laux</div>
       </div>
       <div class="group-info">
-        <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank">Applied Geometric Analysis ↗</a></h3>
-        <p>The group studies geometric evolution equations and their connections to variational
+        <h3><a href="https://www.math.uni-heidelberg.de/en/sections/analysis-and-mathematical-modelling/applied-geometric-analysis" target="_blank"><span class="lang-en">Applied Geometric Analysis ↗</span><span class="lang-de">Angewandte Geometrische Analysis ↗</span></a></h3>
+        <p class="lang-en">The group studies geometric evolution equations and their connections to variational
         calculus and mathematical physics. Central themes include mean curvature flow and its
         sharp-interface limits, phase-field approximations for interfacial dynamics, and
         applications in materials science and data science. A key focus is the development
         of rigorous convergence theories bridging diffuse and sharp interface models.</p>
+        <p class="lang-de">Die Gruppe untersucht geometrische Evolutionsgleichungen und deren Verbindungen zur Variationsrechnung und mathematischen Physik. Zentrale Themen umfassen den mittleren Krümmungsfluss und seine Grenzwerte bei scharfen Grenzflächen, Phasenfeld-Approximationen für Grenzflächendynamik sowie Anwendungen in der Materialwissenschaft und Datenwissenschaft. Ein wichtiger Schwerpunkt ist die Entwicklung rigoroser Konvergenztheorien, die diffuse und scharfe Grenzflächenmodelle verbinden.</p>
         <div class="group-tags">
-          <span class="chip" data-topic="calc-var">Calculus of variations</span>
-          <span class="chip" data-topic="phase-field">Phase-field models</span>
-          <span class="chip" data-topic="geom-flows">Geometric flows</span>
-          <span class="chip" data-topic="phase-field">Sharp interfaces</span>
+          <span class="chip" data-topic="calc-var"><span class="lang-en">Calculus of variations</span><span class="lang-de">Variationsrechnung</span></span>
+          <span class="chip" data-topic="phase-field"><span class="lang-en">Phase-field models</span><span class="lang-de">Phasenfeld-Modelle</span></span>
+          <span class="chip" data-topic="geom-flows"><span class="lang-en">Geometric flows</span><span class="lang-de">Geometrische Flüsse</span></span>
+          <span class="chip" data-topic="phase-field"><span class="lang-en">Sharp interfaces</span><span class="lang-de">Scharfe Grenzflächen</span></span>
         </div>
       </div>
       <div class="group-rhs">
         <figure>
           <img src="images/ferromagnet_ellipsoid.png" alt="Phase-field interface dynamics">
-          <figcaption>Allen-Cahn phase-field model — diffuse interface dynamics and grain coarsening</figcaption>
+          <figcaption><span class="lang-en">Allen-Cahn phase-field model — diffuse interface dynamics and grain coarsening</span><span class="lang-de">Allen-Cahn Phasenfeld-Modell — diffuse Grenzflächendynamik und Kornvergröberung</span></figcaption>
         </figure>
       </div>
     </div>
@@ -434,24 +440,25 @@ footer a { color: #aaa; }
         <div class="pi-name">Prof. Dr. Phan Thành Nam</div>
       </div>
       <div class="group-info">
-        <h3>Mathematical Physics</h3>
-        <p>Research at the interface of analysis and mathematical physics, with a focus on
+        <h3><span class="lang-en">Mathematical Physics</span><span class="lang-de">Mathematische Physik</span></h3>
+        <p class="lang-en">Research at the interface of analysis and mathematical physics, with a focus on
         many-body quantum mechanics, the derivation of effective theories (Hartree–Fock,
         Bogoliubov, Gross–Pitaevskii) from first principles, spectral estimates for
         Schrödinger operators, and variational problems arising in quantum chemistry
         and condensed matter physics.</p>
+        <p class="lang-de">Forschung an der Schnittstelle von Analysis und mathematischer Physik, mit Schwerpunkt auf Vielteilchen-Quantenmechanik, der Herleitung effektiver Theorien (Hartree-Fock, Bogoliubov, Gross-Pitaevskii) aus ersten Prinzipien, Spektralabschätzungen für Schrödinger-Operatoren sowie Variationsproblemen in der Quantenchemie und Festkörperphysik.</p>
         <div class="group-tags">
-          <span class="chip" data-topic="math-physics">Mathematical physics</span>
-          <span class="chip" data-topic="quantum">Many-body quantum mechanics</span>
-          <span class="chip">Schrödinger operators</span>
-          <span class="chip">Spectral theory</span>
-          <span class="chip" data-topic="calculus-variations">Calculus of variations</span>
+          <span class="chip" data-topic="math-physics"><span class="lang-en">Mathematical physics</span><span class="lang-de">Mathematische Physik</span></span>
+          <span class="chip" data-topic="quantum"><span class="lang-en">Many-body quantum mechanics</span><span class="lang-de">Vielteilchen-Quantenmechanik</span></span>
+          <span class="chip"><span class="lang-en">Schrödinger operators</span><span class="lang-de">Schrödinger-Operatoren</span></span>
+          <span class="chip"><span class="lang-en">Spectral theory</span><span class="lang-de">Spektraltheorie</span></span>
+          <span class="chip" data-topic="calculus-variations"><span class="lang-en">Calculus of variations</span><span class="lang-de">Variationsrechnung</span></span>
         </div>
       </div>
       <div class="group-rhs">
         <figure>
           <img src="images/phase_separation.png" alt="Quantum many-body system">
-          <figcaption>Effective description of quantum many-body systems at low temperature</figcaption>
+          <figcaption><span class="lang-en">Effective description of quantum many-body systems at low temperature</span><span class="lang-de">Effektive Beschreibung von Quanten-Vielteilchensystemen bei tiefen Temperaturen</span></figcaption>
         </figure>
       </div>
     </div>
@@ -460,28 +467,29 @@ footer a { color: #aaa; }
     <div id="fuhrmann" class="group-row">
       <div class="group-person">
         <img class="pi-photo"
-             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB"
+             src="images/people/Jan_Fuhrmann.jpg"
              onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#3a4a2a,#4a6a3a)'"
              alt="Dr. Jan Fuhrmann">
         <div class="pi-name">Dr. Jan Fuhrmann</div>
       </div>
       <div class="group-info">
-        <h3>Analysis and PDEs</h3>
-        <p>Research interests span partial differential equations and their applications
+        <h3><span class="lang-en">Analysis and PDEs</span><span class="lang-de">Analysis und PDGl</span></h3>
+        <p class="lang-en">Research interests span partial differential equations and their applications
         in the natural sciences, with particular interest in hyperbolic conservation laws,
         free boundary problems, and the mathematical modelling of biological and physical
         systems — including cell motility, fluid dynamics, and epidemic spread.</p>
+        <p class="lang-de">Forschungsinteressen umfassen partielle Differentialgleichungen und ihre Anwendungen in den Naturwissenschaften, mit besonderem Interesse an hyperbolischen Erhaltungsgleichungen, freien Randwertproblemen und der mathematischen Modellierung biologischer und physikalischer Systeme — einschließlich Zellbeweglichkeit, Strömungsmechanik und Epidemieausbreitung.</p>
         <div class="group-tags">
-          <span class="chip" data-topic="free-boundary">Free boundaries</span>
-          <span class="chip" data-topic="math-bio">Mathematical biology</span>
-          <span class="chip">Conservation laws</span>
-          <span class="chip">Cell motility</span>
+          <span class="chip" data-topic="free-boundary"><span class="lang-en">Free boundaries</span><span class="lang-de">Freie Ränder</span></span>
+          <span class="chip" data-topic="math-bio"><span class="lang-en">Mathematical biology</span><span class="lang-de">Mathematische Biologie</span></span>
+          <span class="chip"><span class="lang-en">Conservation laws</span><span class="lang-de">Erhaltungsgleichungen</span></span>
+          <span class="chip"><span class="lang-en">Cell motility</span><span class="lang-de">Zellbeweglichkeit</span></span>
         </div>
       </div>
       <div class="group-rhs">
         <figure>
           <img src="images/hydra_pattern.png" alt="Spatial SIR model wave propagation">
-          <figcaption>Spatial SIR reaction-diffusion model — epidemic wave propagation</figcaption>
+          <figcaption><span class="lang-en">Spatial SIR reaction-diffusion model — epidemic wave propagation</span><span class="lang-de">Räumliches SIR-Reaktions-Diffusions-Modell — Ausbreitung von Epidemiewellen</span></figcaption>
         </figure>
       </div>
     </div>
@@ -490,9 +498,9 @@ footer a { color: #aaa; }
 </main>
 
 <footer>
-  <span>Applied Analysis · Institute for Mathematics · Heidelberg University</span>
+  <span><span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span><span class="lang-de">Angewandte Analysis · Institut für Mathematik · Universität Heidelberg</span></span>
   <span>
-    <a href="index.html">Overview</a> ·
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Überblick</span></a> ·
     <a href="seminar.html">Oberseminar</a> ·
     <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institute ↗</a>
   </span>

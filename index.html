@@ -17,7 +17,7 @@ a:hover { text-decoration: underline; }
   width: 100%; min-height: 200px;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(5,20,12,0.82) 100%),
-    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center 18%/cover no-repeat;
+    url('images/banner/mathematikon_abend.jpeg') center 30%/cover no-repeat;
   display: flex; flex-direction: row; align-items: flex-end; justify-content: flex-start;
   padding: 1.8rem 2.5rem;
   position: relative;
@@ -86,10 +86,11 @@ h2 {
   padding-bottom: 0.6rem; border-bottom: 1px solid #d0e8d8;
 }
 .idx-panel-news-img {
-  flex-shrink: 0; width: 220px; display: none;
+  flex-shrink: 0; width: 180px; display: none;
+  align-self: flex-start;
 }
 .idx-panel-news-img img {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
   border-radius: 5px; display: block;
 }
 .idx-panel-empty { font-size: 0.88rem; color: #aaa; font-style: italic; }
@@ -280,19 +281,19 @@ footer a { color: #aaa; }
 
   <!-- Combined events panel: next seminar talk + current news -->
   <div class="idx-panel">
+    <div class="idx-panel-label">
+      <span class="lang-en">News &amp; Events</span>
+      <span class="lang-de">Neuigkeiten &amp; Veranstaltungen</span>
+    </div>
     <div class="idx-panel-inner">
+      <!-- News image: data/news.jpg / .jpeg / .png — shown if file exists, left of list -->
+      <div class="idx-panel-news-img" id="events-img">
+        <img id="events-img-el" alt="">
+      </div>
       <div class="idx-panel-content">
-        <div class="idx-panel-label">
-          <span class="lang-en">News &amp; Events</span>
-          <span class="lang-de">Neuigkeiten &amp; Veranstaltungen</span>
-        </div>
         <ul class="events-list" id="events-list">
           <li><span class="idx-panel-empty"><span class="lang-en">Loading…</span><span class="lang-de">Lädt…</span></span></li>
         </ul>
-      </div>
-      <!-- News image: data/news.jpg / .jpeg / .png — shown if file exists -->
-      <div class="idx-panel-news-img" id="events-img">
-        <img id="events-img-el" alt="">
       </div>
     </div>
   </div>
@@ -334,7 +335,7 @@ footer a { color: #aaa; }
       </ul>
     </div>
     <div class="mathematikon-img-wrap">
-      <img src="https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg" alt="Mathematikon Heidelberg">
+      <img src="images/banner/Mathematikon.jpg" alt="Mathematikon Heidelberg">
       <div class="mathematikon-img-caption"><span class="lang-en">Mathematikon · Heidelberg University</span><span class="lang-de">Mathematikon · Universität Heidelberg</span></div>
     </div>
   </div>
