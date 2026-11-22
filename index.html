@@ -67,7 +67,7 @@ section { margin-bottom: 3rem; }
 /* ── GROUP CARDS ── */
 .group-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   margin: 2rem 0 1.5rem;
 }
@@ -125,6 +125,20 @@ section { margin-bottom: 3rem; }
 .idx-contact dt:first-child { margin-top: 0; }
 .idx-contact dd { font-size: 0.9rem; color: #555; }
 
+/* ── NEWS SECTION ── */
+#news-section { margin-bottom: 2.5rem; display: none; }
+#news-section h2 { margin-bottom: 1rem; }
+.news-list { list-style: none; padding: 0; margin: 0; }
+.news-list li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #eef4f0;
+  font-size: 0.93rem;
+  display: flex; gap: 1rem; align-items: baseline;
+}
+.news-list li:first-child { border-top: 1px solid #eef4f0; }
+.news-list li a { color: #1e5c30; }
+.news-date { font-size: 0.75rem; color: #aaa; white-space: nowrap; flex-shrink: 0; }
+
 /* ── PARENT / BREADCRUMB NAV ── */
 
 footer {
@@ -140,7 +154,7 @@ footer a { color: #aaa; }
   .content { padding: 2rem 1.2rem 4rem; }
   .overview-pics { display: none; }
   .idx-row { flex-direction: column; gap: 0.3rem; }
-  .group-cards { grid-template-columns: repeat(2, 1fr); }
+  .group-cards { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ── SLIM STICKY NAV ── */
@@ -259,6 +273,14 @@ footer a { color: #aaa; }
           <div class="group-card-name">Prof. Dr. Tim Laux</div>
           <div class="group-card-desc">Geometric flows, phase-field models, sharp interfaces</div>
         </a>
+        <a class="group-card" href="research.html#nam">
+          <img class="group-card-img"
+               src=""
+               onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#2a2a5a,#5a3a7a)'"
+               alt="Prof. Dr. Phan Thành Nam" style="background:linear-gradient(135deg,#2a2a5a,#5a3a7a)">
+          <div class="group-card-name">Prof. Dr. Phan Thành Nam</div>
+          <div class="group-card-desc">Many-body quantum mechanics, spectral theory, mathematical physics</div>
+        </a>
         <a class="group-card" href="research.html#fuhrmann">
           <img class="group-card-img"
                src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2024-11/Jan_Fuhrmann.jpg?h=ae285db8&itok=48wW7rHB"
@@ -295,6 +317,11 @@ footer a { color: #aaa; }
 
   </div><!-- /overview-layout -->
 
+  <section id="news-section">
+    <h2><span class="lang-en">News &amp; Events</span><span class="lang-de">Neuigkeiten &amp; Veranstaltungen</span></h2>
+    <div class="news-placeholder"></div>
+  </section>
+
   <div class="idx-contact">
     <dl>
       <dt>Secretary</dt>
@@ -323,6 +350,45 @@ document.querySelectorAll('.obf-email').forEach(el => {
 });
 </script>
 
+
+<script>
+// ── News from CSV ────────────────────────────────────────
+(function() {
+  fetch('data/news.csv')
+    .then(function(r){ return r.ok ? r.text() : Promise.reject(); })
+    .then(function(text) {
+      var lines = text.trim().split('\n').slice(1).filter(function(l){ return l.trim(); });
+      if (!lines.length) return;
+      var section = document.getElementById('news-section');
+      var placeholder = section && section.querySelector('.news-placeholder');
+      if (!section || !placeholder) return;
+      var ul = document.createElement('ul');
+      ul.className = 'news-list';
+      lines.forEach(function(line) {
+        var p = line.split('|');
+        var date = (p[0]||'').trim();
+        var title = (p[1]||'').trim();
+        var url   = (p[2]||'').trim();
+        if (!title) return;
+        var li = document.createElement('li');
+        var dateStr = '';
+        if (date) {
+          try {
+            dateStr = new Date(date).toLocaleDateString('en-GB', {year:'numeric', month:'short', day:'numeric'});
+          } catch(e) { dateStr = date; }
+        }
+        li.innerHTML = (url ? '<a href="'+url+'" target="_blank">'+title+'</a>' : title) +
+                       (dateStr ? ' <span class="news-date">'+dateStr+'</span>' : '');
+        ul.appendChild(li);
+      });
+      if (ul.children.length) {
+        section.style.display = 'block';
+        placeholder.parentNode.replaceChild(ul, placeholder);
+      }
+    })
+    .catch(function(){});
+})();
+</script>
 
 <script>
 // ── Language toggle ──────────────────────────────────────

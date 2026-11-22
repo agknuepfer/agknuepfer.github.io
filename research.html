@@ -305,6 +305,38 @@ footer a { color: #aaa; }
   <!-- ── CARDS ── -->
   <div class="groups-tray">
 
+    <!-- Marciniak-Czochra -->
+    <div id="marciniak-czochra" class="group-row">
+      <div class="group-person">
+        <img class="pi-photo"
+             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
+             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a6a,#3a6a4a)'"
+             alt="Prof. Dr. Anna Marciniak-Czochra">
+        <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
+      </div>
+      <div class="group-info">
+        <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
+        <p>Research combines rigorous mathematical analysis with biological and medical
+        applications, developing and studying models for self-organisation, pattern formation,
+        and structure formation in living systems. Topics range from reaction–diffusion–ODE
+        systems describing stem cell dynamics and tissue growth to problems in developmental
+        biology. The group maintains strong interdisciplinary connections to experimental
+        biology and medicine.</p>
+        <div class="group-tags">
+          <span class="chip" data-topic="pattern">Pattern formation</span>
+          <span class="chip" data-topic="math-bio">Mathematical biology</span>
+          <span class="chip" data-topic="react-diff">Reaction-diffusion</span>
+          <span class="chip" data-topic="math-bio">Stem cell dynamics</span>
+        </div>
+      </div>
+      <div class="group-rhs">
+        <figure>
+          <img src="images/phase_separation.png" alt="Phase separation and pattern formation">
+          <figcaption>Cahn-Hilliard phase-field simulation — spinodal decomposition and pattern formation</figcaption>
+        </figure>
+      </div>
+    </div>
+
     <!-- Knüpfer -->
     <div id="knuepfer" class="group-row">
       <div class="group-person">
@@ -363,38 +395,6 @@ footer a { color: #aaa; }
         <figure>
           <img src="images/ferromagnet_ellipsoid.png" alt="Phase-field interface dynamics">
           <figcaption>Allen-Cahn phase-field model — diffuse interface dynamics and grain coarsening</figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- Marciniak-Czochra -->
-    <div id="marciniak-czochra" class="group-row">
-      <div class="group-person">
-        <img class="pi-photo"
-             src="https://backend.math.uni-heidelberg.de/sites/default/files/styles/img_16_9_aspect_0375/public/2023-04/Anna_Marciniak_Czochra.PNG?h=ede675b1&itok=_0mBT_qg"
-             onerror="this.onerror=null;this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';this.style.background='linear-gradient(135deg,#2a3a6a,#3a6a4a)'"
-             alt="Prof. Dr. Anna Marciniak-Czochra">
-        <div class="pi-name">Prof. Dr. Anna Marciniak-Czochra</div>
-      </div>
-      <div class="group-info">
-        <h3><a href="https://biostruct.iwr.uni-heidelberg.de" target="_blank">Applied Analysis and Modelling in Biosciences ↗</a></h3>
-        <p>Research combines rigorous mathematical analysis with biological and medical
-        applications, developing and studying models for self-organisation, pattern formation,
-        and structure formation in living systems. Topics range from reaction–diffusion–ODE
-        systems describing stem cell dynamics and tissue growth to problems in developmental
-        biology. The group maintains strong interdisciplinary connections to experimental
-        biology and medicine.</p>
-        <div class="group-tags">
-          <span class="chip" data-topic="pattern">Pattern formation</span>
-          <span class="chip" data-topic="math-bio">Mathematical biology</span>
-          <span class="chip" data-topic="react-diff">Reaction-diffusion</span>
-          <span class="chip" data-topic="math-bio">Stem cell dynamics</span>
-        </div>
-      </div>
-      <div class="group-rhs">
-        <figure>
-          <img src="images/phase_separation.png" alt="Phase separation and pattern formation">
-          <figcaption>Cahn-Hilliard phase-field simulation — spinodal decomposition and pattern formation</figcaption>
         </figure>
       </div>
     </div>
@@ -461,7 +461,6 @@ function activateTopic(topicId) {
   // Cloud words
   document.querySelectorAll('.cw').forEach(w => {
     if (w.dataset.topic === topicId) w.classList.add('cw-lit');
-    else                             w.classList.add('cw-dim');
   });
 
   // Chips + find which cards match
@@ -471,34 +470,42 @@ function activateTopic(topicId) {
       c.classList.add('chip-lit');
       const card = c.closest('.group-row');
       if (card) matchingCards.add(card.id);
-    } else {
-      c.classList.add('chip-dim');
     }
   });
 
-  // Cards
+  // Cards — frame only on matching, no dim on others
   document.querySelectorAll('.group-row').forEach(r => {
     if (matchingCards.has(r.id)) r.classList.add('card-focus');
-    else                         r.classList.add('card-dim');
   });
+}
+
+// ── Persistent-frame interaction ────────────────────────────────────────
+let _frameTimer = null;
+function scheduleReset() {
+  _frameTimer = setTimeout(resetAll, 2400);
+}
+function cancelReset() {
+  if (_frameTimer) { clearTimeout(_frameTimer); _frameTimer = null; }
 }
 
 // ── Cloud word interactions ──────────────────────────────────────────────
 document.querySelectorAll('.cw[data-topic]').forEach(word => {
   word.addEventListener('mouseenter', () => {
+    cancelReset();
     resetAll();
     activateTopic(word.dataset.topic);
   });
-  word.addEventListener('mouseleave', resetAll);
+  word.addEventListener('mouseleave', scheduleReset);
 });
 
 // ── Chip interactions ────────────────────────────────────────────────────
 document.querySelectorAll('.chip[data-topic]').forEach(chip => {
   chip.addEventListener('mouseenter', () => {
+    cancelReset();
     resetAll();
     activateTopic(chip.dataset.topic);
   });
-  chip.addEventListener('mouseleave', resetAll);
+  chip.addEventListener('mouseleave', scheduleReset);
 });
 </script>
 
