@@ -14,29 +14,28 @@ a:hover { text-decoration: underline; }
 
 /* ── BANNER ── */
 .banner {
-  width: 100%; min-height: 180px;
+  width: 100%; min-height: 200px;
   background:
-    linear-gradient(155deg, rgba(18,55,30,0.94) 0%, rgba(26,70,38,0.92) 55%, rgba(20,58,32,0.94) 100%),
-    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center/cover no-repeat;
-  display: flex; flex-direction: row; align-items: center; justify-content: center;
-  padding: 2rem 2.5rem;
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(5,20,12,0.82) 100%),
+    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center 18%/cover no-repeat;
+  display: flex; flex-direction: row; align-items: flex-end; justify-content: flex-start;
+  padding: 1.8rem 2.5rem;
   position: relative;
 }
-.banner-text { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.banner-text { display: flex; flex-direction: column; align-items: flex-start; }
 .banner-name {
   font-family: 'Merriweather', Georgia, serif;
-  font-weight: 300; font-size: 2.6rem; color: #fff;
-  letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center;
+  font-weight: 300; font-size: 2.4rem; color: #fff;
+  letter-spacing: 0.02em; margin-bottom: 0.4rem; text-align: left;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
 }
 .banner-sub {
-  font-size: 0.85rem; color: rgba(255,255,255,0.58);
-  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
+  font-size: 0.82rem; color: rgba(255,255,255,0.72);
+  letter-spacing: 0.1em; text-transform: uppercase; text-align: left;
 }
 .banner-logo {
-  flex-shrink: 0; height: 80px; opacity: 0.92;
-  margin-left: 2rem;
-  /* push logo to right edge while keeping text centred */
-  position: absolute; right: 2.5rem; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 2.5rem; bottom: 1.6rem;
+  height: 72px; opacity: 0.92;
 }
 
 /* ── CONTENT ── */
@@ -186,8 +185,8 @@ footer a { color: #aaa; }
   .idx-panel-news-img { width: 100%; display: none !important; }
 }
 @media (max-width: 700px) {
-  .banner-name { font-size: 1.9rem; }
-  .banner-logo { height: 55px; right: 1rem; }
+  .banner-name { font-size: 1.8rem; }
+  .banner-logo { height: 52px; right: 1rem; bottom: 1.2rem; }
   .content { padding: 2rem 1.2rem 4rem; }
   .people-list li { flex-direction: column; gap: 0.1rem; }
   .people-name { min-width: unset; }
