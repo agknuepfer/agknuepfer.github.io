@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -227,6 +227,15 @@ footer a { color: #aaa; }
   .group-person { width: 90px; }
   .group-person .pi-photo { width: 90px; height: 90px; }
 }
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28);
+  color: #fff; font-size: 1rem; padding: 2px 7px; border-radius: 11px;
+  cursor: pointer; line-height: 1.4; flex-shrink: 0; margin-left: 0.3rem;
+}
+.lang-toggle:hover { background: rgba(255,255,255,0.22); }
+[data-lang="en"] .lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
 </style>
 </head>
 <body>
@@ -493,5 +502,21 @@ document.querySelectorAll('.chip[data-topic]').forEach(chip => {
 });
 </script>
 
+<script>
+// ── Language toggle ──────────────────────────────────────
+function getLang(){ return document.documentElement.getAttribute('data-lang') || 'en'; }
+function setLang(l){
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l;
+  try{ localStorage.setItem('ag-lang', l); }catch(e){}
+}
+function toggleLang(){ setLang(getLang()==='en'?'de':'en'); }
+(function(){
+  try{
+    const saved = localStorage.getItem('ag-lang');
+    if(saved==='de'||saved==='en') setLang(saved);
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
