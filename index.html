@@ -46,16 +46,17 @@ h2 {
 
 /* ── EVENTS PANEL ── */
 .idx-panel {
-  border: 1px solid #d8e8dc; border-radius: 7px;
-  padding: 1.2rem 1.4rem 1.3rem;
+  border: 1px solid #bcd8c5; border-radius: 8px;
+  background: #f5fbf7;
+  padding: 1.6rem 1.8rem 1.6rem;
   margin-bottom: 3rem;
-  max-width: 700px;
 }
 .idx-panel-label {
-  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.12em; color: #7aaa8a; margin-bottom: 0.9rem;
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.15rem; font-weight: 300; color: #12371e;
+  letter-spacing: 0.01em; margin-bottom: 1rem;
+  padding-bottom: 0.6rem; border-bottom: 1px solid #d0e8d8;
 }
-.idx-panel-link { display: inline-block; margin-top: 0.9rem; font-size: 0.78rem; }
 .idx-panel-empty { font-size: 0.88rem; color: #aaa; font-style: italic; }
 
 /* Events list (combined talks + news) */
@@ -79,9 +80,11 @@ h2 {
 /* ── SECTION LABEL ── */
 .section-label {
   display: block;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; color: #7aaa8a;
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.15rem; font-weight: 300; color: #12371e;
+  letter-spacing: 0.01em;
   margin-top: 0; margin-bottom: 1rem;
+  padding-bottom: 0.6rem; border-bottom: 1px solid #d8e8dc;
 }
 
 /* ── PEOPLE LIST ── */
@@ -98,12 +101,45 @@ h2 {
   border: none;
 }
 .people-name {
-  font-weight: 600;
+  font-weight: 400;
   min-width: 200px; flex-shrink: 0;
 }
 .people-name a { color: #12371e; }
 .people-name a:hover { text-decoration: underline; }
 .people-role { font-size: 0.82rem; color: #777; }
+
+/* ── RESEARCH IMAGE STRIP ── */
+.research-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+.research-img-wrap {
+  border-radius: 5px; overflow: hidden;
+  position: relative;
+}
+.research-img-wrap img {
+  width: 100%; height: 160px; object-fit: cover;
+  display: block;
+  filter: brightness(0.93);
+  transition: filter 0.2s;
+}
+.research-img-wrap:hover img { filter: brightness(1); }
+.research-img-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(10,40,18,0.78) 0%, transparent 100%);
+  color: rgba(255,255,255,0.9); font-size: 0.65rem;
+  letter-spacing: 0.05em; padding: 0.5rem 0.6rem 0.4rem;
+  line-height: 1.3;
+}
+@media (max-width: 700px) {
+  .research-images { grid-template-columns: repeat(2, 1fr); }
+  .research-img-wrap img { height: 120px; }
+}
+@media (max-width: 400px) {
+  .research-images { grid-template-columns: 1fr 1fr; }
+}
 
 footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
@@ -197,16 +233,12 @@ footer a { color: #aaa; }
   <!-- Combined events panel: next seminar talk + current news -->
   <div class="idx-panel">
     <div class="idx-panel-label">
-      <span class="lang-en">Next Talk &amp; Events</span>
-      <span class="lang-de">Nächster Vortrag &amp; Veranstaltungen</span>
+      <span class="lang-en">News &amp; Events</span>
+      <span class="lang-de">Neuigkeiten &amp; Veranstaltungen</span>
     </div>
     <ul class="events-list" id="events-list">
       <li><span class="idx-panel-empty"><span class="lang-en">Loading…</span><span class="lang-de">Lädt…</span></span></li>
     </ul>
-    <a class="idx-panel-link" href="seminar.html">
-      <span class="lang-en">All Oberseminar talks →</span>
-      <span class="lang-de">Alle Oberseminar-Vorträge →</span>
-    </a>
   </div>
 
   <!-- People -->
@@ -243,6 +275,26 @@ footer a { color: #aaa; }
       <span class="people-role"><span class="lang-en">Administration</span><span class="lang-de">Verwaltung</span></span>
     </li>
   </ul>
+
+  <!-- Research image strip -->
+  <div class="research-images">
+    <div class="research-img-wrap">
+      <img src="images/phase_separation.png" alt="Phase separation">
+      <div class="research-img-caption">Phase Separation</div>
+    </div>
+    <div class="research-img-wrap">
+      <img src="images/geometric_flow.png" alt="Geometric flow">
+      <div class="research-img-caption">Geometric Flow</div>
+    </div>
+    <div class="research-img-wrap">
+      <img src="images/turing_pattern.png" alt="Turing pattern">
+      <div class="research-img-caption">Turing Patterns</div>
+    </div>
+    <div class="research-img-wrap">
+      <img src="images/domain_branching.png" alt="Domain branching">
+      <div class="research-img-caption">Domain Branching</div>
+    </div>
+  </div>
 
 </main>
 
