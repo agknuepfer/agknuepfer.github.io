@@ -77,12 +77,43 @@ h2 { font-weight: 300; font-size: 1.75rem; color: #12371e; letter-spacing: 0.01e
 }
 .word-cloud {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3rem 1.2rem;
-  padding: 0.3rem 0 0.6rem;
+  gap: 0;
+  padding: 0.5rem 0 0.6rem;
   line-height: 1.9;
+}
+.cloud-col {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.25rem 1.1rem;
+}
+.cloud-col:first-child {
+  padding-right: 1.8rem;
+  border-right: 1px solid rgba(0,0,0,0.09);
+}
+.cloud-col:last-child {
+  padding-left: 1.8rem;
+}
+.cloud-col-label {
+  flex: 0 0 100%;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9abe9a;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(154,190,154,0.3);
+}
+@media (max-width: 580px) {
+  .word-cloud { flex-direction: column; }
+  .cloud-col:first-child {
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
+    padding-right: 0; padding-bottom: 1rem;
+  }
+  .cloud-col:last-child { padding-left: 0; padding-top: 1rem; }
 }
 .cw {
   cursor: pointer;
@@ -298,33 +329,39 @@ footer a { color: #aaa; }
 
   <!-- ── WORD CLOUD ── -->
   <div class="cloud-container">
-    <div class="cloud-heading"><span class="lang-en">Research themes across the section</span><span class="lang-de">Forschungsthemen der Sektion</span></div>
+    <div class="cloud-heading"><span class="lang-en">Research themes</span><span class="lang-de">Forschungsthemen</span></div>
     <div class="word-cloud" id="wordCloud">
 
-      <!-- xl: 3 groups -->
-      <span class="cw cw-xl" data-topic="pde"><span class="lang-en">Partial Differential Equations</span><span class="lang-de">Partielle Differentialgleichungen</span></span>
+      <!-- ── LEFT: Theorie ── -->
+      <div class="cloud-col">
+        <div class="cloud-col-label">
+          <span class="lang-en">Theory</span><span class="lang-de">Theorie</span>
+        </div>
+        <span class="cw cw-xl" data-topic="pde"><span class="lang-en">Partial Differential Equations</span><span class="lang-de">Partielle Differentialgleichungen</span></span>
+        <span class="cw cw-lg" data-topic="calc-var"><span class="lang-en">Calculus of Variations</span><span class="lang-de">Variationsrechnung</span></span>
+        <span class="cw cw-lg" data-topic="phase-field"><span class="lang-en">Phase-field Models</span><span class="lang-de">Phasenfeld-Modelle</span></span>
+        <span class="cw cw-md" data-topic="geom-flows"><span class="lang-en">Geometric Flows</span><span class="lang-de">Geometrische Flüsse</span></span>
+        <span class="cw cw-md" data-topic="free-boundary"><span class="lang-en">Free Boundary Problems</span><span class="lang-de">Freie Randwertprobleme</span></span>
+        <span class="cw cw-sm" data-topic="calc-var"><span class="lang-en">Variational Methods</span><span class="lang-de">Variationsmethoden</span></span>
+        <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Ginzburg-Landau Theory</span><span class="lang-de">Ginzburg-Landau-Theorie</span></span>
+        <span class="cw cw-sm" data-topic="geom-flows"><span class="lang-en">Mean Curvature Flow</span><span class="lang-de">Mittlerer Krümmungsfluss</span></span>
+        <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Sharp Interfaces</span><span class="lang-de">Scharfe Grenzflächen</span></span>
+        <span class="cw cw-sm" data-topic="free-boundary"><span class="lang-en">Nonlocal Energies</span><span class="lang-de">Nichtlokale Energien</span></span>
+      </div>
 
-      <!-- lg: 2 groups -->
-      <span class="cw cw-lg" data-topic="calc-var"><span class="lang-en">Calculus of Variations</span><span class="lang-de">Variationsrechnung</span></span>
-      <span class="cw cw-lg" data-topic="phase-field"><span class="lang-en">Phase-field Models</span><span class="lang-de">Phasenfeld-Modelle</span></span>
-      <span class="cw cw-lg" data-topic="pattern"><span class="lang-en">Pattern Formation</span><span class="lang-de">Musterbildung</span></span>
-
-      <!-- md: noteworthy 1-group or 2-group applied -->
-      <span class="cw cw-md" data-topic="geom-flows"><span class="lang-en">Geometric Flows</span><span class="lang-de">Geometrische Flüsse</span></span>
-      <span class="cw cw-md" data-topic="math-bio"><span class="lang-en">Mathematical Biology</span><span class="lang-de">Mathematische Biologie</span></span>
-      <span class="cw cw-md" data-topic="free-boundary"><span class="lang-en">Free Boundary Problems</span><span class="lang-de">Freie Randwertprobleme</span></span>
-
-      <!-- sm: specific subtopics -->
-      <span class="cw cw-sm" data-topic="geom-flows"><span class="lang-en">Mean Curvature Flow</span><span class="lang-de">Mittlerer Krümmungsfluss</span></span>
-      <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Sharp Interfaces</span><span class="lang-de">Scharfe Grenzflächen</span></span>
-      <span class="cw cw-sm" data-topic="react-diff"><span class="lang-en">Reaction-Diffusion Systems</span><span class="lang-de">Reaktions-Diffusions-Systeme</span></span>
-      <span class="cw cw-sm" data-topic="free-boundary"><span class="lang-en">Nonlocal Energies</span><span class="lang-de">Nichtlokale Energien</span></span>
-      <span class="cw cw-sm" data-topic="math-bio"><span class="lang-en">Stem Cell Dynamics</span><span class="lang-de">Stammzelldynamik</span></span>
-      <span class="cw cw-sm" data-topic="calc-var"><span class="lang-en">Variational Methods</span><span class="lang-de">Variationsmethoden</span></span>
-      <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Ginzburg-Landau Theory</span><span class="lang-de">Ginzburg-Landau-Theorie</span></span>
-      <span class="cw cw-md" data-topic="math-physics"><span class="lang-en">Mathematical Physics</span><span class="lang-de">Mathematische Physik</span></span>
-      <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Many-body Quantum Mechanics</span><span class="lang-de">Vielteilchen-Quantenmechanik</span></span>
-      <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Schrödinger Operators</span><span class="lang-de">Schrödinger-Operatoren</span></span>
+      <!-- ── RIGHT: Anwendungen ── -->
+      <div class="cloud-col">
+        <div class="cloud-col-label">
+          <span class="lang-en">Applications</span><span class="lang-de">Anwendungen</span>
+        </div>
+        <span class="cw cw-lg" data-topic="pattern"><span class="lang-en">Pattern Formation</span><span class="lang-de">Musterbildung</span></span>
+        <span class="cw cw-md" data-topic="math-bio"><span class="lang-en">Mathematical Biology</span><span class="lang-de">Mathematische Biologie</span></span>
+        <span class="cw cw-md" data-topic="math-physics"><span class="lang-en">Mathematical Physics</span><span class="lang-de">Mathematische Physik</span></span>
+        <span class="cw cw-sm" data-topic="react-diff"><span class="lang-en">Reaction-Diffusion Systems</span><span class="lang-de">Reaktions-Diffusions-Systeme</span></span>
+        <span class="cw cw-sm" data-topic="math-bio"><span class="lang-en">Stem Cell Dynamics</span><span class="lang-de">Stammzelldynamik</span></span>
+        <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Many-body Quantum Mechanics</span><span class="lang-de">Vielteilchen-Quantenmechanik</span></span>
+        <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Schrödinger Operators</span><span class="lang-de">Schrödinger-Operatoren</span></span>
+      </div>
 
     </div>
     <p class="cloud-hint"><span class="lang-en">Word size reflects how many groups share the theme — hover to see which</span><span class="lang-de">Schriftgröße zeigt, wie viele Gruppen das Thema teilen — hover für Details</span></p>
