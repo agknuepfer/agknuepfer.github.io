@@ -73,6 +73,29 @@ p:last-child { margin-bottom: 0; }
 }
 
 .note { font-size: 0.85rem; color: #aaa; margin-top: 1.5rem; }
+/* ── INFO LIST (intro bullets) ── */
+.info-list { padding-left: 1.4rem; margin-top: 0.4rem; margin-bottom: 1rem; }
+.info-list li { font-size: 0.95rem; margin-bottom: 0.2rem; }
+
+/* ── FOOTNOTE MARKERS ── */
+.fnref { font-size: 0.68em; vertical-align: super; color: #888; font-weight: 400; }
+
+/* ── COURSE FOOTNOTES ── */
+.course-footnotes {
+  list-style: none; padding: 0; margin-top: 1rem;
+  font-size: 0.78rem; color: #777;
+  counter-reset: fn-counter;
+}
+.course-footnotes li {
+  counter-increment: fn-counter;
+  padding-left: 2.2em; position: relative;
+  margin-bottom: 0.15rem; line-height: 1.5;
+}
+.course-footnotes li::before {
+  content: counter(fn-counter) ")";
+  position: absolute; left: 0; color: #999;
+}
+
 
 /* ── ACCORDION ── */
 .accordion { margin-bottom: 2rem; }
@@ -151,9 +174,9 @@ footer a { color: #aaa; }
 
 .banner-logo {
   position: absolute; right: 2.5rem; bottom: 1.6rem;
-  height: 72px; opacity: 0.92;
+  height: 96px; opacity: 0.92;
 }
-@media (max-width: 700px) { .banner-logo { height: 52px; right: 1rem; bottom: 1.2rem; } }
+@media (max-width: 700px) { .banner-logo { height: 68px; right: 1rem; bottom: 1.2rem; } }
 @media (max-width: 480px) { .banner-logo { display: none; } }
 </style>
 </head>
@@ -161,7 +184,7 @@ footer a { color: #aaa; }
 
 
 <div class="sticky-nav">
-  <span class="sticky-nav-title">Applied Analysis</span>
+  <span class="sticky-nav-title"><span class="lang-en">Applied Analysis</span><span class="lang-de">Angewandte Analysis</span></span>
   <nav class="sticky-nav-links">
     <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
     <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
@@ -180,7 +203,7 @@ footer a { color: #aaa; }
 
 <header class="banner">
 <div class="banner-text">
-  <div class="banner-name">Applied Analysis</div>
+  <div class="banner-name"><span class="lang-en">Applied Analysis</span><span class="lang-de">Angewandte Analysis</span></div>
   <div class="banner-sub"><span class="lang-en">Institute for Mathematics · Heidelberg University</span><span class="lang-de">Mathematisches Institut · Universität Heidelberg</span></div>
   </div>
   <img src="images/institut-logo.svg" alt="Institut für Mathematik · Universität Heidelberg" class="banner-logo">
@@ -190,18 +213,18 @@ footer a { color: #aaa; }
 
   <section>
     <h2><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></h2>
-    <p>
-      <span class="lang-en">Below is a list of courses in the curriculum offered by the Applied Analysis section.
-      For the binding course schedule see the official
-      <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.
-      For more information on individual courses and prerequisites see the
-      <a href="courses.html">course overview</a>.</span>
-      <span class="lang-de">Unten ist eine Liste der Kurse im Lehrprogramm, welche von der Sektion Angewandte Analysis angeboten werden.
-      Für die verbindliche Lehrplanung siehe die offizielle
-      <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.
-      Für mehr Information zu den einzelnen Kursen und Voraussetzungen siehe die
-      <a href="courses.html">Kursübersicht</a>.</span>
-    </p>
+    <p class="lang-en">Below is a list of courses in the curriculum offered by the Applied Analysis section.</p>
+    <p class="lang-de">Unten ist eine Liste der Kurse im Lehrprogramm, welche von der Sektion Angewandte Analysis angeboten werden.</p>
+    <ul class="info-list">
+      <li>
+        <span class="lang-en">For the binding course schedule see the official <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.</span>
+        <span class="lang-de">Für die verbindliche Lehrplanung siehe die offizielle <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.</span>
+      </li>
+      <li>
+        <span class="lang-en">For more information on individual courses and prerequisites see the <a href="courses.html">course overview</a>.</span>
+        <span class="lang-de">Für mehr Information zu den einzelnen Kursen und Voraussetzungen siehe die <a href="courses.html">Kursübersicht</a>.</span>
+      </li>
+    </ul>
   </section>
 
   <div class="accordion open" id="acc-current">
@@ -219,33 +242,31 @@ footer a { color: #aaa; }
           <table><tbody>
             <tr>
               <td><a href="seminar.html"><span class="lang-en">Applied Analysis Oberseminar</span><span class="lang-de">Oberseminar Angewandte Analysis</span></a></td>
-              <td class="course-time"><span class="lang-en">Thursdays, 14:00 · Seminar Room 2</span><span class="lang-de">Donnerstags, 14:00 · Seminarraum 2</span></td>
+              <td class="course-time"><span class="lang-en">Thu, 14:00 · SR<sup class="fnref">1)</sup> 2</span><span class="lang-de">Do, 14:00 · SR<sup class="fnref">1)</sup> 2</span></td>
               <td><span class="lang-en">Section staff</span><span class="lang-de">Mitarbeiter der Sektion</span></td>
             </tr>
             <tr>
-              <td><span class="lang-en">Master Class (WS 2026/27)</span><span class="lang-de">Master Class (WS 2026/27)</span></td>
-              <td class="course-time"><span class="lang-en">Oct 3–7 · Seminar Room 10</span><span class="lang-de">3.–7. Okt. · Seminarraum 10</span></td>
+              <td><span class="lang-en">Master Class</span><span class="lang-de">Master Class</span></td>
+              <td class="course-time"><span class="lang-en">Oct 3–7 · SR<sup class="fnref">1)</sup> 10</span><span class="lang-de">3.–7. Okt. · SR<sup class="fnref">1)</sup> 10</span></td>
               <td>Knüpfer</td>
             </tr>
             <tr>
-              <td><span class="lang-en">Ringvorlesung MMLDS (Mathematics, Machine Learning &amp; Data Science)</span><span class="lang-de">Ringvorlesung MMLDS (Mathematik, Maschinelles Lernen &amp; Datenwissenschaft)</span></td>
+              <td>Ringvorlesung MMLDS<sup class="fnref">2)</sup></td>
               <td class="course-time">—</td>
               <td>Laux, Schnörr, et al.</td>
             </tr>
             <tr>
-              <td><span class="lang-en">PhD Discussion Group</span><span class="lang-de">Doktoranden-Diskussionsgruppe</span></td>
+              <td><span class="lang-en">PhD Discussion Group<sup class="fnref">3)</sup></span><span class="lang-de">Doktoranden-Diskussionsgruppe<sup class="fnref">3)</sup></span></td>
               <td class="course-time">—</td>
-              <td><span class="lang-en">Open to Master's and Bachelor's students — contact any group leader.</span><span class="lang-de">Offen für Master- und Bachelorstudierende – Kontakt mit einem Gruppenleiter aufnehmen.</span></td>
+              <td>—</td>
             </tr>
           </tbody></table>
         </div>
-        <p class="note">
-          <span class="lang-en">Course list is a planned selection; see the official
-          <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>
-          for the binding schedule.</span>
-          <span class="lang-de">Die Kursliste ist eine geplante Auswahl; die verbindliche Planung finden Sie in der offiziellen
-          <a href="https://www.mathinf.uni-heidelberg.de/de/studium/lehrangebot/lehrplanung-mathematik-scientific-computing" target="_blank">Lehrplanung ↗</a>.</span>
-        </p>
+        <ol class="course-footnotes">
+          <li><span class="lang-en">SR = Seminar Room</span><span class="lang-de">SR = Seminarraum</span></li>
+          <li><span class="lang-en">MMLDS: Mathematics, Machine Learning &amp; Data Science</span><span class="lang-de">MMLDS: Mathematik, Maschinelles Lernen &amp; Datenwissenschaft</span></li>
+          <li><span class="lang-en">Open to Master's and Bachelor's students — contact any group leader.</span><span class="lang-de">Offen für Master- und Bachelorstudierende – Kontakt mit einem Gruppenleiter aufnehmen.</span></li>
+        </ol>
       </div>
     </div>
   </div>
@@ -316,6 +337,23 @@ function esc(s) {
   return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+function abbrevDay(s, lang) {
+  if (!s) return s;
+  const map = lang === 'de'
+    ? [['Donnerstags','Do'],['Montags','Mo'],['Dienstags','Di'],['Mittwochs','Mi'],['Freitags','Fr'],
+       ['Donnerstag','Do'],['Montag','Mo'],['Dienstag','Di'],['Mittwoch','Mi'],['Freitag','Fr']]
+    : [['Thursdays','Thu'],['Mondays','Mo'],['Tuesdays','Tu'],['Wednesdays','We'],['Fridays','Fr'],
+       ['Thursday','Thu'],['Monday','Mo'],['Tuesday','Tu'],['Wednesday','We'],['Friday','Fr']];
+  let out = s;
+  map.forEach(([full, abbr]) => { out = out.replace(new RegExp(full, 'g'), abbr); });
+  return out;
+}
+
+function abbrevRoom(s) {
+  const esc2 = esc((s || '').replace(/Seminarraum/g,'SR').replace(/Seminar Room/g,'SR'));
+  return esc2.replace(/\bSR\b/g,'SR<sup class="fnref">1)</sup>');
+}
+
 function getLang() { return document.documentElement.dataset.lang || 'en'; }
 
 const LEVEL_LABELS = {
@@ -352,8 +390,8 @@ function renderCourseGroup(rows) {
         ? '<a href="' + esc(r.link) + '">' + esc(displayName) + '</a>'
         : esc(displayName);
       const timeRoom = r.time && r.time !== '—' && r.room && r.room !== '—'
-        ? esc(r.time) + ' · ' + esc(r.room)
-        : (r.time && r.time !== '—' ? esc(r.time) : (r.room && r.room !== '—' ? esc(r.room) : '—'));
+        ? esc(abbrevDay(r.time, lang)) + ' · ' + abbrevRoom(r.room)
+        : (r.time && r.time !== '—' ? esc(abbrevDay(r.time, lang)) : (r.room && r.room !== '—' ? abbrevRoom(r.room) : '—'));
       html += '<tr><td>' + courseName + '</td>'
         + '<td class="course-time">' + timeRoom + '</td>'
         + '<td>' + esc(r.lecturer) + '</td></tr>';
