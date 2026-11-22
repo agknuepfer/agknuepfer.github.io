@@ -167,6 +167,104 @@ h2 { font-weight: 300; font-size: 1.75rem; color: #12371e; letter-spacing: 0.01e
   margin-top: 0.6rem; font-style: italic;
 }
 
+/* ── DUAL OVAL CLOUD ── */
+.dcloud-wrap {
+  margin-bottom: 2.5rem;
+  background: #f7fbf7;
+  border-radius: 10px;
+  padding: 1.6rem 2.2rem 1rem;
+  border: 1px solid #deeae0;
+}
+.dcloud-bg {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1000 / 320;
+  min-height: 230px;
+}
+.dcloud-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.dcloud-terms {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* cloud-word terms: all same size, absolutely positioned on the oval canvas */
+.cwt {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 0.83rem !important;
+  font-weight: 500 !important;
+  text-align: center;
+  max-width: 112px;
+  line-height: 1.25;
+  padding: 0 !important;
+}
+/* preserve translate when lit (beats .cw.cw-lit's plain scale rule) */
+.cw.cwt.cw-lit {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1.12) !important;
+}
+.cwt.cw-dim { opacity: 0.14 !important; }
+/* colour families */
+.cwt-th { color: #3a5a8a; }   /* theory – steel blue */
+.cwt-ph { color: #2a2060; }   /* physics – deep indigo */
+.cwt-bi { color: #2a7a40; }   /* biology – green */
+.cwt-da { color: #bb2020; }   /* data science – red */
+.cwt-br { color: #4a6a7a; font-style: italic; }  /* bridge – grey-teal */
+/* lit overrides – higher specificity than .cw.cw-lit[data-topic="X"] */
+.cwt.cwt-th.cw-lit { color: #1a3a6a !important; text-shadow: 0 0 18px rgba(26,58,106,.2); }
+.cwt.cwt-ph.cw-lit { color: #120a40 !important; text-shadow: 0 0 18px rgba(18,10,64,.2); }
+.cwt.cwt-bi.cw-lit { color: #0a5a20 !important; text-shadow: 0 0 18px rgba(10,90,32,.2); }
+.cwt.cwt-da.cw-lit { color: #880000 !important; text-shadow: 0 0 18px rgba(136,0,0,.2); }
+.cwt.cwt-br.cw-lit { color: #2a4a5a !important; text-shadow: 0 0 18px rgba(42,74,90,.2); }
+/* axis below the cloud */
+.dcloud-axis {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  padding: 0 0.2rem;
+}
+.dcloud-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.dcloud-label-l { color: #7090c0; }
+.dcloud-label-r { color: #50a060; }
+.dcloud-bar {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #b0c4e0, #b8d8c0, #90c4a0);
+  border-radius: 1px;
+  position: relative;
+}
+.dcloud-bar::before {
+  content: '';
+  position: absolute; left: -5px; top: -3px;
+  border: 4px solid transparent;
+  border-right: 5px solid #b0c4e0;
+}
+.dcloud-bar::after {
+  content: '';
+  position: absolute; right: -5px; top: -3px;
+  border: 4px solid transparent;
+  border-left: 5px solid #90c4a0;
+}
+@media (max-width: 600px) {
+  .dcloud-bg { aspect-ratio: auto; height: 310px; }
+  .cwt { font-size: 0.72rem !important; max-width: 88px; }
+}
+
 /* ── GROUPS TRAY ── */
 .groups-tray {
   background: #f0f5f1;
@@ -327,44 +425,68 @@ footer a { color: #aaa; }
     </p>
   </div>
 
-  <!-- ── WORD CLOUD ── -->
-  <div class="cloud-container">
-    <div class="cloud-heading"><span class="lang-en">Research themes</span><span class="lang-de">Forschungsthemen</span></div>
-    <div class="word-cloud" id="wordCloud">
+  <!-- ── OVAL WORD CLOUD ── -->
+  <div class="dcloud-wrap">
+    <div class="dcloud-bg">
 
-      <!-- ── LEFT: Theorie ── -->
-      <div class="cloud-col">
-        <div class="cloud-col-label">
-          <span class="lang-en">Theory</span><span class="lang-de">Theorie</span>
-        </div>
-        <span class="cw cw-xl" data-topic="pde"><span class="lang-en">Partial Differential Equations</span><span class="lang-de">Partielle Differentialgleichungen</span></span>
-        <span class="cw cw-lg" data-topic="calc-var"><span class="lang-en">Calculus of Variations</span><span class="lang-de">Variationsrechnung</span></span>
-        <span class="cw cw-lg" data-topic="phase-field"><span class="lang-en">Phase-field Models</span><span class="lang-de">Phasenfeld-Modelle</span></span>
-        <span class="cw cw-md" data-topic="geom-flows"><span class="lang-en">Geometric Flows</span><span class="lang-de">Geometrische Flüsse</span></span>
-        <span class="cw cw-md" data-topic="free-boundary"><span class="lang-en">Free Boundary Problems</span><span class="lang-de">Freie Randwertprobleme</span></span>
-        <span class="cw cw-sm" data-topic="calc-var"><span class="lang-en">Variational Methods</span><span class="lang-de">Variationsmethoden</span></span>
-        <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Ginzburg-Landau Theory</span><span class="lang-de">Ginzburg-Landau-Theorie</span></span>
-        <span class="cw cw-sm" data-topic="geom-flows"><span class="lang-en">Mean Curvature Flow</span><span class="lang-de">Mittlerer Krümmungsfluss</span></span>
-        <span class="cw cw-sm" data-topic="phase-field"><span class="lang-en">Sharp Interfaces</span><span class="lang-de">Scharfe Grenzflächen</span></span>
-        <span class="cw cw-sm" data-topic="free-boundary"><span class="lang-en">Nonlocal Energies</span><span class="lang-de">Nichtlokale Energien</span></span>
+      <!-- SVG: two overlapping ellipses as cloud outlines -->
+      <svg class="dcloud-svg" viewBox="0 0 1000 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <radialGradient id="ellGL" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#dde8ff" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#dde8ff" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="ellGR" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#d4edd8" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#d4edd8" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="310" cy="160" rx="278" ry="148" fill="url(#ellGL)" stroke="#b4c8e4" stroke-width="1.2" stroke-dasharray="6 4" opacity="0.75"/>
+        <ellipse cx="690" cy="160" rx="278" ry="148" fill="url(#ellGR)" stroke="#90c4a0" stroke-width="1.2" stroke-dasharray="6 4" opacity="0.75"/>
+      </svg>
+
+      <!-- Terms layer: positions are % of container (matches SVG viewBox) -->
+      <div class="dcloud-terms">
+
+        <!-- ── THEORY (steel blue) ── -->
+        <span class="cw cwt cwt-th" data-topic="calc-var"      style="left:4%;top:17%"><span class="lang-en">Variational<br>Methods</span><span class="lang-de">Variations-<br>methoden</span></span>
+        <span class="cw cwt cwt-th" data-topic="pde"           style="left:11%;top:32%"><span class="lang-en">Partial DEs</span><span class="lang-de">Partielle DGL</span></span>
+        <span class="cw cwt cwt-th" data-topic="geom-flows"    style="left:22%;top:19%"><span class="lang-en">Gradient Flows</span><span class="lang-de">Gradientenflüsse</span></span>
+        <span class="cw cwt cwt-th" data-topic="calc-var"      style="left:7%;top:58%"><span class="lang-en">Calculus of<br>Variations</span><span class="lang-de">Variations-<br>rechnung</span></span>
+        <span class="cw cwt cwt-th" data-topic="phase-field"   style="left:21%;top:54%"><span class="lang-en">Phase-field<br>Models</span><span class="lang-de">Phasenfeld-<br>Modelle</span></span>
+        <span class="cw cwt cwt-th" data-topic="phase-field"   style="left:30%;top:78%"><span class="lang-en">Ginzburg-Landau</span><span class="lang-de">Ginzburg-Landau</span></span>
+        <span class="cw cwt cwt-th" data-topic="geom-flows"    style="left:38%;top:29%"><span class="lang-en">Geometric Flows</span><span class="lang-de">Geometrische Flüsse</span></span>
+        <span class="cw cwt cwt-th" data-topic="geom-flows"    style="left:36%;top:64%"><span class="lang-en">Mean Curvature<br>Flow</span><span class="lang-de">Mittl.<br>Krümmungsfluss</span></span>
+        <span class="cw cwt cwt-th" data-topic="free-boundary" style="left:18%;top:87%"><span class="lang-en">Free Boundary<br>Probs.</span><span class="lang-de">Freie Rand-<br>wertprobleme</span></span>
+        <span class="cw cwt cwt-th" data-topic="free-boundary" style="left:5%;top:78%"><span class="lang-en">Nonlocal<br>Energies</span><span class="lang-de">Nichtlokale<br>Energien</span></span>
+        <span class="cw cwt cwt-th" data-topic="phase-field"   style="left:41%;top:42%"><span class="lang-en">Sharp Interfaces</span><span class="lang-de">Scharfe Grenzflächen</span></span>
+        <span class="cw cwt cwt-ph" data-topic="quantum"       style="left:28%;top:40%"><span class="lang-en">Spectral Theory</span><span class="lang-de">Spektraltheorie</span></span>
+        <span class="cw cwt cwt-th" data-topic="pde"           style="left:12%;top:67%"><span class="lang-en">Measure-valued<br>PDEs</span><span class="lang-de">Maßwertige<br>PDE</span></span>
+
+        <!-- ── BRIDGE: center of overlap (italic grey-teal) ── -->
+        <span class="cw cwt cwt-br" data-topic="react-diff"    style="left:50%;top:50%"><span class="lang-en">Reaction-Diffusion<br>Systems</span><span class="lang-de">Reaktions-<br>Diffusionssysteme</span></span>
+
+        <!-- ── APPLICATIONS ── -->
+        <span class="cw cwt cwt-bi" data-topic="pattern"       style="left:63%;top:24%"><span class="lang-en">Pattern Formation</span><span class="lang-de">Musterbildung</span></span>
+        <span class="cw cwt cwt-bi" data-topic="math-bio"      style="left:75%;top:34%"><span class="lang-en">Math. Biology</span><span class="lang-de">Math. Biologie</span></span>
+        <span class="cw cwt cwt-ph" data-topic="quantum"       style="left:89%;top:29%"><span class="lang-en">Many-body QM</span><span class="lang-de">Vielkörper-QM</span></span>
+        <span class="cw cwt cwt-da"                            style="left:67%;top:52%"><span class="lang-en">Data Science</span><span class="lang-de">Data Science</span></span>
+        <span class="cw cwt cwt-bi" data-topic="math-bio"      style="left:60%;top:68%"><span class="lang-en">Stem Cell<br>Dynamics</span><span class="lang-de">Stammzell-<br>dynamik</span></span>
+        <span class="cw cwt cwt-ph" data-topic="math-physics"  style="left:83%;top:54%"><span class="lang-en">Math. Physics</span><span class="lang-de">Math. Physik</span></span>
+        <span class="cw cwt cwt-ph" data-topic="quantum"       style="left:87%;top:72%"><span class="lang-en">Schrödinger Op.</span><span class="lang-de">Schrödinger-Op.</span></span>
+        <span class="cw cwt cwt-th" data-topic="pde"           style="left:72%;top:78%"><span class="lang-en">Fluid Dynamics</span><span class="lang-de">Fluiddynamik</span></span>
+        <span class="cw cwt cwt-th" data-topic="phase-field"   style="left:67%;top:87%"><span class="lang-en">Micromagnetism</span><span class="lang-de">Mikromagnetismus</span></span>
+
       </div>
+    </div><!-- /.dcloud-bg -->
 
-      <!-- ── RIGHT: Anwendungen ── -->
-      <div class="cloud-col">
-        <div class="cloud-col-label">
-          <span class="lang-en">Applications</span><span class="lang-de">Anwendungen</span>
-        </div>
-        <span class="cw cw-lg" data-topic="pattern"><span class="lang-en">Pattern Formation</span><span class="lang-de">Musterbildung</span></span>
-        <span class="cw cw-md" data-topic="math-bio"><span class="lang-en">Mathematical Biology</span><span class="lang-de">Mathematische Biologie</span></span>
-        <span class="cw cw-md" data-topic="math-physics"><span class="lang-en">Mathematical Physics</span><span class="lang-de">Mathematische Physik</span></span>
-        <span class="cw cw-sm" data-topic="react-diff"><span class="lang-en">Reaction-Diffusion Systems</span><span class="lang-de">Reaktions-Diffusions-Systeme</span></span>
-        <span class="cw cw-sm" data-topic="math-bio"><span class="lang-en">Stem Cell Dynamics</span><span class="lang-de">Stammzelldynamik</span></span>
-        <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Many-body Quantum Mechanics</span><span class="lang-de">Vielteilchen-Quantenmechanik</span></span>
-        <span class="cw cw-sm" data-topic="quantum"><span class="lang-en">Schrödinger Operators</span><span class="lang-de">Schrödinger-Operatoren</span></span>
-      </div>
-
+    <!-- coordinate axis -->
+    <div class="dcloud-axis">
+      <span class="dcloud-label dcloud-label-l"><span class="lang-en">Theory</span><span class="lang-de">Theorie</span></span>
+      <div class="dcloud-bar"></div>
+      <span class="dcloud-label dcloud-label-r"><span class="lang-en">Applications</span><span class="lang-de">Anwendungen</span></span>
     </div>
-    <p class="cloud-hint"><span class="lang-en">Word size reflects how many groups share the theme — hover to see which</span><span class="lang-de">Schriftgröße zeigt, wie viele Gruppen das Thema teilen — hover für Details</span></p>
+    <p class="cloud-hint"><span class="lang-en">Hover a term to highlight related research groups below</span><span class="lang-de">Begriff anzeigen, um verwandte Forschungsgruppen hervorzuheben</span></p>
   </div>
 
   <!-- ── CARDS ── -->
