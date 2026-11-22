@@ -81,8 +81,6 @@ section { margin-bottom: 3rem; }
 }
 .talk-divider-inner::before { max-width: 32px; }
 
-/* ── PARENT / BREADCRUMB NAV ── */
-
 footer { border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem; font-size: 0.75rem; color: #bbb; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; max-width: 1060px; margin: 0 auto; }
 footer a { color: #aaa; }
 
@@ -125,10 +123,6 @@ footer a { color: #aaa; }
 }
 
 /* ── LANGUAGE TOGGLE ── */
-.lang-de { display: none; }
-[data-lang="de"] .lang-en { display: none; }
-[data-lang="de"] .lang-de { display: initial; }
-/* ── LANGUAGE TOGGLE ── */
 .lang-toggle {
   background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28);
   color: #fff; font-size: 1rem; padding: 2px 7px; border-radius: 11px;
@@ -156,7 +150,7 @@ footer a { color: #aaa; }
     <a href="https://www.math.uni-heidelberg.de/" target="_blank" class="sn-ext">Institut ↗</a>
     <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank" class="sn-ext">Fakultät ↗</a>
   </nav>
-  <button class="lang-toggle" id="lang-toggle" title="Switch language / Sprache wechseln">🇬🇧 🇩🇪</button>
+  <button class="lang-toggle" onclick="toggleLang()" title="Switch language / Sprache wechseln">🇬🇧 🇩🇪</button>
 </div>
 
 
@@ -354,23 +348,20 @@ document.addEventListener('langchange', function() {
 
 
 <script>
-(function() {
-  var stored = localStorage.getItem('lang');
-  var current = (stored === 'de' || stored === 'en') ? stored : 'en';
-  document.documentElement.setAttribute('data-lang', current);
-  function applyLang(l) {
-    current = l; localStorage.setItem('lang', l);
-    document.documentElement.setAttribute('data-lang', l);
-    var en = document.querySelector('.lb-en'), de = document.querySelector('.lb-de');
-    if (en) en.classList.toggle('lb-active', l === 'en');
-    if (de) de.classList.toggle('lb-active', l === 'de');
-    document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    applyLang(current);
-    var btn = document.getElementById('lang-toggle');
-    if (btn) btn.addEventListener('click', function() { applyLang(current === 'en' ? 'de' : 'en'); });
-  });
+// ── Language toggle ──────────────────────────────────────
+function getLang(){ return document.documentElement.getAttribute('data-lang') || 'en'; }
+function setLang(l){
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l;
+  try{ localStorage.setItem('ag-lang', l); }catch(e){}
+  document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+}
+function toggleLang(){ setLang(getLang()==='en'?'de':'en'); }
+(function(){
+  try{
+    const saved = localStorage.getItem('ag-lang');
+    if(saved==='de'||saved==='en') setLang(saved);
+  }catch(e){}
 })();
 </script>
 
