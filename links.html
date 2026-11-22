@@ -14,16 +14,16 @@ a:hover { text-decoration: underline; }
 
 /* ── BANNER ── */
 .banner {
-  width: 100%; min-height: 180px;
+  width: 100%; min-height: 200px;
   background:
-    linear-gradient(155deg, rgba(18,55,30,0.94) 0%, rgba(26,70,38,0.92) 55%, rgba(20,58,32,0.94) 100%),
-    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center/cover no-repeat;
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(5,20,12,0.82) 100%),
+    url('https://drupal.mathinf-old.uni-heidelberg.de/sites/default/files/2021-08/Mathematikon.jpg') center 18%/cover no-repeat;
   position: relative;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  display: flex; flex-direction: row; align-items: flex-end; justify-content: flex-start;
   padding: 2rem 2.5rem;
 }
-.banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.6rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center; }
-.banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+.banner-name { font-family: 'Merriweather', Georgia, serif; font-weight: 300; font-size: 2.6rem; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: left; }
+.banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.58); letter-spacing: 0.1em; text-transform: uppercase; text-align: left; }
 
 /* ── STICKY NAV ── */
 .sticky-nav {
@@ -101,6 +101,13 @@ footer a { color: #888; }
 .lang-toggle:hover { background: rgba(255,255,255,0.22); }
 [data-lang="en"] .lang-de { display: none; }
 [data-lang="de"] .lang-en { display: none; }
+
+.banner-logo {
+  position: absolute; right: 2.5rem; bottom: 1.6rem;
+  height: 72px; opacity: 0.92;
+}
+@media (max-width: 700px) { .banner-logo { height: 52px; right: 1rem; bottom: 1.2rem; } }
+@media (max-width: 480px) { .banner-logo { display: none; } }
 </style>
 </head>
 <body>
@@ -125,11 +132,14 @@ footer a { color: #888; }
 
 
 <header class="banner">
+<div class="banner-text">
   <div class="banner-name">Applied Analysis</div>
   <div class="banner-sub">
     <span class="lang-en">Institute for Mathematics · Heidelberg University</span>
     <span class="lang-de">Mathematisches Institut · Universität Heidelberg</span>
   </div>
+  </div>
+  <img src="images/institut-logo.svg" alt="Institut für Mathematik · Universität Heidelberg" class="banner-logo">
 </header>
 
 <main class="content">
