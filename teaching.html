@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
 <title>Teaching · Applied Analysis · Heidelberg University</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
@@ -142,17 +143,6 @@ footer a { color: #aaa; }
 .lang-de { display: none; }
 [data-lang="de"] .lang-en { display: none; }
 [data-lang="de"] .lang-de { display: initial; }
-.lang-btn {
-  position: fixed; top: 10px; right: 1.5rem; z-index: 300;
-  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 20px; padding: 3px 11px;
-  font-size: 0.72rem; letter-spacing: 0.06em; cursor: pointer; color: rgba(255,255,255,0.85);
-  transition: background 0.15s, border-color 0.15s;
-  font-family: 'Lato', sans-serif; display: flex; align-items: center; gap: 0; line-height: 1;
-}
-.lang-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.6); }
-.lang-btn .lb-active { color: #fff; font-weight: 700; }
-.lang-btn .lb-sep { color: rgba(255,255,255,0.4); margin: 0 4px; }
 /* ── LANGUAGE TOGGLE ── */
 .lang-toggle {
   background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28);
@@ -166,9 +156,6 @@ footer a { color: #aaa; }
 </head>
 <body>
 
-<button class="lang-btn" id="lang-toggle" aria-label="Toggle language / Sprache wechseln">
-  <span class="lb-en lb-active">EN</span><span class="lb-sep">|</span><span class="lb-de">DE</span>
-</button>
 
 <div class="sticky-nav">
   <span class="sticky-nav-title">Applied Analysis</span>
@@ -184,7 +171,7 @@ footer a { color: #aaa; }
     <a href="https://www.math.uni-heidelberg.de/" target="_blank" class="sn-ext">Institut ↗</a>
     <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank" class="sn-ext">Fakultät ↗</a>
   </nav>
-  <button class="lang-toggle" onclick="toggleLang()" title="Switch language">🇬🇧 🇩🇪</button>
+  <button class="lang-toggle" id="lang-toggle" title="Switch language / Sprache wechseln">🇬🇧 🇩🇪</button>
 </div>
 
 
@@ -435,21 +422,5 @@ fetch('data/courses.csv')
 })();
 </script>
 
-<script>
-// ── Language toggle ──────────────────────────────────────
-function getLang(){ return document.documentElement.getAttribute('data-lang') || 'en'; }
-function setLang(l){
-  document.documentElement.setAttribute('data-lang', l);
-  document.documentElement.lang = l;
-  try{ localStorage.setItem('ag-lang', l); }catch(e){}
-}
-function toggleLang(){ setLang(getLang()==='en'?'de':'en'); }
-(function(){
-  try{
-    const saved = localStorage.getItem('ag-lang');
-    if(saved==='de'||saved==='en') setLang(saved);
-  }catch(e){}
-})();
-</script>
 </body>
 </html>
