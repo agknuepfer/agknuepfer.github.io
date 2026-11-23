@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>People · Applied Analysis · Heidelberg University</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.8; color: #2d2d2d; background: #fff; padding-top: 44px; }
+a { color: #1e5c30; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── BANNER ── */
+.banner {
+  width: 100%; min-height: 200px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(5,20,12,0.82) 100%),
+    url('images/banner/MegaMenuFaculty_0.jpg') center 18%/cover no-repeat;
+  position: relative;
+  display: flex; flex-direction: row; align-items: flex-end; justify-content: flex-start;
+  padding: 2rem 2.5rem;
+}
+.banner-name {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 2.6rem; color: #fff;
+  letter-spacing: 0.02em; margin-bottom: 0.5rem; text-align: center;
+}
+.banner-sub {
+  font-size: 0.85rem; color: rgba(255,255,255,0.58);
+  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
+}
+
+/* ── CONTENT ── */
+.content { max-width: 1060px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+h2 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 1.75rem; color: #12371e; letter-spacing: 0.01em;
+  margin-bottom: 1.5rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid #d8e8dc;
+}
+
+h3 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 300; font-size: 1.1rem; color: #12371e;
+  margin-bottom: 1rem; margin-top: 2.5rem;
+  letter-spacing: 0.01em;
+}
+
+section { margin-bottom: 3rem; }
+
+/* ── PEOPLE TABLE ── */
+.people-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.people-table thead th {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: #7aaa8a;
+  padding: 0.3rem 0.8rem 0.5rem 0;
+  border-bottom: 1px solid #d8e8dc;
+  text-align: left;
+}
+.people-table tbody tr {
+  border-bottom: 1px solid #f0f4f1;
+}
+.people-table tbody tr:last-child {
+  border-bottom: none;
+}
+.people-table tbody td {
+  font-size: 0.95rem;
+  padding: 0.65rem 0.8rem 0.65rem 0;
+  vertical-align: middle;
+}
+.td-name { min-width: 200px; }
+.td-email { font-size: 0.88rem; }
+.td-homepage { font-size: 1rem; width: 80px; text-align: center; }
+
+footer {
+  border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
+  font-size: 0.75rem; color: #bbb;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  max-width: 1060px; margin: 0 auto;
+}
+footer a { color: #aaa; }
+
+@media (max-width: 640px) {
+  .banner-name { font-size: 1.9rem; }
+  .content { padding: 2rem 1.2rem 4rem; }
+  .people-table thead th:nth-child(3),
+  .people-table tbody td:nth-child(3) { display: none; }
+}
+
+/* ── SLIM STICKY NAV ── */
+.sticky-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 44px;
+  background: #1e5c30;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem;
+}
+.sticky-nav-title {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.75);
+  letter-spacing: 0.02em; white-space: nowrap;
+}
+.sticky-nav-links { display: flex; gap: 1.5rem; }
+.sticky-nav-links a {
+  font-size: 0.72rem; color: rgba(255,255,255,0.75); text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.12s;
+}
+.sticky-nav-links a:hover { color: #fff; text-decoration: none; }
+.sticky-nav-links a.sn-active { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.5); }
+.sn-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.25); margin: 0 0.4rem; flex-shrink: 0; }
+.sn-ext { font-size: 0.65rem !important; color: rgba(255,255,255,0.45) !important; }
+.sn-ext:hover { color: rgba(255,255,255,0.85) !important; }
+@media (max-width: 800px) { .sn-divider, .sn-ext { display: none; } }
+@media (max-width: 640px) {
+  .sticky-nav { padding: 0 1.2rem; }
+  .sticky-nav-title { display: none; }
+  .sticky-nav-links { gap: 1rem; }
+}
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28);
+  color: #fff; font-size: 1rem; padding: 2px 7px; border-radius: 11px;
+  cursor: pointer; line-height: 1.4; flex-shrink: 0; margin-left: 0.3rem;
+}
+.lang-toggle:hover { background: rgba(255,255,255,0.22); }
+[data-lang="en"] .lang-de { display: none; }
+[data-lang="de"] .lang-en { display: none; }
+
+.banner-logo {
+  position: absolute; right: 2.5rem; bottom: 1.6rem;
+  height: 72px; opacity: 0.92;
+}
+@media (max-width: 700px) { .banner-logo { height: 52px; right: 1rem; bottom: 1.2rem; } }
+@media (max-width: 480px) { .banner-logo { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="sticky-nav">
+  <span class="sticky-nav-title">Applied Analysis</span>
+  <nav class="sticky-nav-links">
+    <a href="index.html"><span class="lang-en">Overview</span><span class="lang-de">Übersicht</span></a>
+    <a href="people.html" class="sn-active"><span class="lang-en">People</span><span class="lang-de">Personen</span></a>
+    <a href="research.html"><span class="lang-en">Research</span><span class="lang-de">Forschung</span></a>
+    <a href="teaching.html"><span class="lang-en">Teaching</span><span class="lang-de">Lehre</span></a>
+    <a href="seminar.html">Oberseminar</a>
+    <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></a>
+    <a href="links.html">Links</a>
+
+    <span class="sn-divider"></span>
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank" class="sn-ext">Institut ↗</a>
+    <a href="https://www.mathinf.uni-heidelberg.de/" target="_blank" class="sn-ext">Fakultät ↗</a>
+  </nav>
+  <button class="lang-toggle" onclick="toggleLang()" title="Switch language">🇬🇧 🇩🇪</button>
+</div>
+
+
+<header class="banner">
+<div class="banner-text">
+  <div class="banner-name">Applied Analysis</div>
+  <div class="banner-sub">
+    <span class="lang-en">Institute for Mathematics · Heidelberg University</span>
+    <span class="lang-de">Mathematisches Institut · Universität Heidelberg</span>
+  </div>
+</div>
+  <img src="images/institut-logo.svg" alt="Institut für Mathematik · Universität Heidelberg" class="banner-logo">
+</header>
+
+<main class="content">
+
+  <section>
+    <h2><span class="lang-en">People</span><span class="lang-de">Personen</span></h2>
+
+    <div id="people-container">
+      <!-- populated by JS -->
+      <p style="color:#888;font-size:0.9rem;">Loading…</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>
+    <span class="lang-en">Applied Analysis · Institute for Mathematics · Heidelberg University</span>
+    <span class="lang-de">Angewandte Analysis · Mathematisches Institut · Universität Heidelberg</span>
+  </span>
+  <span>
+    <span class="lang-en"><a href="index.html">Overview</a></span>
+    <span class="lang-de"><a href="index.html">Übersicht</a></span>
+    ·
+    <a href="seminar.html">Oberseminar</a>
+    ·
+    <a href="https://www.math.uni-heidelberg.de/" target="_blank">Institut ↗</a>
+  </span>
+</footer>
+
+<script>
+// ── Email obfuscation ─────────────────────────────────────
+function makeEmail(u, d) {
+  if (!u || !d) return '';
+  const addr = u + '@' + d;
+  return '<a href="mailto:' + addr + '">' + addr + '</a>';
+}
+
+// ── Load & render people ──────────────────────────────────
+const SECTIONS = [
+  { role: 'secretary', labelEn: 'Administration',   labelDe: 'Sekretariat' },
+  { role: 'faculty',    labelEn: 'Lecturers',       labelDe: 'Lehrkräfte' },
+  { role: 'postdoc',   labelEn: 'PostDocs',         labelDe: 'PostDocs' },
+  { role: 'phd',       labelEn: 'PhD Students',     labelDe: 'Doktoranden' },
+];
+
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  const headers = lines[0].split('|').map(h => h.trim());
+  return lines.slice(1).map(line => {
+    const cols = line.split('|');
+    const obj = {};
+    headers.forEach((h, i) => { obj[h] = (cols[i] || '').trim(); });
+    return obj;
+  });
+}
+
+function renderPeople(people) {
+  const container = document.getElementById('people-container');
+  let html = '';
+
+  SECTIONS.forEach(sec => {
+    const group = people.filter(p => p.role === sec.role);
+    if (!group.length) return;
+
+    html += '<h3>'
+      + '<span class="lang-en">' + sec.labelEn + '</span>'
+      + '<span class="lang-de">' + sec.labelDe + '</span>'
+      + '</h3>';
+
+    html += '<table class="people-table"><thead><tr>'
+      + '<th><span class="lang-en">Name</span><span class="lang-de">Name</span></th>'
+      + '<th class="td-email"><span class="lang-en">Email</span><span class="lang-de">E-Mail</span></th>'
+      + '<th class="td-homepage"><span class="lang-en">Homepage</span><span class="lang-de">Homepage</span></th>'
+      + '</tr></thead><tbody>';
+
+    group.forEach(p => {
+      const emailCell = makeEmail(p.email_user, p.email_domain);
+      const hp = p.homepage;
+      const homepageCell = hp
+        ? '<a href="' + hp + '"' + (hp.startsWith('http') ? ' target="_blank"' : '') + '>→</a>'
+        : '';
+      html += '<tr>'
+        + '<td class="td-name">' + p.name + '</td>'
+        + '<td class="td-email">' + emailCell + '</td>'
+        + '<td class="td-homepage">' + homepageCell + '</td>'
+        + '</tr>';
+    });
+
+    html += '</tbody></table>';
+  });
+
+  container.innerHTML = html;
+}
+
+fetch('data/people.csv')
+  .then(r => r.text())
+  .then(text => {
+    const people = parseCSV(text);
+    renderPeople(people);
+  })
+  .catch(() => {
+    document.getElementById('people-container').innerHTML =
+      '<p style="color:#888">Could not load people data.</p>';
+  });
+</script>
+
+<script>
+// ── Language toggle ──────────────────────────────────────
+function getLang(){ return document.documentElement.getAttribute('data-lang') || 'en'; }
+function setLang(l){
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l;
+  try{ localStorage.setItem('ag-lang', l); }catch(e){}
+}
+function toggleLang(){ setLang(getLang()==='en'?'de':'en'); }
+(function(){
+  try{
+    const saved = localStorage.getItem('ag-lang');
+    if(saved === 'en' || saved === 'de') setLang(saved);
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>
