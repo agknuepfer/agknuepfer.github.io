@@ -55,7 +55,11 @@ section { margin-bottom: 3rem; }
 .people-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
+.people-table col.col-name  { width: 40%; }
+.people-table col.col-email { width: 45%; }
+.people-table col.col-hp    { width: 15%; }
 .people-table thead th {
   font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.1em; color: #7aaa8a;
@@ -75,8 +79,8 @@ section { margin-bottom: 3rem; }
   vertical-align: middle;
 }
 .td-name { min-width: 200px; }
-.td-email { font-size: 0.88rem; }
-.td-homepage { font-size: 1rem; width: 80px; text-align: center; }
+.td-email { font-size: 0.88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.td-homepage { font-size: 1rem; text-align: center; }
 
 footer {
   border-top: 1px solid #d8e8dc; padding: 1.2rem 2rem;
@@ -242,7 +246,9 @@ function renderPeople(people) {
       + '<span class="lang-de">' + sec.labelDe + '</span>'
       + '</h3>';
 
-    html += '<table class="people-table"><thead><tr>'
+    html += '<table class="people-table">'
+      + '<colgroup><col class="col-name"><col class="col-email"><col class="col-hp"></colgroup>'
+      + '<thead><tr>'
       + '<th><span class="lang-en">Name</span><span class="lang-de">Name</span></th>'
       + '<th class="td-email"><span class="lang-en">Email</span><span class="lang-de">E-Mail</span></th>'
       + '<th class="td-homepage"><span class="lang-en">Homepage</span><span class="lang-de">Homepage</span></th>'
